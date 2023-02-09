@@ -1,0 +1,117 @@
+@mixin title-s {
+    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: var(--ch_m_text);
+}
+
+.index {
+
+
+    .banner {
+        position: relative;
+        width: 100%;
+        height: 56.5vw;
+
+        svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            z-index: 10;
+            pointer-events: none;
+
+
+            path {
+                transform-origin: center;
+                transform-box: fill-box;
+            }
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+
+            .swiper-wrapper {
+                width: 100%;
+                height: 100%;
+
+                .swiper-slide {
+                    width: 100%;
+                    height: 100%;
+
+                    .imgBox {
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                & :nth-child(1) {
+                    .imgBox {
+                        img {
+                            height: 90%;
+                            object-position: center bottom;
+                        }
+                    }
+                }
+
+                & :nth-child(2) {
+                    .imgBox {
+                        img {
+                            object-position: center 0%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .logo-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 11;
+
+            &> :nth-child(1) {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                top: 5vw;
+                width: 8vw;
+            }
+
+            &> :nth-child(2) {
+                position: absolute;
+                left: 5vw;
+                bottom: 0;
+                width: 40vw;
+            }
+
+            .box {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                bottom: 13vw;
+                left: 16vw;
+                overflow: hidden;
+
+                img {
+                    width: 3vw;
+                    margin-right: 1.5vw;
+                }
+
+                h3 {
+                    @include title-s()
+                }
+            }
+        }
+    }
+}

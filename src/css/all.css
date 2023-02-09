@@ -1,0 +1,44 @@
+.banner {
+  position: relative;
+  width: 100%;
+  height: 51vw;
+}
+.banner svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+.banner .swiper {
+  width: 100%;
+  height: 100%;
+}
+.banner .swiper .swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.banner .swiper .swiper-wrapper .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+.banner .swiper .swiper-wrapper .swiper-slide .imgBox {
+  width: 100%;
+  height: 100%;
+}
+.banner .swiper .swiper-wrapper .swiper-slide .imgBox img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
