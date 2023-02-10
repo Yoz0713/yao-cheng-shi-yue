@@ -1,11 +1,8 @@
 import './scss/all.scss';
 import React from 'react';
-import { render } from 'react-dom';
 import Home from './component/index';
-import { createRoot } from 'react-dom/client';
-const domNode = document.getElementById('root');
-const root = createRoot(domNode);
-function App() {
+
+export default function App() {
     return (
         <>
             <Home />
@@ -14,4 +11,3 @@ function App() {
 
     )
 }
-root.render(<App />);

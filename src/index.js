@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { createRoot } from 'react-dom/client';
-import { App } from "./app"
+import App from "./app"
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
-console.log(App())
 function Index() {
+    console.log(123)
     return (
         <>
             <App />
