@@ -5,7 +5,7 @@ import App from "./app"
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 function Index() {
-    console.log(123)
+
     return (
         <>
             <App />
