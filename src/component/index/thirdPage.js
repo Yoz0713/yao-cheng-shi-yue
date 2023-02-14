@@ -3,7 +3,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomeThirdPageCover } from "../config/svgCollection"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay } from 'swiper';
+SwiperCore.use([Autoplay])
 // Import Swiper styles
 import 'swiper/css';
 import "swiper/css/autoplay"

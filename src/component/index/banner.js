@@ -2,7 +2,8 @@ import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay } from 'swiper';
+SwiperCore.use([Autoplay])
 // Import Swiper styles
 import 'swiper/css';
 import "swiper/css/autoplay"
@@ -315,7 +316,7 @@ function SwiperBg({ swiperNav, setSwiperNav }) {
     return (
         <Swiper
             slidesPerView={1}
-            modules={[Autoplay]}
+        
             autoplay={{
                 delay: 6400
             }}
