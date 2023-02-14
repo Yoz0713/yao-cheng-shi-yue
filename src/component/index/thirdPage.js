@@ -18,8 +18,35 @@ const png = requirePng.keys().map(requirePng);
 
 
 export default function ThirdPage() {
+    const [change, setChange] = useState(false)
+    const animate = useRef(null)
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            let gg = gsap.timeline({
+                yoyo: true,
+                repeat: 1,
+                repeatDelay: 3.5,
+                ease: 'power3.out',
+            })
+
+            gg.fromTo(`.home-third-clip polygon:nth-child(odd)`, {
+                opacity: 1,
+            }, {
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.02,
+            }).fromTo(`.home-third-clip polygon:nth-child(even)`, {
+                opacity: 1,
+            }, {
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.02,
+            }, "<+0.3")
+        }, [animate])
+        return () => ctx.revert()
+    }, [change])
     return (
-        <section className="third-page">
+        <section className="third-page" ref={animate}>
             <SectionNav />
             <div className="third-page-bg">
                 <SvgCover />
@@ -27,15 +54,15 @@ export default function ThirdPage() {
                     slidesPerView={1}
                     modules={[Autoplay]}
                     autoplay={{
-                        delay: 6400
+                        delay: 10000
                     }}
-                    speed={1}
+                    speed={0.0001}
                     onSwiper={(e) => {
 
 
                     }} //第一次執行
                     onSlideChange={(e) => {
-
+                        setChange(!change)
 
                     }
 
