@@ -318,7 +318,8 @@ function SwiperBg({ swiperNav, setSwiperNav }) {
             slidesPerView={1}
         
             autoplay={{
-                delay: 6400
+                delay: 6400,
+                disableOnInteraction:false
             }}
 
             speed={0.0000001}

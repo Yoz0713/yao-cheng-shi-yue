@@ -26,7 +26,7 @@ export default function ThirdPage() {
             let gg = gsap.timeline({
                 yoyo: true,
                 repeat: 1,
-                repeatDelay: 2.2,
+                repeatDelay: 1,
                 ease: 'power3.out',
             })
 
@@ -58,7 +58,8 @@ export default function ThirdPage() {
                     slidesPerView={1}
                     modules={[Autoplay]}
                     autoplay={{
-                        delay: 8500
+                        delay: 7500,
+                        disableOnInteraction:false
                     }}
                     speed={0.0001}
                     onSwiper={(e) => {
