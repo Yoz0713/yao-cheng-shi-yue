@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 export function HomeSecondPageSvgTree(props) {
     return (
@@ -57,4 +57,123 @@ export function HomeSecondPageSunlandLogo(props) {
     )
 }
 
+export function MenuToggleButton({ open, setSvgHeight }) {
+    const menuButton = useRef(null)
+    useEffect(() => {
+        console.log(menuButton)
+        setSvgHeight(menuButton.current.clientHeight)
+    }, [])
+    return (
+        <svg id="_圖層_2" data-name="圖層 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.99 431.79" ref={menuButton}>
+
+            <g id="menu" >
+                <path d="M44.99,0s-.05,431.79-.05,431.79c-8.49-26.71-15.97-53.79-22.85-80.96C9.65,301.7-4.87,249.16,1.59,198.01c2.29-18.13,6.12-36.1,9.87-53.96C20.6,100.42,30.99,57.06,41.6,13.78c1.13-4.59,2.26-9.18,3.39-13.78Z" fill={open == false ? '#c3a457' : "#fff"} />
+            </g>
+        </svg>
+    )
+}
+
+export function HomeThirdPageCover() {
+    return (
+        <svg id="_圖層_2" data-name="圖層 2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 1276 853">
+            <defs>
+                <style dangerouslySetInnerHTML={{
+                    __html: "\n      .third-page-bg-clip {\n        clip-path: url(#clippath);\n      }\n\n      .third-page-poly {\n        fill: none;\n      }\n\n       }\n    "
+                }} />
+                <clipPath id="clippath">
+                    <polygon className="third-page-poly"
+                        points="1214.6 502.79 916.65 129.34 431.15 38.91 62 270.85 62 724.79 231.8 826 1215 826 1214.6 502.79" />
+                </clipPath>
+            </defs>
+            <g id="_圖層_1-2" data-name="圖層 1">
+                <g>
+                    <rect fill="#f7f7f7" width={1276} height={853} />
+                    <g className="third-page-bg-clip">
+                        <g>
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.74 665.47 1051.74 825.38 1217 745.42 1051.74 665.47" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.74 825.07 1051.74 984.97 1217 905.02 1051.74 825.07" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1217 905.18 1217 745.27 1051.74 825.22 1217 905.18" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.74 186.67 1051.74 346.58 1217 266.63 1051.74 186.67" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.74 346.27 1051.74 506.18 1217 426.23 1051.74 346.27" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.74 505.87 1051.74 665.78 1217 585.82 1051.74 505.87" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.74 346.43 1217 426.38 1217 266.47 1051.74 346.43" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1217 585.98 1217 426.07 1051.74 506.03 1217 585.98" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1217 745.58 1217 585.67 1051.74 665.62 1217 745.58" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.73 584.98 886.73 744.88 1051.99 664.93 886.73 584.98" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.73 744.58 886.73 904.48 1051.99 824.53 886.73 744.58" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.99 824.68 1051.99 664.78 886.73 744.73 1051.99 824.68" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.99 984.28 1051.99 824.37 886.73 904.33 1051.99 984.28" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.73 106.18 886.73 266.09 1051.99 186.13 886.73 106.18" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.73 265.78 886.73 425.68 1051.99 345.73 886.73 265.78" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.73 425.38 886.73 585.28 1051.99 505.33 886.73 425.38" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.73 265.93 1051.99 345.89 1051.99 185.98 886.73 265.93" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.99 505.48 1051.99 345.58 886.73 425.53 1051.99 505.48" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="1051.99 665.08 1051.99 505.18 886.73 585.13 1051.99 665.08" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.72 505.49 721.72 665.39 886.98 585.44 721.72 505.49" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.72 665.09 721.72 824.99 886.98 745.04 721.72 665.09" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.72 824.69 721.72 984.59 886.98 904.64 721.72 824.69" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.98 745.19 886.98 585.29 721.72 665.24 886.98 745.19" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.98 904.79 886.98 744.89 721.72 824.84 886.98 904.79" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.72 26.69 721.72 186.6 886.98 106.65 721.72 26.69" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.72 186.29 721.72 346.2 886.98 266.24 721.72 186.29" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.72 345.89 721.72 505.8 886.98 425.84 721.72 345.89" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.72 186.44 886.98 266.4 886.98 106.49 721.72 186.44" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.98 426 886.98 266.09 721.72 346.04 886.98 426" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="886.98 585.6 886.98 425.69 721.72 505.64 886.98 585.6" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.71 424.99 556.71 584.9 721.96 504.95 556.71 424.99" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.71 584.59 556.71 744.5 721.96 664.55 556.71 584.59" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.71 744.19 556.71 904.1 721.96 824.14 556.71 744.19" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.96 664.7 721.96 504.79 556.71 584.75 721.96 664.7" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.96 824.3 721.96 664.39 556.71 744.35 721.96 824.3" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.96 983.9 721.96 823.99 556.71 903.94 721.96 983.9" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.71 -53.8 556.71 106.1 721.96 26.15 556.71 -53.8" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.71 105.8 556.71 265.7 721.96 185.75 556.71 105.8" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.71 265.4 556.71 425.3 721.96 345.35 556.71 265.4" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.71 105.95 721.96 185.9 721.96 26 556.71 105.95" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.96 345.5 721.96 185.6 556.71 265.55 721.96 345.5" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="721.96 505.1 721.96 345.2 556.71 425.15 721.96 505.1" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.69 346.51 391.69 506.42 556.95 426.47 391.69 346.51" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.69 506.11 391.69 666.02 556.95 586.06 391.69 506.11" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.69 665.71 391.69 825.62 556.95 745.66 391.69 665.71" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.95 586.22 556.95 426.31 391.69 506.27 556.95 586.22" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.95 745.82 556.95 585.91 391.69 665.86 556.95 745.82" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.95 905.42 556.95 745.51 391.69 825.46 556.95 905.42" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.69 -132.28 391.69 27.62 556.95 -52.33 391.69 -132.28" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.69 27.32 391.69 187.22 556.95 107.27 391.69 27.32" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.69 186.91 391.69 346.82 556.95 266.87 391.69 186.91" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.69 27.47 556.95 107.42 556.95 -52.48 391.69 27.47" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.95 267.02 556.95 107.12 391.69 187.07 556.95 267.02" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="556.95 426.62 556.95 266.71 391.69 346.67 556.95 426.62" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.68 426 226.68 585.91 391.94 505.95 226.68 426" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.68 585.6 226.68 745.51 391.94 665.55 226.68 585.6" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.68 745.2 226.68 905.1 391.94 825.15 226.68 745.2" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.94 665.71 391.94 505.8 226.68 585.75 391.94 665.71" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.94 825.3 391.94 665.4 226.68 745.35 391.94 825.3" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.94 984.9 391.94 825 226.68 904.95 391.94 984.9" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.68 -52.79 226.68 107.11 391.94 27.16 226.68 -52.79" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.68 106.8 226.68 266.71 391.94 186.76 226.68 106.8" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.68 266.4 226.68 426.31 391.94 346.36 226.68 266.4" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.68 106.96 391.94 186.91 391.94 27 226.68 106.96" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.94 346.51 391.94 186.6 226.68 266.56 391.94 346.51" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="391.94 506.11 391.94 346.2 226.68 426.15 391.94 506.11" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="61.67 346.51 61.67 506.42 226.93 426.47 61.67 346.51" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="61.67 506.11 61.67 666.02 226.93 586.06 61.67 506.11" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="61.67 665.71 61.67 825.62 226.93 745.66 61.67 665.71" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.93 586.22 226.93 426.31 61.67 506.27 226.93 586.22" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.93 745.82 226.93 585.91 61.67 665.86 226.93 745.82" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.93 905.42 226.93 745.51 61.67 825.46 226.93 905.42" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="61.67 -132.28 61.67 27.62 226.93 -52.33 61.67 -132.28" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="61.67 27.32 61.67 187.22 226.93 107.27 61.67 27.32" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="61.67 186.91 61.67 346.82 226.93 266.87 61.67 186.91" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="61.67 27.47 226.93 107.42 226.93 -52.48 61.67 27.47" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.93 267.02 226.93 107.12 61.67 187.07 226.93 267.02" />
+                            <polygon fill="#f7f7f7" stroke="#f7f7f7" points="226.93 426.62 226.93 266.71 61.67 346.67 226.93 426.62" />
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    )
+}
 

@@ -50,23 +50,36 @@ module.exports = {
                 ],
             },
             {
-                test: /\.webp$/,
+                test: /\.(png|jpe?g|gif|webp)$/i,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
                             outputPath: 'images/',
+                            quality: 100
                         },
                     },
                     {
                         loader: 'webp-loader',
                         options: {
-                            quality: 75,
+                            quality: 100,
                         },
                     },
                 ],
             },
+            {
+                test: /\.mp4$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "[name].[ext]",
+                            outputPath: "video"
+                        }
+                    }
+                ]
+            }
         ],
     },
     plugins: [

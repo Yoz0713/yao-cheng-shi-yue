@@ -8,7 +8,8 @@ import 'swiper/css';
 import "swiper/css/autoplay"
 // Import animation libary
 import { gsap } from "gsap";
-
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
@@ -31,6 +32,7 @@ export default function Banner() {
                 repeatDelay: 3.5,
                 ease: 'power3.out',
             })
+
             gg.fromTo(`${swiperNav == 0 ? ".anim1:nth-child(even)" : swiperNav == 1 ? ".anim2:nth-child(even)" : ".anim3:nth-child(even)"}`, {
                 opacity: 1,
             }, {
@@ -70,6 +72,40 @@ export default function Banner() {
         }, banner)
         return () => ctx.revert(); // cleanup
     }, [swiperNav]); // <- swiperNav Ref dependency Array so it doesn't re-run on every render!
+
+    useLayoutEffect(() => {
+
+        let ctx = gsap.context(() => {
+            let gg = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".banner",
+                    start: "top top",
+                    scrub: 4,
+                    end: "max"
+                }
+            })
+
+            gg.to(".index .banner", {
+                x: "-60%",
+                y: "-50%",
+                duration: 2
+            }).from(".index .second-page", {
+                x: "60%",
+                y: "50%",
+                duration: 1
+            }, "<+1").to(".index .second-page", {
+                x: "-60%",
+                y: "-50%",
+                duration: 2
+            }, ">+0.5").from(".index .third-page", {
+                x: "60%",
+                y: "50%",
+                duration: 1
+            }, "<+0.5")
+
+        })
+        return () => ctx.revert(); // cleanup
+    }, []);
     return (
         <section className='banner' ref={banner}>
             <Logo swiperNav={swiperNav} />
@@ -283,12 +319,14 @@ function SwiperBg({ swiperNav, setSwiperNav }) {
             autoplay={{
                 delay: 6400
             }}
+
             speed={0.0000001}
             onSwiper={(e) => {
                 setSwiperNav(Math.floor(e.activeIndex))
 
             }} //第一次執行
             onSlideChange={(e) => {
+                console.log(e)
                 setSwiperNav(Math.floor(e.activeIndex))
 
             }
