@@ -4,6 +4,7 @@ import Home from './component/index';
 import Layout from './component/layout';
 
 export default function App() {
+
     return (
         <>
             <Layout />

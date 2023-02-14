@@ -3,6 +3,10 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomeSecondPageSvgTree, HomeSecondPageSunlandLogo } from '../config/svgCollection';
 // Import animation libary
 import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
@@ -14,6 +18,8 @@ export default function SecondPage() {
     const secondPage = useRef();
     const [type, setType] = useState(null)
 
+
+    //三種team進場效果
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             if (type == "team3") {
@@ -58,6 +64,25 @@ export default function SecondPage() {
         }, secondPage)
         return () => ctx.revert(); // cleanup
     }, [type])
+    //觸觸發第一次type change (team1)
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            let gg = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".index .second-page",
+                    start: "25% top"
+                }
+            })
+
+            gg.from(".second-page ", {
+                duration: 0.5
+            }).then(() => {
+                setType("team1")
+            })
+
+        }, [secondPage])
+        return () => ctx.revert(); // cleanup
+    }, [])
     const handleClick = ((e) => {
         setType(e.target.className)
     })

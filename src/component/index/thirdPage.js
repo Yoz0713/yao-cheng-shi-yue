@@ -25,17 +25,20 @@ export default function ThirdPage() {
             let gg = gsap.timeline({
                 yoyo: true,
                 repeat: 1,
-                repeatDelay: 3.5,
+                repeatDelay: 2.2,
                 ease: 'power3.out',
             })
 
-            gg.fromTo(`.home-third-clip polygon:nth-child(odd)`, {
+            gg.from(".swiper-slide img", {
+                scale: 1.2,
+                duration: 3
+            }).fromTo(`.home-third-clip polygon:nth-child(odd)`, {
                 opacity: 1,
             }, {
                 opacity: 0,
                 duration: 0.8,
                 stagger: 0.02,
-            }).fromTo(`.home-third-clip polygon:nth-child(even)`, {
+            }, "<").fromTo(`.home-third-clip polygon:nth-child(even)`, {
                 opacity: 1,
             }, {
                 opacity: 0,
@@ -54,7 +57,7 @@ export default function ThirdPage() {
                     slidesPerView={1}
                     modules={[Autoplay]}
                     autoplay={{
-                        delay: 10000
+                        delay: 8500
                     }}
                     speed={0.0001}
                     onSwiper={(e) => {
@@ -70,17 +73,17 @@ export default function ThirdPage() {
                 >
                     <SwiperSlide>
                         <div className='imgBox' >
-                            <img src={webp[5].default} />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='imgBox'>
                             <img src={webp[10].default} />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className='imgBox'>
-                            <img src={webp[10].default} />
+                            <img src={webp[11].default} />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className='imgBox'>
+                            <img src={webp[12].default} />
                         </div>
                     </SwiperSlide>
                 </Swiper>
