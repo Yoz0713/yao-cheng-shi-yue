@@ -9,7 +9,8 @@ const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.sv
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
-
+const require1x = require.context("../../../img/index/1x", false, /^\.\/.*\.png$/);
+const x = require1x.keys().map(require1x);
 
 
 //Banner組件
@@ -67,6 +68,7 @@ export default function Banner() {
         }, banner)
         return () => ctx.revert(); // cleanup
     }, [swiperNav]); // <- swiperNav Ref dependency Array so it doesn't re-run on every render!
+
     useEffect(() => {
         setTimeout(() => {
             if (swiperNav >= 0 && swiperNav < 2) {
@@ -287,7 +289,7 @@ function SvgCover() {
 function BannerImg({ swiperNav }) {
     return (
         <div className='imgBox'>
-            <img src={webp[0].default} style={{ display: swiperNav == 0 ? "block" : "none" }} />
+            <img src={x[4].default} style={{ display: swiperNav == 0 ? "block" : "none" }} />
             <img src={webp[1].default} style={{ display: swiperNav == 1 ? "block" : "none" }} />
             <img src={webp[2].default} style={{ display: swiperNav == 2 ? "block" : "none" }} />
         </div>
