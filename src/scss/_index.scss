@@ -21,13 +21,19 @@
 
 
 
+.swiper-container {
+    height: 56.5vw;
+
+}
 
 .index {
     background-color: $white_color;
     overflow: hidden;
 
     //各cut共用高度
-    >section {
+    .banner,
+    .second-page,
+    .third-page {
         height: 56.5vw;
     }
 
@@ -198,6 +204,7 @@
         width: 100%;
 
         svg {
+
             position: absolute;
             left: 0;
             top: 0;
@@ -211,48 +218,25 @@
             }
         }
 
-        .swiper {
+        >.imgBox {
+            position: relative;
             width: 100%;
             height: 100%;
 
-            .swiper-wrapper {
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                left: 0;
+                top: 0;
                 width: 100%;
                 height: 100%;
+                object-position: cover;
+            }
 
-                .swiper-slide {
-                    width: 100%;
-                    height: 100%;
-
-                    .imgBox {
-                        width: 100%;
-                        height: 100%;
-                        overflow: hidden;
-
-
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                    }
-                }
-
-                & :nth-child(1) {
-                    .imgBox {
-                        img {
-                            height: 90%;
-                            object-position: center bottom;
-                        }
-                    }
-                }
-
-                & :nth-child(2) {
-                    .imgBox {
-                        img {
-                            object-position: center 0%;
-                        }
-                    }
-                }
+            & :nth-child(1) {
+                height: 82%;
+                object-position: center bottom;
             }
         }
 

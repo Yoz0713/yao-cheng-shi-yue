@@ -1,12 +1,6 @@
 import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay } from 'swiper';
-SwiperCore.use([Autoplay])
-// Import Swiper styles
-import 'swiper/css';
-import "swiper/css/autoplay"
+
 // Import animation libary
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -22,7 +16,7 @@ const webp = requireWebp.keys().map(requireWebp);
 export default function Banner() {
     const banner = useRef();
     const [swiperNav, setSwiperNav] = useState(0);
-
+    let count;
 
     useLayoutEffect(() => {
 
@@ -49,7 +43,7 @@ export default function Banner() {
             }, "<+0.3")
             let gg2 = gsap.timeline({
             })
-            gg2.from(".swiper-slide-active img", {
+            gg2.from(".banner > .imgBox img", {
                 scale: 1.2,
                 duration: 15
             })
@@ -73,45 +67,23 @@ export default function Banner() {
         }, banner)
         return () => ctx.revert(); // cleanup
     }, [swiperNav]); // <- swiperNav Ref dependency Array so it doesn't re-run on every render!
+    useEffect(() => {
+        setTimeout(() => {
+            if (swiperNav >= 0 && swiperNav < 2) {
+                count = swiperNav
+                count++
+                setSwiperNav(count)
+            } else {
+                setSwiperNav(0)
+            }
+        }, 6400)
+    }, [swiperNav])
 
-    useLayoutEffect(() => {
-
-        let ctx = gsap.context(() => {
-            let gg = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".banner",
-                    start: "top top",
-                    scrub: 4,
-                    end: "max"
-                }
-            })
-
-            gg.to(".index .banner", {
-                x: "-60%",
-                y: "-50%",
-                duration: 2
-            }).from(".index .second-page", {
-                x: "60%",
-                y: "50%",
-                duration: 1
-            }, "<+1").to(".index .second-page", {
-                x: "-60%",
-                y: "-50%",
-                duration: 2
-            }, ">+0.5").from(".index .third-page", {
-                x: "60%",
-                y: "50%",
-                duration: 1
-            }, "<+0.5")
-
-        })
-        return () => ctx.revert(); // cleanup
-    }, []);
     return (
         <section className='banner' ref={banner}>
             <Logo swiperNav={swiperNav} />
             <SvgCover />
-            <SwiperBg swiperNav={swiperNav} setSwiperNav={setSwiperNav} />
+            <BannerImg swiperNav={swiperNav} />
 
         </section>
 
@@ -312,45 +284,15 @@ function SvgCover() {
     )
 }
 
-function SwiperBg({ swiperNav, setSwiperNav }) {
+function BannerImg({ swiperNav }) {
     return (
-        <Swiper
-            slidesPerView={1}
-        
-            autoplay={{
-                delay: 6400,
-                disableOnInteraction:false
-            }}
+        <div className='imgBox'>
+            <img src={webp[0].default} style={{ display: swiperNav == 0 ? "block" : "none" }} />
+            <img src={webp[1].default} style={{ display: swiperNav == 1 ? "block" : "none" }} />
+            <img src={webp[2].default} style={{ display: swiperNav == 2 ? "block" : "none" }} />
+        </div>
 
-            speed={0.0000001}
-            onSwiper={(e) => {
-                setSwiperNav(Math.floor(e.activeIndex))
 
-            }} //第一次執行
-            onSlideChange={(e) => {
-                console.log(e)
-                setSwiperNav(Math.floor(e.activeIndex))
-
-            }
-
-            }
-        >
-            <SwiperSlide>
-                <div className='imgBox' >
-                    <img src={webp[0].default} />
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className='imgBox'>
-                    <img src={webp[1].default} />
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className='imgBox'>
-                    <img src={webp[2].default} />
-                </div>
-            </SwiperSlide>
-        </Swiper>
     )
 }
 function Logo({ swiperNav }) {

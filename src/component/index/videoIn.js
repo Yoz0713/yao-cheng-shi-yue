@@ -10,7 +10,7 @@ export default function VideoIn() {
     const [fullscrenn, setFullScreen] = useState(false)
     const videoRef = useRef(null)
     useEffect(() => {
-        document.body.style.overflow = skip == false ? "hidden" : "auto"
+        document.body.style.overflow = skip == false ? "hidden" : "hidden"
 
     }, [skip])
     const handleClick = (() => {
