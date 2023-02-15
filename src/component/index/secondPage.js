@@ -55,10 +55,16 @@ export default function SecondPage() {
                 }, "<+1").from(".cover-logo .imgBox > img", {
                     opacity: 0,
                     duration: 0.9,
+
                 }, "<").from(".cover-logo .imgBox > img", {
                     scale: 1.6,
-                    duration: 20,
+                    duration: 10,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "none"
                 }, "<")
+
+
             }
 
         }, secondPage)

@@ -10,6 +10,7 @@ export default function Menu() {
     return (
         <div className="menu" style={{ width: open == false ? "0%" : "100%", transitionDelay: open == true ? "0s" : "0.5s" }}>
             <ToggleButton open={open} setOpen={setOpen} />
+            <ToggleButton2 open={open} setOpen={setOpen} />
             <MenuContent open={open} setOpen={setOpen} />
         </div>
     )
@@ -134,6 +135,34 @@ function ToggleButton({ open, setOpen }) {
 
     return (
         <div className="toggle-button" onMouseMove={handleMouseMove} onClick={handleClick} onMouseLeave={() => setEnter(false)} onMouseEnter={handleMouseEnter} style={{ right: enter == false ? "-3.5vw" : "0", }}>
+            <div className="button-container" style={{ transform: `translateY(${position - (svgHeight / 2)}px)` }}>
+                <MenuToggleButton open={open} setSvgHeight={setSvgHeight} />
+                <div className={`hamburger ${open == true ? "hamburger-active" : null}`}>
+
+                </div>
+            </div>
+
+        </div>
+    )
+}
+
+function ToggleButton2({ open, setOpen }) {
+    const [enter, setEnter] = useState(false)
+    const [position, setPosition] = useState(null);
+    const [svgHeight, setSvgHeight] = useState(null)
+    const handleMouseMove = (event) => {
+        setPosition(event.clientY);
+    };
+    const handleClick = () => {
+        setOpen(!open)
+
+    }
+    const handleMouseEnter = () => {
+        setEnter(true)
+    }
+
+    return (
+        <div className="toggle-button2" onMouseMove={handleMouseMove} onClick={handleClick} onMouseLeave={() => setEnter(false)} onMouseEnter={handleMouseEnter} style={open == false ? { left: enter == false ? "-108vw" : "-105vw" } : { left: enter == false ? "-8vw" : "-5vw" }}>
             <div className="button-container" style={{ transform: `translateY(${position - (svgHeight / 2)}px)` }}>
                 <MenuToggleButton open={open} setSvgHeight={setSvgHeight} />
                 <div className={`hamburger ${open == true ? "hamburger-active" : null}`}>

@@ -9,8 +9,8 @@ const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.sv
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
-const require1x = require.context("../../../img/index/1x", false, /^\.\/.*\.png$/);
-const x = require1x.keys().map(require1x);
+// const require1x = require.context("../../../img/index/1x", false, /^\.\/.*\.png$/);
+// const x = require1x.keys().map(require1x);
 
 
 //Banner組件
@@ -41,7 +41,18 @@ export default function Banner() {
                 opacity: 0,
                 duration: 0.8,
                 stagger: 0.06,
-            }, "<+0.3")
+            }, "<+0.3").then(() => {
+                setTimeout(() => {
+                    if (swiperNav >= 0 && swiperNav < 2) {
+                        count = swiperNav
+                        count++
+                        setSwiperNav(count)
+                    } else {
+                        setSwiperNav(0)
+                    }
+                }, 200)
+
+            })
             let gg2 = gsap.timeline({
             })
             gg2.from(".banner > .imgBox img", {
@@ -69,17 +80,6 @@ export default function Banner() {
         return () => ctx.revert(); // cleanup
     }, [swiperNav]); // <- swiperNav Ref dependency Array so it doesn't re-run on every render!
 
-    useEffect(() => {
-        setTimeout(() => {
-            if (swiperNav >= 0 && swiperNav < 2) {
-                count = swiperNav
-                count++
-                setSwiperNav(count)
-            } else {
-                setSwiperNav(0)
-            }
-        }, 6400)
-    }, [swiperNav])
 
     return (
         <section className='banner' ref={banner}>
@@ -289,7 +289,7 @@ function SvgCover() {
 function BannerImg({ swiperNav }) {
     return (
         <div className='imgBox'>
-            <img src={x[4].default} style={{ display: swiperNav == 0 ? "block" : "none" }} />
+            <img src={webp[0].default} style={{ display: swiperNav == 0 ? "block" : "none" }} />
             <img src={webp[1].default} style={{ display: swiperNav == 1 ? "block" : "none" }} />
             <img src={webp[2].default} style={{ display: swiperNav == 2 ? "block" : "none" }} />
         </div>

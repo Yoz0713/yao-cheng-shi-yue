@@ -19,8 +19,9 @@ const png = requirePng.keys().map(requirePng);
 
 
 export default function ThirdPage() {
-    const [change, setChange] = useState(false)
+    const [change, setChange] = useState(0)
     const animate = useRef(null)
+    let count;
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             let gg = gsap.timeline({
@@ -45,50 +46,33 @@ export default function ThirdPage() {
                 opacity: 0,
                 duration: 0.8,
                 stagger: 0.02,
-            }, "<+0.3")
+            }, "<+0.3").then(() => {
+                if (change >= 0 && change < 2) {
+                    count = change
+                    count++
+                    setChange(count)
+                } else {
+                    setChange(0)
+                }
+            })
+
+
         }, [animate])
         return () => ctx.revert()
+
     }, [change])
+
     return (
         <section className="third-page" ref={animate}>
             <SectionNav />
             <div className="third-page-bg">
                 <SvgCover />
-                <Swiper
-                    slidesPerView={1}
-                    modules={[Autoplay]}
-                    autoplay={{
-                        delay: 7500,
-                        disableOnInteraction:false
-                    }}
-                    speed={0.0001}
-                    onSwiper={(e) => {
 
-
-                    }} //第一次執行
-                    onSlideChange={(e) => {
-                        setChange(!change)
-
-                    }
-
-                    }
-                >
-                    <SwiperSlide>
-                        <div className='imgBox' >
-                            <img src={webp[10].default} />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='imgBox'>
-                            <img src={webp[11].default} />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='imgBox'>
-                            <img src={webp[12].default} />
-                        </div>
-                    </SwiperSlide>
-                </Swiper>
+                <div className="imgBox">
+                    <img src={webp[10].default} style={{ display: change == 0 ? "block" : "none" }} />
+                    <img src={webp[11].default} style={{ display: change == 1 ? "block" : "none" }} />
+                    <img src={webp[12].default} style={{ display: change == 2 ? "block" : "none" }} />
+                </div>
             </div>
 
 
