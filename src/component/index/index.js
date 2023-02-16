@@ -2,13 +2,17 @@ import React from 'react';
 import Banner from "./banner"
 import SecondPage from './secondPage';
 import ThirdPage from './thirdPage';
+import ForthPage from './forthPage';
 import VideoIn from './videoIn';
 import { useEffect, useRef } from 'react';
+//引入redux
+import { slideChangeAction } from '../redux/action/slideChange';
+import { store } from '../redux/store';
+//引入swiper
 import Swiper, { EffectCreative } from 'swiper';
 import 'swiper/css';
-import SwiperCore, { Keyboard, Mousewheel } from "swiper/core";
-
-SwiperCore.use([Keyboard, Mousewheel]);
+import SwiperCore, { Mousewheel } from "swiper/core";
+SwiperCore.use([Mousewheel]);
 //組合成首頁
 export default function Home() {
     const swiperRef = useRef()
@@ -22,9 +26,8 @@ export default function Home() {
                 direction: 'vertical',
                 // If you want to enable mousewheel support
                 mousewheel: true,
-
                 speed: 1100,
-                effect: 'creative', // Set the effect to 'creative'
+                effect: 'custom', // Set the effect to 'creative'
                 creativeEffect: {
                     // Customize the creative effect parameters
                     prev: {
@@ -34,6 +37,14 @@ export default function Home() {
                         translate: ['100%', "100%", 0],
                     },
                 },
+                on: {
+
+                    slideChangeTransitionStart: function (e) {
+
+                        store.dispatch(slideChangeAction(e.activeIndex))
+                    }
+
+                },
             });
         }
     }, [swiperRef]);
@@ -42,9 +53,10 @@ export default function Home() {
             <VideoIn />
             <div ref={swiperRef} className="swiper-container">
                 <div className="swiper-wrapper">
-                    <div className="swiper-slide">  <Banner /></div>
-                    <div className="swiper-slide"> <SecondPage /></div>
-                    <div className="swiper-slide"><ThirdPage /></div>
+                    <div className="swiper-slide slide1">  <Banner /></div>
+                    <div className="swiper-slide slide2"> <SecondPage /></div>
+                    <div className="swiper-slide slide3"><ThirdPage /></div>
+                    <div className="swiper-slide slide4">< ForthPage /></div>
                 </div>
             </div>
 

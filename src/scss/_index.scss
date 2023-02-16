@@ -1,29 +1,39 @@
-@mixin title-s {
+@mixin title {
     font-weight: 600;
     font-family: 'Cormorant Garamond', serif;
-    font-size: var(--ch_m_text);
+    font-size: var(--ch_l_text);
 }
 
-@mixin para-ch {
+@mixin title-s-ch {
     font-weight: 600;
     font-family: 'Noto Serif TC', serif;
-    font-size: var(--ch_s_text);
+    font-size: var(--ch_m_text);
     letter-spacing: 0.05em;
 }
 
-@mixin para-en {
+@mixin title-s-en {
     font-weight: 400;
     font-family: 'Cormorant Garamond', serif;
-    font-size: var(--ch_s_text);
+    font-size: var(--ch_m_text);
     color: #808080;
     letter-spacing: 0.05em;
 }
 
+@mixin para-ch {
+    font-weight: 400;
+    font-family: 'Noto Serif TC', serif;
+    font-size: var(--ch_s_text);
+    letter-spacing: 0.05em;
+    color: #333333;
+}
 
 
-.swiper-container {
-    height: 56.5vw;
 
+//情境示意圖 
+.sampleText {
+    position: absolute;
+    color: #fff;
+    font-size: var(--ch_xs_test);
 }
 
 .index {
@@ -33,8 +43,10 @@
     //各cut共用高度
     .banner,
     .second-page,
-    .third-page {
+    .third-page,
+    .forth-page {
         height: 56.5vw;
+        transition: 1s;
     }
 
     //第二cut 跟第三cut 的導航列表的共用css
@@ -54,7 +66,7 @@
         }
 
         h3 {
-            @include title-s()
+            @include title()
         }
 
         &::after {
@@ -88,12 +100,12 @@
 
             & :nth-child(1) {
                 flex: 0 1 44%;
-                @include para-ch();
+                @include title-s-ch();
                 transition: color 0.5s;
             }
 
             & :nth-child(2) {
-                @include para-en()
+                @include title-s-en()
             }
 
             &::after {
@@ -177,6 +189,26 @@
                 color: #fff;
 
             }
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border: 1px solid $gold_color;
+                animation-name: videoButton;
+                animation-duration: 1.5s;
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+            }
         }
 
         .full-screen {
@@ -195,13 +227,126 @@
                 width: 10vw;
                 pointer-events: none;
             }
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -1.47vw;
+                top: -2.2vw;
+                width: 130%;
+                height: calc(10vw*1.3);
+                border-radius: 50%;
+                border: 1px solid #ccc;
+                animation-name: videoButton;
+                animation-duration: 1.5s;
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+            }
+
         }
     }
 
+    >.swiper-container {
+        height: 56.5vw;
+
+        .swiper-wrapper {
+
+            //第一cut的進退場畫面
+            .swiper-slide-prev.slide1 {
+
+                .banner {
+                    transform: translate(-100%, -100%);
+
+                }
+            }
+
+            //第二cut的進退場畫面
+            .swiper-slide-prev.slide2 {
+
+                .second-page {
+                    transform: translate(0, -100%);
+
+                }
+            }
+
+            .swiper-slide-active.slide2 {
+
+                .second-page {
+                    transform: translate(0, 0);
+
+                }
+            }
+
+            .swiper-slide-next.slide2 {
+
+                .second-page {
+                    transform: translate(100%, 100%);
+
+                }
+            }
+
+            //第三cut的進退場畫面
+            .swiper-slide-prev.slide3 {
+
+                .third-page {
+                    transform: translate(100%, -100%);
+
+                }
+            }
+
+            .swiper-slide-active.slide3 {
+
+                .third-page {
+                    transform: translate(0, 0);
+
+                }
+            }
+
+            .swiper-slide-next.slide3 {
+
+                .third-page {
+                    transform: translate(0, 100%);
+
+                }
+            }
+
+            //第四cut的進退場畫面
+            .swiper-slide-prev.slide4 {
+
+                .forth-page {
+                    transform: translate(100%, -100%);
+
+                }
+            }
+
+            .swiper-slide-active.slide4 {
+
+                .forth-page {
+                    transform: translate(0, 0);
+
+                }
+            }
+
+            .swiper-slide-next.slide4 {
+
+                .forth-page {
+                    transform: translate(-100%, 100%);
+
+                }
+            }
+        }
+    }
+
+    //以下被swiper-container包住
     //第一cut
     .banner {
+        display: flex;
+        justify-content: center;
         position: relative;
         width: 100%;
+
 
         svg {
 
@@ -220,24 +365,59 @@
 
         >.imgBox {
             position: relative;
-            width: 100%;
+            width: 99.9%;
             height: 100%;
 
-            overflow: hidden;
 
-            img {
+
+            .box {
                 position: absolute;
-                left: 0;
-                top: 0;
                 width: 100%;
                 height: 100%;
-                object-position: cover;
+                left: 0;
+                top: 0;
+                overflow: hidden;
+
+                img {
+
+                    width: 100%;
+                    height: 100%;
+                    object-position: cover;
+                }
+
+
+
+
             }
 
             & :nth-child(1) {
-                height: 82%;
-                object-position: center bottom;
+                img {
+                    height: 82%;
+                    object-position: center bottom;
+                }
+
+                span {
+                    right: 23.6vw;
+                    bottom: 14.5vw;
+                }
             }
+
+            & :nth-child(2) {
+                span {
+                    right: 1vw;
+                    bottom: 2.5vw;
+
+                }
+            }
+
+            & :nth-child(3) {
+                span {
+                    right: 48.5vw;
+                    bottom: 1vw;
+
+                }
+            }
+
         }
 
         .logo-wrapper {
@@ -282,6 +462,7 @@
         width: 85%;
         margin: 0 auto;
         padding-left: 2vw;
+
 
         div {
             width: 45%;
@@ -383,7 +564,7 @@
                 position: absolute;
                 width: 100%;
                 right: 0;
-                top: 0;
+                top: -1vw;
                 z-index: 5;
             }
 
@@ -396,13 +577,25 @@
                 width: 95%;
                 height: 100%;
                 z-index: 0;
-                overflow: hidden;
 
-                img {
+
+                .box {
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                    span {
+                        right: 3.5vw;
+                        bottom: 0.5vw;
+                    }
                 }
+
 
             }
         }
@@ -414,5 +607,174 @@
         }
 
 
+    }
+
+    .forth-page {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 85%;
+        margin: 0 auto 0 0;
+        position: relative;
+
+        &-bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            &> :nth-child(1) {
+                width: 60vw;
+            }
+
+            &> :nth-child(2) {
+                position: absolute;
+                left: 9vw;
+                top: 12vw;
+                width: 42vw;
+
+                img {
+                    width: 100%;
+
+                }
+
+                span {
+                    width: fit-content;
+                    height: fit-content;
+                    right: 0.5vw;
+                    bottom: 0.5vw;
+                }
+            }
+        }
+
+        &-para {
+            width: fit-content;
+
+
+            .paraBox {
+                width: 17.6vw;
+                line-height: 2.2;
+                margin-left: 4vw;
+
+                p {
+                    @include para-ch()
+                }
+
+                .more {
+                    position: relative;
+                    border: 1px solid #1a1a1a;
+                    padding: 0 2.2vw 0 0.9vw;
+                    width: fit-content;
+                    line-height: 1.8;
+                    margin-top: 2.2vw;
+                    cursor: pointer;
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto 0;
+                        right: 0.7vw;
+                        width: 18%;
+                        height: 1px;
+                        background-color: #1a1a1a;
+                    }
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto 0;
+                        right: 0.7vw;
+                        width: 5%;
+                        height: 1px;
+                        background-color: #1a1a1a;
+                        transform-origin: right center;
+                        transform: rotate(35deg);
+                    }
+
+                    &:hover::after {
+                        animation-name: more;
+                        animation-duration: 1.5s;
+                        animation-fill-mode: forwards;
+                        animation-timing-function: linear;
+                        animation-iteration-count: infinite;
+                    }
+
+                    &:hover::before {
+                        animation-name: more2;
+                        animation-duration: 1.5s;
+                        animation-fill-mode: forwards;
+                        animation-timing-function: linear;
+                        animation-iteration-count: infinite;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes more {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(1vw);
+        opacity: 0
+    }
+
+    51% {
+        transform: translateX(-1vw);
+        opacity: 0
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1
+    }
+}
+
+@keyframes more2 {
+    0% {
+        transform: translateX(0) rotate(35deg);
+    }
+
+    50% {
+        transform: translateX(1vw) rotate(35deg);
+        opacity: 0
+    }
+
+    51% {
+        transform: translateX(-1vw) rotate(35deg);
+        opacity: 0
+    }
+
+    100% {
+        transform: translateX(0) rotate(35deg);
+        opacity: 1
+    }
+}
+
+@keyframes videoButton {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
     }
 }

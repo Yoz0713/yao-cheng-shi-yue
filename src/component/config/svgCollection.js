@@ -60,7 +60,7 @@ export function HomeSecondPageSunlandLogo(props) {
 export function MenuToggleButton({ open, setSvgHeight }) {
     const menuButton = useRef(null)
     useEffect(() => {
-        console.log(menuButton)
+
         setSvgHeight(menuButton.current.clientHeight)
     }, [])
     return (

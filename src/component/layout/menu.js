@@ -18,17 +18,17 @@ export default function Menu() {
 
 function MenuContent({ open, setOpen }) {
     const title = [{
-        ch: "森聯團隊",
-        en: "TEAM"
+        ch: "森聯機構",
+        en: "TOP"
     }, {
         ch: "林口之心",
-        en: "LOCATION"
+        en: "MIDTOWN"
     }, {
         ch: "建築設計",
         en: "DESIGN"
     }, {
         ch: "百年工藝",
-        en: "MATERIAL"
+        en: "LANDMARK"
     }, {
         ch: "市場直擊",
         en: "NEWS"

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomeThirdPageCover } from "../config/svgCollection"
+//import redux store
+import { store } from '../redux/store';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
@@ -23,6 +25,7 @@ export default function ThirdPage() {
     const animate = useRef(null)
     let count;
     useLayoutEffect(() => {
+
         let ctx = gsap.context(() => {
             let gg = gsap.timeline({
                 yoyo: true,
@@ -69,9 +72,20 @@ export default function ThirdPage() {
                 <SvgCover />
 
                 <div className="imgBox">
-                    <img src={webp[10].default} style={{ display: change == 0 ? "block" : "none" }} />
-                    <img src={webp[11].default} style={{ display: change == 1 ? "block" : "none" }} />
-                    <img src={webp[12].default} style={{ display: change == 2 ? "block" : "none" }} />
+                    <div className="box" style={{ display: change == 0 ? "block" : "none" }} >
+                        <img src={webp[10].default} />
+                        <span className='sampleText'>情境式意圖</span>
+                    </div>
+                    <div className="box" style={{ display: change == 1 ? "block" : "none" }}>
+                        <img src={webp[11].default} />
+                        <span className='sampleText'>情境式意圖</span>
+                    </div>
+                    <div className="box" style={{ display: change == 2 ? "block" : "none" }}>
+                        <img src={webp[12].default} />
+                        <span className='sampleText'>情境式意圖</span>
+                    </div>
+
+
                 </div>
             </div>
 

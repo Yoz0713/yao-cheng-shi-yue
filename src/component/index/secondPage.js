@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomeSecondPageSvgTree, HomeSecondPageSunlandLogo } from '../config/svgCollection';
+import { store } from '../redux/store';
 // Import animation libary
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -71,23 +72,19 @@ export default function SecondPage() {
         return () => ctx.revert(); // cleanup
     }, [type])
     //觸觸發第一次type change (team1)
-    useLayoutEffect(() => {
-        let ctx = gsap.context(() => {
-            let gg = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".index .second-page",
-                    start: "25% top"
-                }
-            })
+    useEffect(() => {
+        const unsubscribe = store.subscribe(() => {
+            if (store.getState().slideReducer.slide === 1) {
+                setType(null);
+                setTimeout(() => {
+                    setType('team1');
+                }, 800);
+            }
+        });
 
-            gg.from(".second-page ", {
-                duration: 0.5
-            }).then(() => {
-                setType("team1")
-            })
-
-        }, [secondPage])
-        return () => ctx.revert(); // cleanup
+        return () => {
+            unsubscribe();
+        };
     }, [])
     const handleClick = ((e) => {
         setType(e.target.className)
@@ -120,7 +117,7 @@ function CoverLogo({ type }) {
 function SectionNav({ handleClick }) {
     let team = [{
         id: 1,
-        ch: "森聯建設",
+        ch: "森聯機構",
         en: "SUNLAND DEVELOPMENT"
     }, {
         id: 2,
