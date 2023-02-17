@@ -73,12 +73,17 @@ export default function SecondPage() {
     }, [type])
     //觸觸發第一次type change (team1)
     useEffect(() => {
+        let header = document.querySelector(".header")
+        header.style.opacity = 0
         const unsubscribe = store.subscribe(() => {
             if (store.getState().slideReducer.slide === 1) {
+                header.style.opacity = 1
                 setType(null);
                 setTimeout(() => {
                     setType('team1');
                 }, 800);
+            } else if (store.getState().slideReducer.slide === 0) {
+                header.style.opacity = 0
             }
         });
 

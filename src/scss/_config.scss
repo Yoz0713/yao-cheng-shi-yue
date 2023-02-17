@@ -18,6 +18,8 @@ $white_color: #f7f7f7;
     width: 100%;
     height: fit-content;
     padding: 2vw 3vw;
+    z-index: 5;
+    transition: opacity 1s;
 
     img {
         width: 7vw;

@@ -235,6 +235,7 @@
 
         .swiper-wrapper {
 
+
             //第一cut的進退場畫面
             .swiper-slide-prev.slide1 {
 
@@ -683,17 +684,22 @@
                 margin-left: 4vw;
 
                 p {
-                    @include para-ch()
+                    @include para-ch();
+
                 }
 
                 .more {
                     position: relative;
-                    border: 1px solid #1a1a1a;
+                    border: 1px solid $gold_color;
                     padding: 0 2.2vw 0 0.9vw;
                     width: fit-content;
                     line-height: 1.8;
                     margin-top: 2.2vw;
                     cursor: pointer;
+
+                    p {
+                        color: $gold_color;
+                    }
 
                     &::after {
                         content: "";
@@ -705,7 +711,7 @@
                         right: 0.7vw;
                         width: 18%;
                         height: 1px;
-                        background-color: #1a1a1a;
+                        background-color: $gold_color;
                     }
 
                     &::before {
@@ -718,7 +724,7 @@
                         right: 0.7vw;
                         width: 5%;
                         height: 1px;
-                        background-color: #1a1a1a;
+                        background-color: $gold_color;
                         transform-origin: right center;
                         transform: rotate(35deg);
                     }
