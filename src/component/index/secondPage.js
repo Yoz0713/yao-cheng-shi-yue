@@ -25,7 +25,7 @@ export default function SecondPage() {
         let ctx = gsap.context(() => {
             if (type == "team3") {
                 let gg = gsap.timeline()
-                gg.to(`.${type} :nth-child(1)`, {
+                gg.to(`.${type} p`, {
                     color: "#c3a457",
                     duration: 0.001
                 }, "<").from(`.building-team`, {
@@ -41,7 +41,7 @@ export default function SecondPage() {
             } else {
                 let gg = gsap.timeline()
 
-                gg.to(`.${type} :nth-child(1)`, {
+                gg.to(`.${type} p`, {
                     color: "#c3a457",
                     duration: 0.001
                 }, "<").fromTo("svg path", {

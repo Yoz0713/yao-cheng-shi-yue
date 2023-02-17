@@ -3,13 +3,13 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #e6e6e6;
+        fill: #eeeeee;
       }
 
       .cls-2 {
         fill: none;
         opacity: .5;
-        stroke: #c3a457;
+        stroke: none;
         stroke-miterlimit: 10;
         stroke-width: .75px;
       }
@@ -17,8 +17,10 @@
   </defs>
   <g id="_圖層_1-2" data-name="圖層 1">
     <g>
-      <polygon class="cls-1" points="732.01 0 1117.17 228.12 1117.17 852.68 983.94 953.06 468.06 953.06 0 607.68 3.16 2.15 732.01 0"/>
-      <polyline class="cls-2" points="767.36 2.15 1134.05 220.52 1134.05 861.34 992.69 966.36 466.57 964.25 2.95 631.84"/>
+      <polygon class="cls-1"
+        points="732.01 0 1117.17 228.12 1117.17 852.68 983.94 953.06 468.06 953.06 0 607.68 3.16 2.15 732.01 0" />
+      <polyline class="cls-2"
+        points="767.36 2.15 1134.05 220.52 1134.05 861.34 992.69 966.36 466.57 964.25 2.95 631.84" />
     </g>
   </g>
 </svg>

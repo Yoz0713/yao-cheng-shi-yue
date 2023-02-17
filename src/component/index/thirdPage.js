@@ -22,10 +22,11 @@ const png = requirePng.keys().map(requirePng);
 
 export default function ThirdPage() {
     const [change, setChange] = useState(0)
+    const slide = useRef(null)
     const animate = useRef(null)
     let count;
     useLayoutEffect(() => {
-
+        console.log()
         let ctx = gsap.context(() => {
             let gg = gsap.timeline({
                 yoyo: true,
@@ -49,8 +50,8 @@ export default function ThirdPage() {
                 opacity: 0,
                 duration: 0.8,
                 stagger: 0.02,
-            }, "<+0.3").then(() => {
-                if (change >= 0 && change < 2) {
+            }, "<").then(() => {
+                if (change >= 0 && change < slide.current.children.length - 1) {
                     count = change
                     count++
                     setChange(count)
@@ -71,7 +72,7 @@ export default function ThirdPage() {
             <div className="third-page-bg">
                 <SvgCover />
 
-                <div className="imgBox">
+                <div className="imgBox" ref={slide}>
                     <div className="box" style={{ display: change == 0 ? "block" : "none" }} >
                         <img src={webp[10].default} />
                         <span className='sampleText'>情境式意圖</span>

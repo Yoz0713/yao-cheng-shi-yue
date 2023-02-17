@@ -76,425 +76,572 @@ export function MenuToggleButton({ open, setSvgHeight }) {
 export function HomeThirdPageCover() {
     return (
         <svg
-            id="_圖層_2"
-            data-name="圖層 2"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 1276 853"
+            viewBox="0 0 1234 1823.82"
         >
             <defs>
                 <style
                     dangerouslySetInnerHTML={{
                         __html:
-                            "\n      .home-third-clip {\n        clip-path: url(#clippath);    "
+                            "\n      .third-page-1 {\n        clip-path: url(#third-clippath);\n      }\n\n     "
                     }}
                 />
-                <clipPath id="clippath">
+                <clipPath id="third-clippath">
                     <polygon
-                        fill='none'
-                        points="1214.1 496.84 916.15 123.39 430.65 32.96 61.5 264.9 61.5 718.84 231.3 820.04 1214.5 820.04 1214.1 496.84"
+                        fill='#f7f7f7'
+                        className="third-page-2"
+                        points="1161.5 546.6 821.99 362.78 72.61 724.06 72.61 1272.39 659.13 1411.73 1161.5 1152.76 1161.5 546.6"
                     />
                 </clipPath>
             </defs>
             <g >
                 <g>
-                    <g className="home-third-clip" style={{ transform: "scale(1.01)", transformOrigin: "center" }}>
-                        <g>
+                    <g className="third-page-1">
+                        <g className='home-third-clip'>
+
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.24 659.51 1051.24 819.42 1216.5 739.47 1051.24 659.51"
+                                className="third-page-3"
+                                points="1057.65 790 1057.65 949.31 1222.29 869.65 1057.65 790"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.24 819.11 1051.24 979.02 1216.5 899.07 1051.24 819.11"
+                                className="third-page-3"
+                                points="1057.65 949 1057.65 1108.31 1222.29 1028.66 1057.65 949"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1216.5 899.22 1216.5 739.31 1051.24 819.27 1216.5 899.22"
+                                className="third-page-3"
+                                points="1057.65 1108 1057.65 1267.31 1222.29 1187.66 1057.65 1108"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.24 180.72 1051.24 340.62 1216.5 260.67 1051.24 180.72"
+                                className="third-page-3"
+                                points="1057.65 949.15 1222.29 1028.81 1222.29 869.5 1057.65 949.15"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.24 340.32 1051.24 500.22 1216.5 420.27 1051.24 340.32"
+                                className="third-page-3"
+                                points="1222.29 1187.81 1222.29 1028.5 1057.65 1108.16 1222.29 1187.81"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.24 499.92 1051.24 659.82 1216.5 579.87 1051.24 499.92"
+                                className="third-page-3"
+                                points="1222.29 1346.82 1222.29 1187.51 1057.65 1267.16 1222.29 1346.82"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.24 340.47 1216.5 420.42 1216.5 260.52 1051.24 340.47"
+                                className="third-page-3"
+                                points="893.25 1186.81 893.25 1346.12 1057.89 1266.47 893.25 1186.81"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1216.5 580.02 1216.5 420.12 1051.24 500.07 1216.5 580.02"
+                                className="third-page-3"
+                                points="893.25 1345.82 893.25 1505.13 1057.89 1425.47 893.25 1345.82"
                             />
+
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1216.5 739.62 1216.5 579.72 1051.24 659.67 1216.5 739.62"
+                                className="third-page-3"
+                                points="1057.89 1425.62 1057.89 1266.32 893.25 1345.97 1057.89 1425.62"
                             />
+
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.23 579.02 886.23 738.93 1051.49 658.97 886.23 579.02"
+                                className="third-page-3"
+                                points="893.25 709.8 893.25 869.11 1057.89 789.46 893.25 709.8"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.23 738.62 886.23 898.52 1051.49 818.57 886.23 738.62"
+                                className="third-page-3"
+                                points="893.25 868.81 893.25 1028.12 1057.89 948.46 893.25 868.81"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.49 818.73 1051.49 658.82 886.23 738.77 1051.49 818.73"
+                                className="third-page-3"
+                                points="893.25 1027.81 893.25 1187.12 1057.89 1107.47 893.25 1027.81"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.49 978.32 1051.49 818.42 886.23 898.37 1051.49 978.32"
+                                className="third-page-3"
+                                points="893.25 868.96 1057.89 948.62 1057.89 789.31 893.25 868.96"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.23 100.22 886.23 260.13 1051.49 180.18 886.23 100.22"
+                                className="third-page-3"
+                                points="1057.89 1107.62 1057.89 948.31 893.25 1027.96 1057.89 1107.62"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.23 259.82 886.23 419.73 1051.49 339.78 886.23 259.82"
+                                className="third-page-3"
+                                points="1057.89 1266.62 1057.89 1107.31 893.25 1186.97 1057.89 1266.62"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.23 419.42 886.23 579.33 1051.49 499.37 886.23 419.42"
+                                className="third-page-3"
+                                points="728.85 1107.62 728.85 1266.93 893.49 1187.28 728.85 1107.62"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.23 259.98 1051.49 339.93 1051.49 180.02 886.23 259.98"
+                                className="third-page-3"
+                                points="728.85 1266.63 728.85 1425.94 893.49 1346.28 728.85 1266.63"
                             />
+
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.49 499.53 1051.49 339.62 886.23 419.58 1051.49 499.53"
+                                className="third-page-3"
+                                points="893.49 1346.43 893.49 1187.12 728.85 1266.78 893.49 1346.43"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="1051.49 659.13 1051.49 499.22 886.23 579.17 1051.49 659.13"
+                                className="third-page-3"
+                                points="893.49 1505.44 893.49 1346.13 728.85 1425.78 893.49 1505.44"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.22 499.53 721.22 659.44 886.48 579.49 721.22 499.53"
+                                className="third-page-3"
+                                points="893.49 1664.44 893.49 1505.13 728.85 1584.79 893.49 1664.44"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.22 659.13 721.22 819.04 886.48 739.08 721.22 659.13"
+                                className="third-page-3"
+                                points="728.85 630.61 728.85 789.92 893.49 710.27 728.85 630.61"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.22 818.73 721.22 978.64 886.48 898.68 721.22 818.73"
+                                className="third-page-3"
+                                points="728.85 789.62 728.85 948.93 893.49 869.27 728.85 789.62"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.48 739.24 886.48 579.33 721.22 659.28 886.48 739.24"
+                                className="third-page-3"
+                                points="728.85 948.62 728.85 1107.93 893.49 1028.27 728.85 948.62"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.48 898.84 886.48 738.93 721.22 818.88 886.48 898.84"
+                                className="third-page-3"
+                                points="728.85 789.77 893.49 869.42 893.49 710.12 728.85 789.77"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.22 20.74 721.22 180.64 886.48 100.69 721.22 20.74"
+                                className="third-page-3"
+                                points="893.49 1028.43 893.49 869.12 728.85 948.77 893.49 1028.43"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.22 180.34 721.22 340.24 886.48 260.29 721.22 180.34"
+                                className="third-page-3"
+                                points="893.49 1187.43 893.49 1028.12 728.85 1107.78 893.49 1187.43"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.22 339.93 721.22 499.84 886.48 419.89 721.22 339.93"
+                                className="third-page-3"
+                                points="564.46 396.75 729.1 476.4 729.1 317.09 564.46 396.75"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.22 180.49 886.48 260.44 886.48 100.54 721.22 180.49"
+                                className="third-page-3"
+                                points="1057.65 632.59 1057.65 791.9 1222.29 712.24 1057.65 632.59"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.48 420.04 886.48 260.13 721.22 340.09 886.48 420.04"
+                                className="third-page-3"
+                                points="1057.65 791.74 1222.29 871.4 1222.29 712.09 1057.65 791.74"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="886.48 579.64 886.48 419.73 721.22 499.69 886.48 579.64"
+                                className="third-page-3"
+                                points="893.25 552.39 893.25 711.7 1057.89 632.05 893.25 552.39"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.21 419.04 556.21 578.94 721.46 498.99 556.21 419.04"
+                                className="third-page-3"
+                                points="893.25 711.55 1057.89 791.2 1057.89 631.9 893.25 711.55"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.21 578.64 556.21 738.54 721.46 658.59 556.21 578.64"
+                                className="third-page-3"
+                                points="728.85 473.2 728.85 632.51 893.49 552.86 728.85 473.2"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.21 738.24 556.21 898.14 721.46 818.19 556.21 738.24"
+                                className="third-page-3"
+                                points="728.85 632.36 893.49 712.01 893.49 552.7 728.85 632.36"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.46 658.74 721.46 498.84 556.21 578.79 721.46 658.74"
+                                className="third-page-3"
+                                points="564.46 393.01 564.46 552.32 729.1 472.66 564.46 393.01"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.46 818.34 721.46 658.44 556.21 738.39 721.46 818.34"
+                                className="third-page-3"
+                                points="564.46 552.17 729.1 631.82 729.1 472.51 564.46 552.17"
                             />
+
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.46 977.94 721.46 818.04 556.21 897.99 721.46 977.94"
+                                className="third-page-3"
+                                points="400.06 473.98 564.7 553.63 564.7 394.32 400.06 473.98"
                             />
+
+
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.21 -59.76 556.21 100.15 721.46 20.2 556.21 -59.76"
+                                className="third-page-3"
+                                points="1057.65 477.17 1057.65 636.48 1222.29 556.82 1057.65 477.17"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.21 99.84 556.21 259.75 721.46 179.79 556.21 99.84"
+                                className="third-page-3"
+                                points="1057.65 636.33 1222.29 715.98 1222.29 556.67 1057.65 636.33"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.21 259.44 556.21 419.35 721.46 339.39 556.21 259.44"
+                                className="third-page-3"
+                                points="893.25 396.98 893.25 556.29 1057.89 476.63 893.25 396.98"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.21 100 721.46 179.95 721.46 20.04 556.21 100"
+                                className="third-page-3"
+                                points="893.25 556.13 1057.89 635.79 1057.89 476.48 893.25 556.13"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.46 339.55 721.46 179.64 556.21 259.59 721.46 339.55"
+                                className="third-page-3"
+                                points="728.85 317.79 728.85 477.09 893.49 397.44 728.85 317.79"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="721.46 499.15 721.46 339.24 556.21 419.19 721.46 499.15"
+                                className="third-page-3"
+                                points="728.85 476.94 893.49 556.6 893.49 397.29 728.85 476.94"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.19 340.56 391.19 500.46 556.45 420.51 391.19 340.56"
+                                className="third-page-3"
+                                points="564.46 1027.43 564.46 1186.74 729.1 1107.08 564.46 1027.43"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.19 500.16 391.19 660.06 556.45 580.11 391.19 500.16"
+                                className="third-page-3"
+                                points="564.46 1186.43 564.46 1345.74 729.1 1266.09 564.46 1186.43"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.19 659.75 391.19 819.66 556.45 739.71 391.19 659.75"
+                                className="third-page-3"
+                                points="564.46 1345.44 564.46 1504.75 729.1 1425.09 564.46 1345.44"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.45 580.26 556.45 420.36 391.19 500.31 556.45 580.26"
+                                className="third-page-3"
+                                points="729.1 1266.24 729.1 1106.93 564.46 1186.59 729.1 1266.24"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.45 739.86 556.45 579.96 391.19 659.91 556.45 739.86"
+                                className="third-page-3"
+                                points="729.1 1425.24 729.1 1265.93 564.46 1345.59 729.1 1425.24"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.45 899.46 556.45 739.55 391.19 819.51 556.45 899.46"
+                                className="third-page-3"
+                                points="729.1 1584.25 729.1 1424.94 564.46 1504.59 729.1 1584.25"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.19 -138.24 391.19 21.67 556.45 -58.29 391.19 -138.24"
+                                className="third-page-3"
+                                points="564.46 550.42 564.46 709.73 729.1 630.07 564.46 550.42"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.19 21.36 391.19 181.27 556.45 101.31 391.19 21.36"
+                                className="third-page-3"
+                                points="564.46 709.42 564.46 868.73 729.1 789.08 564.46 709.42"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.19 180.96 391.19 340.86 556.45 260.91 391.19 180.96"
+                                className="third-page-3"
+                                points="564.46 868.43 564.46 1027.74 729.1 948.08 564.46 868.43"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.19 21.51 556.45 101.47 556.45 -58.44 391.19 21.51"
+                                className="third-page-3"
+                                points="564.46 709.58 729.1 789.23 729.1 629.92 564.46 709.58"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.45 261.06 556.45 101.16 391.19 181.11 556.45 261.06"
+                                className="third-page-3"
+                                points="729.1 948.23 729.1 788.93 564.46 868.58 729.1 948.23"
                             />
+
+
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="556.45 420.66 556.45 260.76 391.19 340.71 556.45 420.66"
+                                className="third-page-3"
+                                points="729.1 1107.24 729.1 947.93 564.46 1027.58 729.1 1107.24"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.18 420.05 226.18 579.95 391.44 500 226.18 420.05"
+                                className="third-page-3"
+                                points="400.06 949.24 400.06 1108.55 564.7 1028.9 400.06 949.24"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.18 579.64 226.18 739.55 391.44 659.6 226.18 579.64"
+                                className="third-page-3"
+                                points="400.06 1108.24 400.06 1267.55 564.7 1187.9 400.06 1108.24"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.18 739.24 226.18 899.15 391.44 819.2 226.18 739.24"
+                                className="third-page-3"
+                                points="400.06 1267.25 400.06 1426.56 564.7 1346.9 400.06 1267.25"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.44 659.75 391.44 499.84 226.18 579.8 391.44 659.75"
+                                className="third-page-3"
+                                points="564.7 1188.05 564.7 1028.74 400.06 1108.4 564.7 1188.05"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.44 819.35 391.44 659.44 226.18 739.4 391.44 819.35"
+                                className="third-page-3"
+                                points="564.7 1347.05 564.7 1187.75 400.06 1267.4 564.7 1347.05"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.44 978.95 391.44 819.04 226.18 898.99 391.44 978.95"
+                                className="third-page-3"
+                                points="564.7 1506.06 564.7 1346.75 400.06 1426.4 564.7 1506.06"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.18 -58.75 226.18 101.15 391.44 21.2 226.18 -58.75"
+                                className="third-page-3"
+                                points="400.06 472.23 400.06 631.54 564.7 551.89 400.06 472.23"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.18 100.85 226.18 260.75 391.44 180.8 226.18 100.85"
+                                className="third-page-3"
+                                points="400.06 631.23 400.06 790.54 564.7 710.89 400.06 631.23"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.18 260.45 226.18 420.35 391.44 340.4 226.18 260.45"
+                                className="third-page-3"
+                                points="400.06 790.24 400.06 949.55 564.7 869.89 400.06 790.24"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.18 101 391.44 180.95 391.44 21.05 226.18 101"
+                                className="third-page-3"
+                                points="400.06 631.39 564.7 711.04 564.7 551.73 400.06 631.39"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.44 340.55 391.44 180.65 226.18 260.6 391.44 340.55"
+                                className="third-page-3"
+                                points="564.7 870.05 564.7 710.74 400.06 790.39 564.7 870.05"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="391.44 500.15 391.44 340.25 226.18 420.2 391.44 500.15"
+                                className="third-page-3"
+                                points="564.7 1029.05 564.7 869.74 400.06 949.39 564.7 1029.05"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="61.17 340.56 61.17 500.46 226.43 420.51 61.17 340.56"
+                                className="third-page-3"
+                                points="235.66 869.03 235.66 1028.34 400.3 948.68 235.66 869.03"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="61.17 500.16 61.17 660.06 226.43 580.11 61.17 500.16"
+                                className="third-page-3"
+                                points="235.66 1028.03 235.66 1187.34 400.3 1107.69 235.66 1028.03"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="61.17 659.75 61.17 819.66 226.43 739.71 61.17 659.75"
+                                className="third-page-3"
+                                points="235.66 1187.04 235.66 1346.34 400.3 1266.69 235.66 1187.04"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.43 580.26 226.43 420.36 61.17 500.31 226.43 580.26"
+                                className="third-page-3"
+                                points="400.3 1107.84 400.3 948.53 235.66 1028.19 400.3 1107.84"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.43 739.86 226.43 579.96 61.17 659.91 226.43 739.86"
+                                className="third-page-3"
+                                points="400.3 1266.84 400.3 1107.53 235.66 1187.19 400.3 1266.84"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.43 899.46 226.43 739.55 61.17 819.51 226.43 899.46"
+                                className="third-page-3"
+                                points="400.3 1425.85 400.3 1266.54 235.66 1346.19 400.3 1425.85"
                             />
+
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="61.17 -138.24 61.17 21.67 226.43 -58.29 61.17 -138.24"
+                                className="third-page-3"
+                                points="235.66 551.02 235.66 710.33 400.3 630.68 235.66 551.02"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="61.17 21.36 61.17 181.27 226.43 101.31 61.17 21.36"
+                                className="third-page-3"
+                                points="235.66 710.03 235.66 869.33 400.3 789.68 235.66 710.03"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="61.17 180.96 61.17 340.86 226.43 260.91 61.17 180.96"
+                                className="third-page-3"
+                                points="235.66 551.18 400.3 630.83 400.3 471.52 235.66 551.18"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="61.17 21.51 226.43 101.47 226.43 -58.44 61.17 21.51"
+                                className="third-page-3"
+                                points="400.3 789.83 400.3 630.52 235.66 710.18 400.3 789.83"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.43 261.06 226.43 101.16 61.17 181.11 226.43 261.06"
+                                className="third-page-3"
+                                points="400.3 948.84 400.3 789.53 235.66 869.18 400.3 948.84"
                             />
                             <polygon
                                 fill="#f7f7f7"
                                 stroke="#f7f7f7"
-                                points="226.43 420.66 226.43 260.76 61.17 340.71 226.43 420.66"
+                                className="third-page-3"
+                                points="71.27 789.84 71.27 949.15 235.9 869.49 71.27 789.84"
+                            />
+                            <polygon
+                                fill="#f7f7f7"
+                                stroke="#f7f7f7"
+                                className="third-page-3"
+                                points="71.27 948.84 71.27 1108.15 235.9 1028.5 71.27 948.84"
+                            />
+                            <polygon
+                                fill="#f7f7f7"
+                                stroke="#f7f7f7"
+                                className="third-page-3"
+                                points="71.27 1107.84 71.27 1267.15 235.9 1187.5 71.27 1107.84"
+                            />
+                            <polygon
+                                fill="#f7f7f7"
+                                stroke="#f7f7f7"
+                                className="third-page-3"
+                                points="235.9 1028.65 235.9 869.34 71.27 948.99 235.9 1028.65"
+                            />
+                            <polygon
+                                fill="#f7f7f7"
+                                stroke="#f7f7f7"
+                                className="third-page-3"
+                                points="235.9 1187.65 235.9 1028.34 71.27 1108 235.9 1187.65"
+                            />
+                            <polygon
+                                fill="#f7f7f7"
+                                stroke="#f7f7f7"
+                                className="third-page-3"
+                                points="235.9 1346.65 235.9 1187.35 71.27 1267 235.9 1346.65"
+                            />
+
+                            <polygon
+                                fill="#f7f7f7"
+                                stroke="#f7f7f7"
+                                className="third-page-3"
+                                points="71.27 630.83 71.27 790.14 235.9 710.49 71.27 630.83"
+                            />
+
+
+                            <polygon
+                                fill="#f7f7f7"
+                                stroke="#f7f7f7"
+                                className="third-page-3"
+                                points="564.46 237.59 564.46 396.9 729.1 317.25 564.46 237.59"
+                            />
+
+
+                            <polygon
+                                fill="#f7f7f7"
+                                stroke="#f7f7f7"
+                                className="third-page-3"
+                                points="235.9 710.64 235.9 551.33 71.27 630.99 235.9 710.64"
+                            />
+                            <polygon
+                                fill="#f7f7f7"
+                                stroke="#f7f7f7"
+                                className="third-page-3"
+                                points="235.9 869.65 235.9 710.34 71.27 789.99 235.9 869.65"
                             />
                         </g>
                     </g>
                     <path
                         fill='#f7f7f7'
-                        d="M0,0V853H1276V0H0ZM231.3,820.04l-169.8-101.21V264.9L430.65,32.96l485.49,90.43,297.95,373.45,.4,323.21H231.3Z"
+                        className="third-page-3"
+                        d="M0,351.29V1425.29H1234V351.29H0Zm1154,798.88l-495.5,255.43L80,1268.16V727.32L819.13,370.98l334.87,181.31v597.88Z"
                     />
                 </g>
             </g>

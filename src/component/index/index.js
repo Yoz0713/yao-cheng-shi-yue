@@ -3,6 +3,8 @@ import Banner from "./banner"
 import SecondPage from './secondPage';
 import ThirdPage from './thirdPage';
 import ForthPage from './forthPage';
+import FifthPage from './fifthPage';
+import SixthPage from './sixthPage';
 import VideoIn from './videoIn';
 import { useEffect, useRef } from 'react';
 //引入redux
@@ -57,6 +59,8 @@ export default function Home() {
                     <div className="swiper-slide slide2"> <SecondPage /></div>
                     <div className="swiper-slide slide3"><ThirdPage /></div>
                     <div className="swiper-slide slide4">< ForthPage /></div>
+                    <div className="swiper-slide slide5">< FifthPage /></div>
+                    <div className="swiper-slide slide6">< SixthPage /></div>
                 </div>
             </div>
 
