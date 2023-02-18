@@ -818,10 +818,110 @@
     .sixth-page {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-between;
         width: 92%;
         margin: 0 0 0 auto;
         position: relative;
+
+        &-card {
+            display: flex;
+            justify-content: space-between;
+            width: 72%;
+            height: 28vw;
+            margin-right: 4vw;
+
+
+            /* 创建透视效果 */
+            .card {
+                position: relative;
+                width: 30%;
+                height: 80%;
+                perspective: 1000px;
+                cursor: pointer;
+
+                /* 保持子元素的 3D 转换效果 */
+                .imgBox {
+                    position: relative;
+                    width: 85%;
+                    height: 100%;
+                    margin: 0 auto;
+                    transform-style: preserve-3d;
+
+                    .box {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        clip-path: polygon(0 15%, 36% 0, 100% 0, 100% 85%, 64% 100%, 0 100%);
+                        z-index: 2;
+                        overflow: hidden;
+
+                        img {
+                            position: relative;
+                            width: 115%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+
+                    span {
+                        position: absolute;
+                        left: 1vw;
+                        top: -0.3vw;
+                        color: $gold_color;
+                        font-size: var(--ch_xl_text);
+                        letter-spacing: 0.1em;
+                        z-index: 3;
+                    }
+
+                    &::after,
+                    &::before {
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        right: -0.3vw;
+                        top: -0.3vw;
+                        width: 93%;
+                        height: 102%;
+                        border: 1px solid $gold_color;
+                        z-index: 0;
+                        clip-path: polygon(0 15%, 40% 0, 100% 0, 100% 85%, 60% 100%, 0 100%, 0 30%);
+                        background-color: $gold_color;
+                    }
+
+                    &::before {
+                        z-index: 1;
+                        background-color: #f7f7f7;
+                        border: none;
+                        top: -0.26vw;
+                        right: -0.24vw;
+                        transition: 0.3s;
+                    }
+                }
+
+                .paraBox {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 20%;
+
+                    h6 {
+                        @include title-s-en();
+                    }
+                }
+
+                &:hover {
+                    .imgBox {
+                        &::before {
+                            opacity: 0
+                        }
+                    }
+                }
+
+            }
+
+        }
     }
 }
 

@@ -72,6 +72,7 @@ export default function FifthPage() {
         gg.to(".fifth-page-bg .imgBox img", {
             x: `${(e.clientX / 2 - e.pageX) / 35}px`
         })
+
     }
     return (
         <section className="fifth-page" ref={animateScope} onMouseMove={handleMouseMove}>
