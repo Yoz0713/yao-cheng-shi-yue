@@ -9,7 +9,8 @@ const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
 export default function SixthPage() {
-    const animateRef = useRef(null)
+    const animateRef = useRef(null);
+    let animationDone = false
     useLayoutEffect(() => {
         let gg;
         let ctx = gsap.context(() => {
@@ -25,7 +26,9 @@ export default function SixthPage() {
                 rotateY: 0,
                 stagger: 0.3,
                 duration: 1.4
-            }, "<")
+            }, "<").then(() => {
+                animationDone = true
+            })
         }, animateRef)
         const unsubscribe = store.subscribe(() => {
             if (store.getState().slideReducer.slide === 5) {
@@ -41,16 +44,17 @@ export default function SixthPage() {
     }, [])
 
     const handleMouseMove = function (e) {
-        console.log(e, e.clientX, e.pageX)
-        console.log(animateRef)
-        let gg = gsap.timeline()
+
+        let gg = gsap.timeline({ paused: true })
         gg.to(".sixth-page-card .imgBox img", {
             x: `${(animateRef.current.clientWidth / 2 - e.pageX) / 35}px`
         }).to(".sixth-page-card .imgBox", {
             rotateY: (animateRef.current.clientWidth / 2 - e.pageX) / 75,
             // rotateX: (animateRef.current.clientHeight / 2 - e.pageY) / 75,
         })
-
+        if (animationDone == true) {
+            gg.play()
+        }
     }
     return (
         <section className="sixth-page" ref={animateRef} onMouseMove={handleMouseMove}>
