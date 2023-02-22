@@ -219,26 +219,32 @@ $white_color: #f7f7f7;
 
 
                         li {
-                            display: flex;
-                            align-items: center;
+
                             width: 100%;
                             margin-bottom: 0.8vw;
                             cursor: pointer;
 
-                            img {
-                                width: 0.8vw;
-                                margin-right: 0.5vw;
-                                pointer-events: none;
+                            a {
+                                display: flex;
+                                align-items: center;
+
+                                img {
+                                    width: 0.8vw;
+                                    margin-right: 0.5vw;
+                                    pointer-events: none;
+                                }
+
+                                p {
+                                    font-weight: 500;
+                                    font-size: 1vw;
+                                    letter-spacing: 0.05em;
+                                    margin-bottom: 0.3vw;
+                                    pointer-events: none;
+                                    transition: color 0.3s;
+                                    color: #000;
+                                }
                             }
 
-                            p {
-                                font-weight: 500;
-                                font-size: 1vw;
-                                letter-spacing: 0.05em;
-                                margin-bottom: 0.3vw;
-                                pointer-events: none;
-                                transition: color 0.3s;
-                            }
 
                             &:hover {
                                 p {

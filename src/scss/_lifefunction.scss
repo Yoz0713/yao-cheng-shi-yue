@@ -1,0 +1,118 @@
+.life-function {
+    position: relative;
+    width: 100%;
+    height: calc(100vw*(9/16));
+    overflow: hidden;
+
+    .banner-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .logo {
+        position: absolute;
+        left: 32.2vw;
+        top: 6vw;
+        width: 8vw;
+
+        img {
+            width: 100%;
+        }
+
+        .glow {
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            width: 25%;
+            height: 30.8vw;
+            background: linear-gradient(180deg, transparent 0%, #ffffff93 30%, #ffffffff 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 97%, 50% 100%, 0% 98%, );
+            transform-origin: center bottom;
+
+            .dot {
+                position: absolute;
+                bottom: 0;
+                width: 0.2vw;
+                height: 0.2vw;
+                border-radius: 50%;
+                background-color: #fff;
+                box-shadow: 0 0 10px 3px #fff;
+                animation-name: glow;
+
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+            }
+        }
+    }
+
+    .para-container {
+        display: flex;
+        position: absolute;
+        left: 6.5vw;
+        top: 14vw;
+        width: 100%;
+        height: 100%;
+
+        .paraBox {
+            position: relative;
+            width: fit-content;
+            height: fit-content;
+
+            p {
+                color: #fff;
+                writing-mode: vertical-rl;
+                letter-spacing: 0.2em;
+                font-weight: 400;
+                font-size: var(--ch_s_text);
+
+                span {
+                    writing-mode: horizontal-tb;
+                    letter-spacing: 0;
+                }
+            }
+
+            .line {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: 1px;
+                top: 105%;
+                background-color: #fff;
+                transform-origin: center top;
+
+                &::after {
+                    display: block;
+                    content: "";
+                    width: 0.2vw;
+                    height: 0.2vw;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: -0.08vw;
+                    bottom: 0;
+                    box-shadow: 0 0 10px 3px #fff;
+                }
+            }
+
+
+        }
+
+
+
+    }
+}
+
+
+@keyframes glow {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: 100%;
+    }
+}

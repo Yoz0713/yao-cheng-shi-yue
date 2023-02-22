@@ -1,16 +1,18 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { Provider } from "react-redux"; // 1.
+import { store } from './component/redux/store';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom'
 import App from "./app"
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 function Index() {
 
     return (
-        <>
-            <App />
-        </>
 
+        <Provider store={store}>  { /* 將store作為props傳遞給其他component */}
+            <App />
+        </Provider>
 
     )
 }

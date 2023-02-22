@@ -1,15 +1,7 @@
 import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomeThirdPageCover } from "../config/svgCollection"
-//import redux store
-import { store } from '../redux/store';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay } from 'swiper';
-SwiperCore.use([Autoplay])
-// Import Swiper styles
-import 'swiper/css';
-import "swiper/css/autoplay"
+import { Link } from 'react-router-dom';
 // Import animation libary
 import { gsap } from "gsap";
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
@@ -25,8 +17,9 @@ export default function ThirdPage() {
     const slide = useRef(null)
     const animate = useRef(null)
     let count;
+
     useLayoutEffect(() => {
-        console.log()
+
         let ctx = gsap.context(() => {
             let gg = gsap.timeline({
                 yoyo: true,
@@ -51,17 +44,20 @@ export default function ThirdPage() {
                 duration: 0.8,
                 stagger: 0.02,
             }, "<").then(() => {
-                if (change >= 0 && change < slide.current.children.length - 1) {
-                    count = change
-                    count++
-                    setChange(count)
-                } else {
-                    setChange(0)
+                if (slide.current) {
+                    if (change >= 0 && change < slide.current.children.length - 1) {
+                        count = change
+                        count++
+                        setChange(count)
+                    } else {
+                        setChange(0)
+                    }
                 }
+
             })
 
 
-        }, [animate])
+        }, animate)
         return () => ctx.revert()
 
     }, [change])
@@ -113,7 +109,20 @@ function SectionNav({ handleClick }) {
             </div>
             <ul className="nav">
                 {item.map((item, i) => {
-                    return <li key={item.id} className={`team${i + 1}`} onClick={handleClick}><p >{item.ch}</p><p>{item.en}</p></li>
+                    if (i == 0) {
+                        return <Link key={item.id}>
+                            <li className={`team${i + 1}`} onClick={handleClick}>
+                                <p >{item.ch}</p><p>{item.en}</p>
+                            </li>
+                        </Link>
+                    } else {
+                        return <Link to={"lifefunction"} key={item.id}>
+                            <li className={`team${i + 1}`} onClick={handleClick}>
+                                <p >{item.ch}</p><p>{item.en}</p>
+                            </li>
+                        </Link>
+                    }
+
                 })}
             </ul>
         </div>

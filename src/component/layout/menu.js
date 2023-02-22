@@ -2,6 +2,7 @@ import React from 'react';
 import { gsap } from "gsap";
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { MenuToggleButton } from '../config/svgCollection';
+import { Link, useLocation } from 'react-router-dom';
 const requireSvg = require.context("../../../img/layout/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 
@@ -17,6 +18,7 @@ export default function Menu() {
 }
 
 function MenuContent({ open, setOpen }) {
+
     const title = [{
         ch: "森聯機構",
         en: "TOP"
@@ -46,7 +48,7 @@ function MenuContent({ open, setOpen }) {
         id: 1,
         ch: "都市計畫",
     }, {
-        id: 2,
+        id: "/lifefunction",
         ch: "生活機能圖",
     }], [{
         id: 1,
@@ -79,20 +81,26 @@ function MenuContent({ open, setOpen }) {
     return (
         <div className="menu-content" style={{ clipPath: open == false ? "polygon(100% 0, 100% 100%, 100% 100%, 100% 0)" : "polygon(100% 0, 100% 100%, 0% 100%, 0% 0)" }}>
             <div className="menu-logo">
-                <img src={svg[1].default} />
+                <Link to={"/"} onClick={() => setOpen(false)}>
+                    <img src={svg[1].default} />
+                </Link>
+
             </div>
             <div className="menu-option">
-                <Option title={title[0]} item={item[0]} />
-                <Option title={title[1]} item={item[1]} />
-                <Option title={title[2]} item={item[2]} />
-                <Option title={title[3]} item={item[3]} />
-                <Option title={title[4]} item={item[4]} />
+                <Option setOpen={setOpen} title={title[0]} item={item[0]} />
+                <Option setOpen={setOpen} title={title[1]} item={item[1]} />
+                <Option setOpen={setOpen} title={title[2]} item={item[2]} />
+                <Option setOpen={setOpen} title={title[3]} item={item[3]} />
+                <Option setOpen={setOpen} title={title[4]} item={item[4]} />
             </div>
         </div>
     )
 }
-function Option({ title, item }) {
-
+function Option({ title, item, setOpen }) {
+    const location = useLocation()
+    const handleClick = () => {
+        setOpen(false)
+    }
 
     return (
         <div className="option">
@@ -103,7 +111,13 @@ function Option({ title, item }) {
                 </div>
                 <ul className="nav">
                     {item.map((item, i) => {
-                        return <li key={item.id} ><img src={svg[2]} /><p >{item.ch}</p></li>
+                        return <li key={item.id} onClick={handleClick} style={{ pointerEvents: location.pathname == item.id ? "none" : "auto" }}>
+                            <Link to={`${item.id}`}>
+                                <img src={svg[2]} />
+                                <p style={{ color: location.pathname == item.id ? "#ccc" : "#000" }} >{item.ch}</p>
+                            </Link>
+
+                        </li>
                     })}
                 </ul>
             </div>

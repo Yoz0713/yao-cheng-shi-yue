@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomeSecondPageSvgTree, HomeSecondPageSunlandLogo } from '../config/svgCollection';
-import { store } from '../redux/store';
+import { connect } from 'react-redux';
 // Import animation libary
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -15,7 +15,7 @@ const webp = requireWebp.keys().map(requireWebp);
 const requirePng = require.context("../../../img/index/png", false, /^\.\/.*\.png$/);
 const png = requirePng.keys().map(requirePng);
 
-export default function SecondPage() {
+function SecondPage({ reduxState }) {
     const secondPage = useRef();
     const [type, setType] = useState(null)
 
@@ -73,24 +73,19 @@ export default function SecondPage() {
     }, [type])
     //觸觸發第一次type change (team1)
     useEffect(() => {
-        let header = document.querySelector(".header")
-        header.style.opacity = 0
-        const unsubscribe = store.subscribe(() => {
-            if (store.getState().slideReducer.slide === 1) {
-                header.style.opacity = 1
-                setType(null);
-                setTimeout(() => {
-                    setType('team1');
-                }, 800);
-            } else if (store.getState().slideReducer.slide === 0) {
-                header.style.opacity = 0
-            }
-        });
 
-        return () => {
-            unsubscribe();
-        };
-    }, [])
+
+        if (reduxState === 1) {
+
+            setType(null);
+            setTimeout(() => {
+                setType('team1');
+            }, 800);
+        }
+
+
+
+    }, [reduxState])
     const handleClick = ((e) => {
         setType(e.target.className)
     })
@@ -101,7 +96,12 @@ export default function SecondPage() {
         </section>
     )
 }
+export default connect((state) => {
+    return {
+        reduxState: state.slideReducer.slide
+    }
 
+}, null)(SecondPage)
 function CoverLogo({ type }) {
 
     return (

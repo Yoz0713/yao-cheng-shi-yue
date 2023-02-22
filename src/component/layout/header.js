@@ -1,13 +1,29 @@
 import React from 'react';
-
-
+import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
 const requireSvg = require.context("../../../img/layout/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 
-export default function Headers() {
+
+
+function Headers({ reduxState }) {
+    const location = useLocation();
+
     return (
         <div className="header">
-            <img src={svg[0].default} />
+            <Link to={"/"}>
+                <img src={svg[0].default} style={{ opacity: location.pathname !== "/" ? "0" : reduxState == 0 ? "0" : "1", transition: "0.5s" }} />
+            </Link>
+
+
         </div>
     )
 }
+
+export default connect((state) => {
+    return {
+        reduxState: state.slideReducer.slide
+    }
+
+}, null)(Headers)

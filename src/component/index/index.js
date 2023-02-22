@@ -8,16 +8,17 @@ import SixthPage from './sixthPage';
 import VideoIn from './videoIn';
 import { useEffect, useRef } from 'react';
 //引入redux
+import { connect } from 'react-redux';
 import { slideChangeAction } from '../redux/action/slideChange';
-import { store } from '../redux/store';
 //引入swiper
 import Swiper, { EffectCreative } from 'swiper';
 import 'swiper/css';
 import SwiperCore, { Mousewheel } from "swiper/core";
 SwiperCore.use([Mousewheel]);
 //組合成首頁
-export default function Home() {
+function Home({ slideChangeAction, myState }) {
     const swiperRef = useRef()
+
     //斜走特效
     useEffect(() => {
         if (swiperRef.current) {
@@ -43,13 +44,17 @@ export default function Home() {
 
                     slideChangeTransitionStart: function (e) {
 
-                        store.dispatch(slideChangeAction(e.activeIndex))
+                        slideChangeAction(e.activeIndex)
+
+
+
+
                     }
 
                 },
             });
         }
-    }, [swiperRef]);
+    }, []);
     return (
         <div className='index' >
             <VideoIn />
@@ -61,6 +66,7 @@ export default function Home() {
                     <div className="swiper-slide slide4">< ForthPage /></div>
                     <div className="swiper-slide slide5">< FifthPage /></div>
                     <div className="swiper-slide slide6">< SixthPage /></div>
+
                 </div>
             </div>
 
@@ -69,4 +75,16 @@ export default function Home() {
         </div>
     )
 }
+const mapStateToProps = (state) => {
 
+    return {
+        myState: { ...state.slideReducer },
+
+    };
+};
+
+const mapDispatchToProps = {
+    slideChangeAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

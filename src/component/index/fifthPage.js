@@ -1,6 +1,5 @@
 import React from 'react'
-import { store } from '../redux/store';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 // Import animation libary
 import { gsap } from "gsap";
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);

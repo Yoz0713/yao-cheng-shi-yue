@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRef, useState, useLayoutEffect } from 'react';
-import { store } from "../redux/store"
+import { connect } from 'react-redux';
 // Import animation libary
 import { gsap } from "gsap";
 
@@ -8,40 +8,43 @@ const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.sv
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
-export default function SixthPage() {
+function SixthPage({ reduxState }) {
     const animateRef = useRef(null);
     let animationDone = false
+
     useLayoutEffect(() => {
         let gg;
-        let ctx = gsap.context(() => {
-            gg = gsap.timeline({ paused: true })
-            gg.from(".sixth-page-card .card", {
-                opacity: 0,
-                y: "2.5vw",
-                stagger: "0.3"
-            }).fromTo(".sixth-page-card .card .imgBox", {
-                rotateY: 60,
+        let ctx;
 
-            }, {
-                rotateY: 0,
-                stagger: 0.3,
-                duration: 1.4
-            }, "<").then(() => {
-                animationDone = true
-            })
-        }, animateRef)
-        const unsubscribe = store.subscribe(() => {
-            if (store.getState().slideReducer.slide === 5) {
-                setTimeout(() => {
-                    gg.play()
-                }, 800);
+        if (reduxState === 5) {
+            ctx = gsap.context(() => {
+                gg = gsap.timeline({ paused: true })
+                gg.from(".sixth-page-card .card", {
+                    opacity: 0,
+                    y: "2.5vw",
+                    stagger: "0.3"
+                }).fromTo(".sixth-page-card .card .imgBox", {
+                    rotateY: 60,
+
+                }, {
+                    rotateY: 0,
+                    stagger: 0.3,
+                    duration: 1.4
+                }, "<").then(() => {
+                    animationDone = true
+                })
+            }, animateRef)
+            setTimeout(() => {
+                gg.play()
+            }, 800);
+
+            return () => {
+                ctx.revert()
             }
-        });
-        return () => {
-            unsubscribe()
-            ctx.revert()
         }
-    }, [])
+
+
+    }, [reduxState])
 
     const handleMouseMove = function (e) {
 
@@ -63,7 +66,12 @@ export default function SixthPage() {
         </section>
     )
 }
-
+// connect hoc方式綁定sixth-page
+export default connect((state) => {
+    return {
+        reduxState: state.slideReducer.slide
+    }
+}, null)(SixthPage)
 
 function SixthPagePara() {
     return (

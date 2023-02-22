@@ -6,12 +6,16 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+
     },
     resolve: {
         modules: [path.join(__dirname, 'src'), 'node_modules'],
         alias: {
             react: path.join(__dirname, 'node_modules', 'react'),
         },
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     module: {
         rules: [

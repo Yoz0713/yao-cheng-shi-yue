@@ -11,6 +11,7 @@ export const slideReducer = (state = initialState, action) => {
             return {
                 ...state,
                 slide: action.payload
+
             }
 
         default:
