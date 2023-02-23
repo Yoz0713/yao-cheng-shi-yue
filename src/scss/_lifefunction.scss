@@ -51,14 +51,16 @@
     .para-container {
         display: flex;
         position: absolute;
-        left: 6.5vw;
+        left: 6vw;
         top: 14vw;
         width: 100%;
         height: 100%;
 
         .paraBox {
+            display: flex;
+            justify-content: center;
             position: relative;
-            width: fit-content;
+            width: 2vw;
             height: fit-content;
 
             p {
@@ -67,10 +69,13 @@
                 letter-spacing: 0.2em;
                 font-weight: 400;
                 font-size: var(--ch_s_text);
+                white-space: nowrap;
+                line-height: 0;
 
                 span {
                     writing-mode: horizontal-tb;
                     letter-spacing: 0;
+                    margin: 0.6em 0 1em;
                 }
             }
 

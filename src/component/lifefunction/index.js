@@ -43,12 +43,12 @@ function AerialImage() {
         <div className="life-function" ref={animateRef}>
             <LogoBox />
             <div className="para-container">
-                <AerialPara height={"15.5vw"} mr={"31.5vw"}>新北<span>AI</span>產業園區</AerialPara>
-                <AerialPara height={"20vw"} mr={"0.8vw"}>欣境廣場</AerialPara>
+                <AerialPara height={"15.5vw"} mr={"30.3vw"}>新北<span>AI</span>產業園區</AerialPara>
+                <AerialPara height={"20vw"} mr={"0vw"}>欣境廣場</AerialPara>
                 <AerialPara height={"20vw"} mr={"10.2vw"}>扶輪公園</AerialPara>
-                <AerialPara height={"22.5vw"} mr={"4.6vw"}>三井<span>OUTLET</span></AerialPara>
+                <AerialPara height={"22.5vw"} mr={"6vw"}>三井<span>OUTLET</span></AerialPara>
                 <AerialPara height={"20.5vw"} mr={"1.5vw"}>三井<span>OUTLET</span>二期</AerialPara>
-                <AerialPara height={"21vw"} mr={"0.8vw"}>三立國際影城</AerialPara>
+                <AerialPara height={"21vw"} mr={"0vw"}>三立國際影城</AerialPara>
                 <AerialPara height={"19.2vw"} mr={"2vw"}>東森媒體總部</AerialPara>
             </div>
             <img src={webp[0].default} className="banner-bg" />
