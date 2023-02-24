@@ -32,8 +32,11 @@ function Content() {
         if (location !== displayLocation) setTransistionStage("fadeOut");
     }, [location]);
     useLayoutEffect(() => {
+        let gg;
+        let gg2;
+
         if (transitionStage == "fadeOut") {
-            let gg = gsap.timeline({ ease: "none" })
+            gg = gsap.timeline({ ease: "none" })
             gg.to(`.${transitionStage}`, {
 
                 duration: 0.8,
@@ -50,14 +53,22 @@ function Content() {
                 }
             })
         } else {
-            let gg = gsap.timeline({ ease: "none" })
-            gg.to(`.${transitionStage}`, {
+            gg2 = gsap.timeline({ ease: "none" })
+            gg2.to(`.${transitionStage}`, {
 
                 duration: 1.2,
                 opacity: 1,
             })
         }
+        return () => {
+            if (transitionStage == "fadeOut") {
+                gg.revert();
+            } else {
+                gg2.revert();
+            }
 
+
+        }
     }, [transitionStage])
     return (
         <div

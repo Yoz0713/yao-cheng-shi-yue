@@ -16,7 +16,7 @@ function LifeFunction() {
 
 
 export default LifeFunction
-
+const PreloadedImage = preloadImage(webp[0].default);
 function AerialImage() {
     const animateRef = useRef(null)
 
@@ -54,9 +54,16 @@ function AerialImage() {
                 <AerialPara height={"21vw"} mr={"0vw"}>三立國際影城</AerialPara>
                 <AerialPara height={"19.2vw"} mr={"2vw"}>東森媒體總部</AerialPara>
             </div>
-            <img src={webp[0].default} className="banner-bg" />
+            <PreloadedImage className="banner-bg" />
         </div>
     )
+}
+function preloadImage(src) {
+    const image = new Image();
+    image.src = src;
+    return function PreloadedImage(props) {
+        return <img {...props} src={src} />;
+    };
 }
 function AerialPara(props) {
 
