@@ -34,16 +34,16 @@ function Content() {
     useLayoutEffect(() => {
         if (transitionStage == "fadeOut") {
             let gg = gsap.timeline({ ease: "none" })
-            gg.fromTo(`.${transitionStage}`, {
-                opacity: 1
-            }, {
+            gg.to(`.${transitionStage}`, {
 
                 duration: 0.8,
                 opacity: 0,
                 onComplete: () => {
                     setDisplayLocation(location);
+                    setTimeout(() => {
+                        setTransistionStage("fadeIn")
+                    }, 200)
 
-                    setTransistionStage("fadeIn")
 
 
 
@@ -51,9 +51,7 @@ function Content() {
             })
         } else {
             let gg = gsap.timeline({ ease: "none" })
-            gg.fromTo(`.${transitionStage}`, {
-                opacity: 0
-            }, {
+            gg.to(`.${transitionStage}`, {
 
                 duration: 1.2,
                 opacity: 1,
