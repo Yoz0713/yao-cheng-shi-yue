@@ -17,12 +17,12 @@ import 'swiper/css';
 import SwiperCore, { Mousewheel } from "swiper/core";
 SwiperCore.use([Mousewheel]);
 //組合成首頁
-function Home({ slideChangeAction, myState }) {
+function Home({ slideChangeAction, myState, setTransistionStage }) {
     const swiperRef = useRef()
 
     //斜走特效
     useEffect(() => {
-
+        setTransistionStage("fadeIn")
         if (swiperRef.current) {
             Swiper.use([EffectCreative]); // Import the EffectCreative module
 

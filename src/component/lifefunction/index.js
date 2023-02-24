@@ -8,16 +8,16 @@ const requireWebp = require.context("../../../img/lifefunction/webp", false, /^\
 const webp = requireWebp.keys().map(requireWebp);
 const requirepng = require.context("../../../img/lifefunction/png", false, /^\.\/.*\.png$/);
 const png = requirepng.keys().map(requirepng);
-function LifeFunction() {
+function LifeFunction({ setTransistionStage }) {
     return (
-        <AerialImage />
+        <AerialImage setTransistionStage={setTransistionStage} />
     )
 }
 
 
 export default LifeFunction
 
-function AerialImage() {
+function AerialImage({ setTransistionStage }) {
     const animateRef = useRef(null)
 
     useLayoutEffect(() => {
@@ -54,7 +54,7 @@ function AerialImage() {
                 <AerialPara height={"21vw"} mr={"0vw"}>三立國際影城</AerialPara>
                 <AerialPara height={"19.2vw"} mr={"2vw"}>東森媒體總部</AerialPara>
             </div>
-            <img src={webp[0].default} className="banner-bg" />
+            <img src={webp[0].default} className="banner-bg" onLoad={() => setTransistionStage("fadeIn")} />
         </div>
     )
 }
