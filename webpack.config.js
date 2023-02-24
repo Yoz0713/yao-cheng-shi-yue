@@ -9,9 +9,9 @@ module.exports = {
 
     },
     resolve: {
-        modules: [path.join(__dirname, 'src'), 'node_modules'],
+        modules: [path.join(__dirname, 'src'), 'node_modules'], //優先查找src裡的文件再查找nodeModules裡面的
         alias: {
-            react: path.join(__dirname, 'node_modules', 'react'),
+            react: path.join(__dirname, 'node_modules', 'react'),//將查找react路徑簡化為import react from "react"
         },
     },
     devServer: {

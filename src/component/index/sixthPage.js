@@ -63,6 +63,7 @@ function SixthPage({ reduxState }) {
         <section className="sixth-page" ref={animateRef} onMouseMove={handleMouseMove}>
             <SixthPagePara />
             <SixthPageCard />
+            <img src={svg[2]} />
         </section>
     )
 }

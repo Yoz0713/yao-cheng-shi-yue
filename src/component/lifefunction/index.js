@@ -6,6 +6,8 @@ const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.sv
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/lifefunction/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
+const requirepng = require.context("../../../img/lifefunction/png", false, /^\.\/.*\.png$/);
+const png = requirepng.keys().map(requirepng);
 function LifeFunction() {
     return (
         <AerialImage />
@@ -41,6 +43,7 @@ function AerialImage() {
     }, [])
     return (
         <div className="life-function" ref={animateRef}>
+            <Cloud />
             <LogoBox />
             <div className="para-container">
                 <AerialPara height={"15.5vw"} mr={"30.3vw"}>新北<span>AI</span>產業園區</AerialPara>
@@ -86,6 +89,18 @@ function LogoBox() {
                     return <div key={i} className='dot' style={{ left: item.x, animationDuration: item.duration, animationDelay: item.delay, transform: `scale(${item.scale})` }}></div>
                 })}
             </div>
+        </div>
+    )
+}
+
+function Cloud() {
+    return (
+        <div className="cloud">
+            <img src={png[0].default} style={{ width: "80%", opacity: 0.3, animationDuration: "600s", left: "80%" }} />
+            <img src={png[0].default} style={{ width: "40%", opacity: 0.4, animationDuration: "500s", left: "50%" }} />
+
+            <img src={png[0].default} style={{ width: "20%", opacity: 0.6, animationDuration: "300s" }} />
+            <img src={png[0].default} style={{ width: "60%", opacity: 0.4, animation: "none", left: "5%", transform: "rotateY(180deg)", top: "8vw" }} />
         </div>
     )
 }

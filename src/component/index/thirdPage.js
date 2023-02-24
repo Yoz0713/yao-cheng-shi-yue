@@ -94,12 +94,12 @@ export default function ThirdPage() {
 function SectionNav({ handleClick }) {
     let item = [{
         id: 1,
-        ch: "都市計畫",
-        en: "URBAN PLANNING"
+        ch: "實景空拍",
+        en: "AERIAL VIEWS"
     }, {
         id: 2,
-        ch: "生活機能圖",
-        en: "LIFE FUNCTION"
+        ch: "都市計畫",
+        en: "URBAN PLANNING"
     },]
     return (
         <div className="section-nav">
@@ -110,13 +110,13 @@ function SectionNav({ handleClick }) {
             <ul className="nav">
                 {item.map((item, i) => {
                     if (i == 0) {
-                        return <Link key={item.id}>
+                        return <Link to={"lifefunction"} key={item.id}>
                             <li className={`team${i + 1}`} onClick={handleClick}>
                                 <p >{item.ch}</p><p>{item.en}</p>
                             </li>
                         </Link>
                     } else {
-                        return <Link to={"lifefunction"} key={item.id}>
+                        return <Link key={item.id}>
                             <li className={`team${i + 1}`} onClick={handleClick}>
                                 <p >{item.ch}</p><p>{item.en}</p>
                             </li>

@@ -7,6 +7,7 @@ import FifthPage from './fifthPage';
 import SixthPage from './sixthPage';
 import VideoIn from './videoIn';
 import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 //引入redux
 import { connect } from 'react-redux';
 import { slideChangeAction } from '../redux/action/slideChange';
@@ -21,39 +22,31 @@ function Home({ slideChangeAction, myState }) {
 
     //斜走特效
     useEffect(() => {
+
         if (swiperRef.current) {
             Swiper.use([EffectCreative]); // Import the EffectCreative module
 
-            new Swiper(swiperRef.current, {
+            let swiper1 = new Swiper(swiperRef.current, {
                 // Optional parameters
                 direction: 'vertical',
                 // If you want to enable mousewheel support
                 mousewheel: true,
                 speed: 1100,
                 effect: 'custom', // Set the effect to 'creative'
-                creativeEffect: {
-                    // Customize the creative effect parameters
-                    prev: {
-                        translate: ["-100%", "-100%", 0],
-                    },
-                    next: {
-                        translate: ['100%', "100%", 0],
-                    },
-                },
+
                 on: {
 
                     slideChangeTransitionStart: function (e) {
 
                         slideChangeAction(e.activeIndex)
-
-
-
-
                     }
 
                 },
             });
+
+            swiper1.slideTo(myState)
         }
+
     }, []);
     return (
         <div className='index' >
@@ -78,7 +71,7 @@ function Home({ slideChangeAction, myState }) {
 const mapStateToProps = (state) => {
 
     return {
-        myState: { ...state.slideReducer },
+        myState: state.slideReducer.slide,
 
     };
 };
