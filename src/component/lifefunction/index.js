@@ -2,6 +2,7 @@ import React from 'react'
 import { useLayoutEffect, useRef } from 'react';
 // Import animation libary
 import { gsap } from "gsap";
+import MoveBack from '../config/moveBack';
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/lifefunction/webp", false, /^\.\/.*\.webp$/);
@@ -10,7 +11,11 @@ const requirepng = require.context("../../../img/lifefunction/png", false, /^\.\
 const png = requirepng.keys().map(requirepng);
 function LifeFunction({ setTransistionStage }) {
     return (
-        <AerialImage setTransistionStage={setTransistionStage} />
+        <>
+            <AerialImage setTransistionStage={setTransistionStage} />
+            <MoveBack z={20} />
+        </>
+
     )
 }
 

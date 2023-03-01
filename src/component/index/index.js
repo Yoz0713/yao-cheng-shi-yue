@@ -7,7 +7,6 @@ import FifthPage from './fifthPage';
 import SixthPage from './sixthPage';
 import VideoIn from './videoIn';
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 //引入redux
 import { connect } from 'react-redux';
 import { slideChangeAction } from '../redux/action/slideChange';
@@ -20,9 +19,11 @@ SwiperCore.use([Mousewheel]);
 function Home({ slideChangeAction, myState, setTransistionStage }) {
     const swiperRef = useRef()
 
+
+
     //斜走特效
     useEffect(() => {
-        setTransistionStage("fadeIn")
+
         if (swiperRef.current) {
             Swiper.use([EffectCreative]); // Import the EffectCreative module
 

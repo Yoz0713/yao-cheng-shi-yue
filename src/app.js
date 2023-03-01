@@ -43,6 +43,9 @@ function Content() {
                 opacity: 0,
                 onComplete: () => {
                     setDisplayLocation(location);
+                    if (location.pathname != "/lifefunction") {
+                        setTransistionStage("fadeIn")
+                    }
                     // setTimeout(() => {
                     //     setTransistionStage("fadeIn")
                     // }, 200)
@@ -75,7 +78,7 @@ function Content() {
             className={`${transitionStage}`}
         >
             <Routes location={displayLocation}>
-                <Route path="/" element={<Home setTransistionStage={setTransistionStage} />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/lifefunction" element={<LifeFunction setTransistionStage={setTransistionStage} />} />
             </Routes>
         </div>

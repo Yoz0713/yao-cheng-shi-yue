@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomeSecondPageSvgTree, HomeSecondPageSunlandLogo } from '../config/svgCollection';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 // Import animation libary
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -15,11 +15,10 @@ const webp = requireWebp.keys().map(requireWebp);
 const requirePng = require.context("../../../img/index/png", false, /^\.\/.*\.png$/);
 const png = requirePng.keys().map(requirePng);
 
-function SecondPage({ reduxState }) {
+export default function SecondPage() {
     const secondPage = useRef();
     const [type, setType] = useState(null)
-
-
+    const reduxState = useSelector(state => state.slideReducer.slide)
     //三種team進場效果
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -96,12 +95,7 @@ function SecondPage({ reduxState }) {
         </section>
     )
 }
-export default connect((state) => {
-    return {
-        reduxState: state.slideReducer.slide
-    }
 
-}, null)(SecondPage)
 function CoverLogo({ type }) {
 
     return (
