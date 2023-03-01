@@ -71,15 +71,15 @@ export default function ThirdPage() {
                 <div className="imgBox" ref={slide}>
                     <div className="box" style={{ display: change == 0 ? "block" : "none" }} >
                         <img src={webp[10].default} />
-                        <span className='sampleText'>情境式意圖</span>
+                        {/* <span className='sampleText'>情境式意圖</span> */}
                     </div>
                     <div className="box" style={{ display: change == 1 ? "block" : "none" }}>
                         <img src={webp[11].default} />
-                        <span className='sampleText'>情境式意圖</span>
+                        {/* <span className='sampleText'>情境式意圖</span> */}
                     </div>
                     <div className="box" style={{ display: change == 2 ? "block" : "none" }}>
                         <img src={webp[12].default} />
-                        <span className='sampleText'>情境式意圖</span>
+                        {/* <span className='sampleText'>情境式意圖</span> */}
                     </div>
 
 

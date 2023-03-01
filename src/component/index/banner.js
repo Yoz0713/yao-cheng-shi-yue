@@ -291,15 +291,15 @@ function BannerImg({ swiperNav }) {
         <div className='imgBox'>
             <div className="box" style={{ display: swiperNav == 0 ? "block" : "none" }}>
                 <img src={webp[0].default} />
-                <span className='sampleText'>情境示意圖</span>
+                {/* <span className='sampleText'>情境示意圖</span> */}
             </div>
             <div className="box" style={{ display: swiperNav == 1 ? "block" : "none" }}>
                 <img src={webp[1].default} />
-                <span className='sampleText'>情境示意圖</span>
+                {/* <span className='sampleText'>情境示意圖</span> */}
             </div>
             <div className="box" style={{ display: swiperNav == 2 ? "block" : "none" }}>
                 <img src={webp[2].default} />
-                <span className='sampleText'>情境示意圖</span>
+                {/* <span className='sampleText'>情境示意圖</span> */}
             </div>
         </div>
 

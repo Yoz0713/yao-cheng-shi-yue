@@ -61,7 +61,7 @@ function ForthPageBg() {
             <img src={svg[7]} />
             <div className="imgBox">
                 <img src={webp[13].default} />
-                <span className='sampleText'>情境示意圖</span>
+                {/* <span className='sampleText'>情境示意圖</span> */}
             </div>
 
         </div>

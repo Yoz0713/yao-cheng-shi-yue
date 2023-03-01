@@ -102,11 +102,10 @@ function LogoBox() {
 function Cloud() {
     return (
         <div className="cloud">
-            <img src={png[0].default} style={{ width: "80%", opacity: 0.3, animationDuration: "600s", left: "80%" }} />
-            <img src={png[0].default} style={{ width: "40%", opacity: 0.4, animationDuration: "500s", left: "50%" }} />
-
-            <img src={png[0].default} style={{ width: "20%", opacity: 0.6, animationDuration: "300s" }} />
-            <img src={png[0].default} style={{ width: "60%", opacity: 0.4, animation: "none", left: "5%", transform: "rotateY(180deg)", top: "8vw" }} />
+            <img src={png[0].default} style={{ width: "80%", opacity: 0.1, animationDuration: "600s", left: "80%" }} />
+            <img src={png[0].default} style={{ width: "40%", opacity: 0.2, animationDuration: "500s", left: "50%" }} />
+            <img src={png[0].default} style={{ width: "20%", opacity: 0.4, animationDuration: "300s" }} />
+            <img src={png[0].default} style={{ width: "60%", opacity: 0.2, animation: "none", left: "5%", transform: "rotateY(180deg)", top: "8vw" }} />
         </div>
     )
 }

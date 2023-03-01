@@ -85,9 +85,9 @@ function MenuContent({ open, setOpen }) {
         <div className="menu-content" style={{ clipPath: open == false ? "polygon(100% 0, 100% 100%, 100% 100%, 100% 0)" : "polygon(100% 0, 100% 100%, 0% 100%, 0% 0)" }}>
             <div className="menu-logo">
                 <Link to={"/"} onClick={() => {
-
-                    setOpen(false);
                     dispatch(playVideo())
+                    setOpen(false);
+
                 }}>
                     <img src={svg[1].default} />
                 </Link>

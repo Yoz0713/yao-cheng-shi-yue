@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="_圖層_2" data-name="圖層 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1134.42 966.73">
+<svg id="_圖層_2" data-name="圖層 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1105.27 1062.74">
   <defs>
     <style>
       .cls-1 {
-        fill: #eeeeee;
-      }
-
-      .cls-2 {
-        fill: none;
-        opacity: .5;
-        stroke: none;
-        stroke-miterlimit: 10;
-        stroke-width: .75px;
+        fill: #eee;
       }
     </style>
   </defs>
   <g id="_圖層_1-2" data-name="圖層 1">
-    <g>
-      <polygon class="cls-1"
-        points="732.01 0 1117.17 228.12 1117.17 852.68 983.94 953.06 468.06 953.06 0 607.68 3.16 2.15 732.01 0" />
-      <polyline class="cls-2"
-        points="767.36 2.15 1134.05 220.52 1134.05 861.34 992.69 966.36 466.57 964.25 2.95 631.84" />
-    </g>
+    <polygon class="cls-1" points="0 2.13 0 602.92 617.88 1062.74 1104.27 788 1105.27 226.34 723.13 0 0 2.13"/>
   </g>
 </svg>
