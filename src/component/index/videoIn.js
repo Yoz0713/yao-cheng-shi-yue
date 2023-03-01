@@ -1,15 +1,15 @@
 import React from 'react';
 import video from '-!file-loader!../../../video/final_01.mp4'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
 const requireSvg = require.context("../../../img/layout/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
-export default function VideoIn() {
+function VideoIn({ videoState }) {
     const [skip, setSkip] = useState(false)
     const [fullscrenn, setFullScreen] = useState(false)
     const videoRef = useRef(null);
-    const videoState = useSelector((state) => state.videoReducer.flag)
+
 
     // useEffect(() => {
     //     document.body.style.overflow = skip == false ? "hidden" : "hidden"
@@ -41,3 +41,9 @@ export default function VideoIn() {
         </div>
     )
 }
+
+export default connect((state) => {
+    return {
+        videoState: state.videoReducer.flag
+    }
+}, null)(VideoIn)

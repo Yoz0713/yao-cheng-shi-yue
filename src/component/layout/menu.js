@@ -1,27 +1,28 @@
 import React from 'react';
-import { gsap } from "gsap";
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+
+import { useState } from 'react';
 import { MenuToggleButton } from '../config/svgCollection';
 import { Link, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+
+import { connect } from 'react-redux';
 import { playVideo } from '../redux/action/videoToggle';
 const requireSvg = require.context("../../../img/layout/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 
-export default function Menu() {
+function Menu({ playVideo }) {
     const [open, setOpen] = useState(false)
 
     return (
         <div className="menu" style={{ width: open == false ? "0%" : "100%", transitionDelay: open == true ? "0s" : "0.5s" }}>
             <ToggleButton open={open} setOpen={setOpen} />
             <ToggleButton2 open={open} setOpen={setOpen} />
-            <MenuContent open={open} setOpen={setOpen} />
+            <MenuContent open={open} setOpen={setOpen} playVideo={playVideo} />
         </div>
     )
 }
 
-function MenuContent({ open, setOpen }) {
-    const dispatch = useDispatch()
+function MenuContent({ open, setOpen, playVideo }) {
+
     const title = [{
         ch: "森聯機構",
         en: "TOP"
@@ -85,7 +86,7 @@ function MenuContent({ open, setOpen }) {
         <div className="menu-content" style={{ clipPath: open == false ? "polygon(100% 0, 100% 100%, 100% 100%, 100% 0)" : "polygon(100% 0, 100% 100%, 0% 100%, 0% 0)" }}>
             <div className="menu-logo">
                 <Link to={"/"} onClick={() => {
-                    dispatch(playVideo())
+                    playVideo()
                     setOpen(false);
 
                 }}>
@@ -103,6 +104,9 @@ function MenuContent({ open, setOpen }) {
         </div>
     )
 }
+export default connect(null, {
+    playVideo
+})(Menu)
 function Option({ title, item, setOpen }) {
     const location = useLocation()
     const handleClick = () => {
