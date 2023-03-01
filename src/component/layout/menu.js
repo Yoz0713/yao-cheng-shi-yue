@@ -3,11 +3,14 @@ import { gsap } from "gsap";
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { MenuToggleButton } from '../config/svgCollection';
 import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { playVideo } from '../redux/action/videoToggle';
 const requireSvg = require.context("../../../img/layout/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 
 export default function Menu() {
     const [open, setOpen] = useState(false)
+
     return (
         <div className="menu" style={{ width: open == false ? "0%" : "100%", transitionDelay: open == true ? "0s" : "0.5s" }}>
             <ToggleButton open={open} setOpen={setOpen} />
@@ -18,7 +21,7 @@ export default function Menu() {
 }
 
 function MenuContent({ open, setOpen }) {
-
+    const dispatch = useDispatch()
     const title = [{
         ch: "森聯機構",
         en: "TOP"
@@ -81,7 +84,11 @@ function MenuContent({ open, setOpen }) {
     return (
         <div className="menu-content" style={{ clipPath: open == false ? "polygon(100% 0, 100% 100%, 100% 100%, 100% 0)" : "polygon(100% 0, 100% 100%, 0% 100%, 0% 0)" }}>
             <div className="menu-logo">
-                <Link to={"/"} onClick={() => setOpen(false)}>
+                <Link to={"/"} onClick={() => {
+
+                    setOpen(false);
+                    dispatch(playVideo())
+                }}>
                     <img src={svg[1].default} />
                 </Link>
 

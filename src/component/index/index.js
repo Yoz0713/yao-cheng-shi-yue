@@ -45,7 +45,7 @@ function Home({ slideChangeAction, myState, setTransistionStage }) {
                 },
             });
 
-            swiper1.slideTo(myState)
+            swiper1.slideTo(myState, 0)
         }
 
     }, []);
