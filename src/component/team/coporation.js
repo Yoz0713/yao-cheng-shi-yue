@@ -1,8 +1,7 @@
 import React from 'react'
 import MoveBack from '../config/moveBack';
 import { Routes, Route } from 'react-router-dom';
-const requireSvg = require.context("../../../img/team/coporation/sunland/svg", false, /^\.\/.*\.svg$/);
-const sunlandSvg = requireSvg.keys().map(requireSvg);
+
 const requireWebp = require.context("../../../img/team/coporation/sunland/webp", false, /^\.\/.*\.webp$/);
 const sunlandWebp = requireWebp.keys().map(requireWebp);
 

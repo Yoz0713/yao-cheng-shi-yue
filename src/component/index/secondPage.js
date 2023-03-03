@@ -81,7 +81,7 @@ function SecondPage({ reduxState }) {
             setType(null);
             setTimeout(() => {
                 setType('team1');
-            }, 800);
+            }, 400);
         }
 
 
@@ -197,10 +197,10 @@ function BuildingTeam({ type }) {
 
 
             <div className="thumb">
-                <img onClick={handleClick} className='thumb1' src={png[0].default} style={{ filter: thumb == "thumb1" ? "brightness(0.3)" : "brightness(1)" }} />
-                <img onClick={handleClick} className='thumb2' src={webp[7].default} style={{ filter: thumb == "thumb2" ? "brightness(0.3)" : "brightness(1)" }} />
-                <img onClick={handleClick} className='thumb3' src={webp[8].default} style={{ filter: thumb == "thumb3" ? "brightness(0.3)" : "brightness(1)" }} />
-                <img onClick={handleClick} className='thumb4' src={png[1].default} style={{ filter: thumb == "thumb4" ? "brightness(0.3)" : "brightness(1)" }} />
+                <img onClick={handleClick} className='thumb1' src={png[0].default} style={{ filter: thumb == "thumb1" ? "brightness(0.3)" : "brightness(1)", pointerEvents: thumb == "thumb1" ? "none" : "auto" }} />
+                <img onClick={handleClick} className='thumb2' src={webp[7].default} style={{ filter: thumb == "thumb2" ? "brightness(0.3)" : "brightness(1)", pointerEvents: thumb == "thumb2" ? "none" : "auto" }} />
+                <img onClick={handleClick} className='thumb3' src={webp[8].default} style={{ filter: thumb == "thumb3" ? "brightness(0.3)" : "brightness(1)", pointerEvents: thumb == "thumb3" ? "none" : "auto" }} />
+                <img onClick={handleClick} className='thumb4' src={png[1].default} style={{ filter: thumb == "thumb4" ? "brightness(0.3)" : "brightness(1)", pointerEvents: thumb == "thumb4" ? "none" : "auto" }} />
             </div>
         </div>
     )
