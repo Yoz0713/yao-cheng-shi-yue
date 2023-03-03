@@ -2,10 +2,12 @@ import './scss/all.scss';
 import React from 'react';
 import { useEffect, useState, useLayoutEffect } from 'react';
 import Home from './component/index';
-import gsap from 'gsap';
 import LifeFunction from './component/lifefunction';
+import Team from './component/team';
 import Layout from './component/layout';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import gsap from 'gsap';
+import MoveBack from './component/config/moveBack';
 export default function App() {
 
     return (
@@ -76,10 +78,13 @@ function Content() {
     return (
         <div
             className={`${transitionStage}`}
+            style={location.pathname !== "/" ? { position: "relative", pointerEvents: "none", zIndex: 21 } : {}}//讓元素可以高過moveBack元件但不能被點到，在可以被點到的元件上設定pointerEvents:auto
         >
             <Routes location={displayLocation}>
                 <Route path="/" element={<Home />} />
                 <Route path="/lifefunction" element={<LifeFunction setTransistionStage={setTransistionStage} />} />
+                <Route path="/team/*" element={<Team />} />
+                <Route path="*" element={<><h1 style={{ width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1><MoveBack /></>} />
             </Routes>
         </div>
     )

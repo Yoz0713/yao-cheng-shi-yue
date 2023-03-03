@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLayoutEffect, useRef } from 'react';
 // Import animation libary
 import { gsap } from "gsap";
 import MoveBack from '../config/moveBack';
+
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/lifefunction/webp", false, /^\.\/.*\.webp$/);
@@ -10,17 +11,21 @@ const webp = requireWebp.keys().map(requireWebp);
 const requirepng = require.context("../../../img/lifefunction/png", false, /^\.\/.*\.png$/);
 const png = requirepng.keys().map(requirepng);
 function LifeFunction({ setTransistionStage }) {
+    useEffect(() => {
+        console.log("lifefunction" + "render...")
+
+    }, []);
     return (
         <>
             <AerialImage setTransistionStage={setTransistionStage} />
-            <MoveBack z={20} />
+
         </>
 
     )
 }
 
 
-export default LifeFunction
+export default React.memo(LifeFunction);
 
 function AerialImage({ setTransistionStage }) {
     const animateRef = useRef(null)
@@ -52,12 +57,12 @@ function AerialImage({ setTransistionStage }) {
             <LogoBox />
             <div className="para-container">
                 <AerialPara height={"15.5vw"} mr={"30.3vw"}>新北<span>AI</span>產業園區</AerialPara>
-                <AerialPara height={"20vw"} mr={"0vw"}>欣境廣場</AerialPara>
+                <AerialPara height={"20vw"} mr={"0vw"}>昕境廣場</AerialPara>
                 <AerialPara height={"20vw"} mr={"10.2vw"}>扶輪公園</AerialPara>
                 <AerialPara height={"22.5vw"} mr={"6vw"}>三井<span>OUTLET</span></AerialPara>
                 <AerialPara height={"20.5vw"} mr={"1.5vw"}>三井<span>OUTLET</span>二期</AerialPara>
-                <AerialPara height={"21vw"} mr={"0vw"}>三立國際影城</AerialPara>
-                <AerialPara height={"19.2vw"} mr={"2vw"}>東森媒體總部</AerialPara>
+                <AerialPara height={"21vw"} mr={"3.5vw"}>三立國際影城</AerialPara>
+                <AerialPara height={"19.2vw"} mr={"2vw"}><span>A9</span>林口捷運站</AerialPara>
             </div>
             <img src={webp[0].default} className="banner-bg" onLoad={() => setTransistionStage("fadeIn")} />
         </div>

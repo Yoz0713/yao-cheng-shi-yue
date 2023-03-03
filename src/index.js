@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from "react-redux"; // 1.
 import { store } from './component/redux/store';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'
 import App from "./app"
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);

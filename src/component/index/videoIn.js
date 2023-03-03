@@ -32,7 +32,10 @@ function VideoIn({ videoState }) {
     return (
         <div className="video-in" style={{ display: videoState !== true ? "none" : skip == true ? "none" : "block" }}>
             <video src={video} playsInline muted loop ref={videoRef}></video>
-            <div className="skip" onClick={() => setSkip(true)} style={{ opacity: fullscrenn == false ? "0" : "1" }}>
+            <div className="skip" onClick={() => {
+                setSkip(true);
+                videoRef.current.pause();
+            }} style={{ opacity: fullscrenn == false ? "0" : "1" }}>
                 <p>SKIP</p>
             </div>
             <div className="full-screen" style={{ display: fullscrenn == true ? "none" : "block" }} onClick={handleClick}>

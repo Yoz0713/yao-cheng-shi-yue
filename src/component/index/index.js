@@ -16,14 +16,14 @@ import 'swiper/css';
 import SwiperCore, { Mousewheel } from "swiper/core";
 SwiperCore.use([Mousewheel]);
 //組合成首頁
-function Home({ slideChangeAction, myState, setTransistionStage }) {
+function Home({ slideChangeAction, myState }) {
     const swiperRef = useRef()
 
 
 
     //斜走特效
     useEffect(() => {
-
+        console.log("home" + "render...")
         if (swiperRef.current) {
             Swiper.use([EffectCreative]); // Import the EffectCreative module
 
@@ -81,4 +81,4 @@ const mapDispatchToProps = {
     slideChangeAction
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default React.memo(connect(mapStateToProps, mapDispatchToProps)(Home)); 

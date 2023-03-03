@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomeSecondPageSvgTree, HomeSecondPageSunlandLogo } from '../config/svgCollection';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 // Import animation libary
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -106,10 +107,16 @@ function CoverLogo({ type }) {
 
     return (
         <div className="cover-logo">
-            <HomeSecondPageSunlandLogo type={type} />
-            <HomeSecondPageSvgTree type={type} />
+            <Link to={"/team/coporation/sunland"}>
+                <HomeSecondPageSunlandLogo type={type} />
+            </Link>
+            <Link to={"/team/coporation/oliv"}>
+                <HomeSecondPageSvgTree type={type} />
+            </Link>
+
 
             <div className={`imgBox ${type}`} >
+
                 <img src={webp[3].default} style={{ display: type == "team1" ? "block" : "none" }} />
                 <img src={webp[4].default} style={{ display: type == "team2" ? "block" : "none" }} />
                 <BuildingTeam type={type} />
@@ -152,7 +159,7 @@ function BuildingTeam({ type }) {
     const [thumb, setThumb] = useState("thumb1");
     const handleClick = (e) => {
         let gg = gsap.timeline()
-        gg.to(".building-team > img", {
+        gg.to(".building-team a > img", {
             x: 50,
             opacity: 0,
         }).then(() => {
@@ -163,7 +170,7 @@ function BuildingTeam({ type }) {
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
             let gg = gsap.timeline()
-            gg.from(".building-team > img", {
+            gg.from(".building-team a > img", {
                 x: 50,
                 opacity: 0,
                 duration: 0.8
@@ -174,10 +181,21 @@ function BuildingTeam({ type }) {
     }, [thumb])
     return (
         <div className="building-team" style={{ display: type == "team3" ? "flex" : "none" }}>
-            <img src={png[0].default} style={{ display: thumb == "thumb1" ? "block" : "none" }} />
-            <img src={webp[7].default} style={{ display: thumb == "thumb2" ? "block" : "none" }} />
-            <img src={webp[8].default} style={{ display: thumb == "thumb3" ? "block" : "none" }} />
-            <img src={png[1].default} style={{ display: thumb == "thumb4" ? "block" : "none" }} />
+            <Link to={"/team/designTeam"}>
+                <img src={png[0].default} style={{ display: thumb == "thumb1" ? "block" : "none" }} />
+            </Link>
+            <Link to={"/team/designTeam"}>
+                <img src={webp[7].default} style={{ display: thumb == "thumb2" ? "block" : "none" }} />
+            </Link>
+            <Link to={"/team/designTeam"}>
+                <img src={webp[8].default} style={{ display: thumb == "thumb3" ? "block" : "none" }} />
+            </Link>
+            <Link to={"/team/designTeam"}>
+                <img src={png[1].default} style={{ display: thumb == "thumb4" ? "block" : "none" }} />
+            </Link>
+
+
+
             <div className="thumb">
                 <img onClick={handleClick} className='thumb1' src={png[0].default} style={{ filter: thumb == "thumb1" ? "brightness(0.3)" : "brightness(1)" }} />
                 <img onClick={handleClick} className='thumb2' src={webp[7].default} style={{ filter: thumb == "thumb2" ? "brightness(0.3)" : "brightness(1)" }} />
