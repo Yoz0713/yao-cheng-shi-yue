@@ -84,7 +84,6 @@ function SunlandNav() {
     return (
         <div className="nav">
             <ul>
-                <li>森聯建設</li>
                 <li>歷年業績</li>
                 <li>摩天41</li>
             </ul>
