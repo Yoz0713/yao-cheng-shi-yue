@@ -57,6 +57,12 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|webp)$/i,
                 use: [
                     {
+                        loader: 'webp-loader',
+                        options: {
+                            quality: 100,
+                        },
+                    },
+                    {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
@@ -64,12 +70,7 @@ module.exports = {
                             quality: 100
                         },
                     },
-                    {
-                        loader: 'webp-loader',
-                        options: {
-                            quality: 100,
-                        },
-                    },
+
                 ],
             },
             {

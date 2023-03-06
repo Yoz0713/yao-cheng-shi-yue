@@ -4,15 +4,17 @@ $white_color: #f7f7f7;
 
 :root {
     --ch_xs_test: 0.6vw;
-    --ch_s_text: 0.8vw;
-    --ch_m_text: 1vw;
+    --ch_s_text: 0.95vw;
+    --ch_m_text: 1.1vw;
     --ch_ml_text: 1.6vw;
-    --ch_l_text: 2vw;
-    --ch_xl_text: 2.5vw;
+    --ch_l_text: 1.97vw;
+    --ch_xl_text: 2.45vw;
 }
 
 * {
     font-family: 'Noto Serif TC', serif;
+    // background-color: #000 !important;
+    // border: 1px solid red !important;
 }
 
 .header {

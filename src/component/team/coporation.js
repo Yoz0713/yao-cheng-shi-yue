@@ -1,18 +1,48 @@
-import React from 'react'
-import MoveBack from '../config/moveBack';
+import React, { useLayoutEffect, useRef } from 'react'
 import { Routes, Route } from 'react-router-dom';
-
+import spliText from '../config/splitText';
+import gsap from 'gsap';
 const requireWebp = require.context("../../../img/team/coporation/sunland/webp", false, /^\.\/.*\.webp$/);
 const sunlandWebp = requireWebp.keys().map(requireWebp);
-
 const requireSvg2 = require.context("../../../img/team/coporation/oliv/svg", false, /^\.\/.*\.svg$/);
 const olivSvg = requireSvg2.keys().map(requireSvg2);
 const requireWebp2 = require.context("../../../img/team/coporation/oliv/webp", false, /^\.\/.*\.webp$/);
 const olivWebp = requireWebp2.keys().map(requireWebp2);
-
+const indexSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
+const svg = indexSvg.keys().map(indexSvg);
 export const Coporation = () => {
+    const animateRef = useRef(null);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            let gg = gsap.timeline()
+            gg.from(".imgBox", {
+                x: -40,
+                duration: 0.8
+            }).from(".right .title span", {
+                x: 80,
+                duration: 0.6,
+                stagger: 0.03,
+                opacity: 0,
+            }, "<+0.5").from(".right .para p", {
+                x: 40,
+                duration: 0.6,
+                opacity: 0
+            }, "<+0.8").from(".right .nav li", {
+                x: -40,
+                duration: 0.6,
+                opacity: 0,
+                stagger: 0.3
+            }, "<+0.4").from(".right .slogan", {
+                x: -40,
+                duration: 0.6,
+                opacity: 0,
+            }, "<")
+        })
+        return () => ctx.revert()
+    }, [])
     return (
-        <div className='coporation'>
+        <div className='coporation' ref={animateRef}>
             <Routes>
                 <Route path="/sunland" element={<Sunland />}></Route>
                 <Route path="/oliv" element={<Oliv />}></Route>
@@ -23,6 +53,8 @@ export const Coporation = () => {
 }
 
 function Sunland() {
+
+
     const para = {
         title: `SUNLAND DEVELOPMENT\nDESIGN CONCEPT`,
         paragraph: {
@@ -30,6 +62,7 @@ function Sunland() {
             para2: `回歸居住者角度，深度思考建築每一個面向，\n積極與森聯互動參與規劃建議，\n目的是為了讓社區更好，成為客戶最有價值的人生資產。`
         }
     }
+
     return (
         <>
             <div className="sunland">
@@ -37,9 +70,8 @@ function Sunland() {
                 <div className="right">
                     <ParaBox title={para.title} para={para.paragraph} linePosition={{ bottom: "-1vw" }} mb={"1.5vw"} />
                     <SunlandNav />
-
                 </div>
-
+                <img src={svg[2]} />
             </div>
 
         </>
@@ -100,11 +132,17 @@ function ImgBox({ url }) {
 }
 
 function ParaBox({ title, para, linePosition, mb }) {
-
+    let newArr = spliText(title);
     return (
         <div className="paraBox">
             <div className="title">
-                <h2 style={{ whiteSpace: "pre-wrap" }}>{title}</h2>
+                <h2 style={{ whiteSpace: "pre-wrap" }}>{newArr.map((item, i) => {
+                    if (item != "\n") {
+                        return <span key={i} style={{ display: "inline-block" }}>{item}</span>
+                    } else {
+                        return "\n"
+                    }
+                })}</h2>
                 <div className="line" style={linePosition}></div>
             </div>
             <div className="para">
@@ -114,3 +152,4 @@ function ParaBox({ title, para, linePosition, mb }) {
         </div>
     )
 }
+

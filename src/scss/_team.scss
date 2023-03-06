@@ -22,6 +22,7 @@
     width: 100%;
     height: calc(100vw*(9/16));
 
+
     .coporation {
         display: flex;
         align-items: center;
@@ -77,6 +78,10 @@
 
                         h2 {
                             @include title-s-en();
+
+                            span {
+                                font-family: 'Cormorant Garamond', serif;
+                            }
                         }
 
                         .line {
@@ -136,7 +141,7 @@
 
                 .slogan {
                     display: flex;
-                    width: 69%;
+                    width: 78%;
                     margin-top: 2vw;
 
                     img {
@@ -146,10 +151,148 @@
                 }
             }
 
+            >img {
+                position: absolute;
+                right: 0.5vw;
+                bottom: 0vw;
+                width: 46%;
+            }
+
         }
 
 
 
 
+    }
+
+    .designTeam {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+
+        .para-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36.5%;
+
+            .paraBox {
+                width: fit-content;
+
+
+                .title {
+                    position: relative;
+                    margin-bottom: 3vw;
+
+                    h2 {
+                        @include title-s-en();
+
+                        span {
+                            font-family: 'Cormorant Garamond', serif;
+                        }
+                    }
+
+                    .line {
+                        position: absolute;
+                        left: 0;
+                        width: 12%;
+                        height: 1px;
+                        background-color: $gold_color;
+                    }
+                }
+
+                .para {
+
+                    p {
+                        width: fit-content;
+                        @include para-ch();
+                    }
+
+                    & :nth-child(1) {
+                        font-size: var(--ch_s_text);
+                        font-weight: 600;
+                        font-family: 'Noto Serif TC', serif;
+                        color: #000;
+
+                        span {
+                            font-size: var(--ch_ml_text);
+                            margin: 0 0.65vw;
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        .img-box {
+            width: 61.5%;
+            height: 100%;
+            position: relative;
+
+            >img {
+                height: 100%;
+                width: auto;
+            }
+
+            .imgBox {
+                position: absolute;
+                height: 94.3%;
+                right: 18vw;
+                bottom: 0;
+
+                img {
+                    height: 100%;
+                    width: auto;
+                }
+            }
+
+            .designer {
+                position: absolute;
+                right: 5.5vw;
+                top: 12.5vw;
+
+                p {
+                    font-size: var(--ch_s_text);
+                    letter-spacing: 0.1em;
+                    font-weight: 600;
+                    margin-bottom: 0.5vw;
+                }
+
+                img {
+                    width: 10.75vw;
+                }
+            }
+        }
+
+
+
+        >img {
+            position: absolute;
+            left: 2.5vw;
+            bottom: 0;
+            width: 40%;
+        }
+    }
+}
+
+
+.line {
+    animation-name: line;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-duration: 0.8s;
+    animation-delay: 1.5s;
+    transform-origin: left center;
+    transform: scaleX(0);
+}
+
+@keyframes line {
+
+
+    100% {
+        transform: scaleX(1);
     }
 }

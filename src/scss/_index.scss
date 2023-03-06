@@ -1,7 +1,7 @@
 @mixin title {
     font-weight: 600;
     font-family: 'Cormorant Garamond', serif;
-    font-size: var(--ch_l_text);
+    font-size: var(--ch_xl_text);
 }
 
 @mixin title-s-ch {
@@ -66,7 +66,7 @@
 
 
         img {
-            width: 2.2vw;
+            width: 2.7vw;
             margin-right: 1.7vw;
         }
 
@@ -646,7 +646,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        width: 85%;
+        width: 91%;
         margin: 0 auto 0 0;
         position: relative;
 
@@ -684,7 +684,7 @@
 
 
             .paraBox {
-                width: 17.6vw;
+                width: 22vw;
                 line-height: 2.2;
                 margin-left: 4vw;
 

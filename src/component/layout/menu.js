@@ -3,9 +3,11 @@ import React from 'react';
 import { useState } from 'react';
 import { MenuToggleButton } from '../config/svgCollection';
 import { Link, useLocation } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import { playVideo } from '../redux/action/videoToggle';
+import { slideChange } from '../redux/type';
+import { moveToBuildingTeam } from '../redux/action/buildingTeam';
 const requireSvg = require.context("../../../img/layout/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 
@@ -40,47 +42,61 @@ function MenuContent({ open, setOpen, playVideo }) {
         en: "NEWS"
     }]
     const item = [[{
-        id: 1,
+        id: "/team/coporation/sunland",
         ch: "森聯建設",
+        slide: 1,
     }, {
-        id: 2,
+        id: "/team/coporation/oliv",
         ch: "橄欖樹行銷團隊",
+        slide: 1,
     }, {
-        id: 3,
+        id: null,
         ch: "建築團隊",
+        slide: 1,
     }], [{
-        id: 1,
-        ch: "都市計畫",
-    }, {
         id: "/lifefunction",
-        ch: "生活機能圖",
+        ch: "實景空拍",
+        slide: 2,
+    }, {
+        id: "/urbanPlanning",
+        ch: "都市計畫",
+        slide: 2,
     }], [{
         id: 1,
         ch: "樓層規劃",
+        slide: 4,
     }], [{
         id: 1,
         ch: "車道坡度",
+        slide: 4,
     }, {
         id: 2,
-        ch: "樓高3米4",
+        ch: "樓高4米4",
+        slide: 4,
     }, {
         id: 3,
         ch: "水泥磅數",
+        slide: 4,
     }, {
         id: 4,
         ch: "樓板養護",
+        slide: 4,
     }, {
         id: 5,
         ch: "輕質隔間",
+        slide: 4,
     }], [{
         id: 1,
         ch: "最新消息",
+        slide: 5,
     }, {
         id: 2,
         ch: "房貸試算",
+        slide: 5,
     }, {
         id: 3,
         ch: "市場個案",
+        slide: 5,
     }]]
     return (
         <div className="menu-content" style={{ clipPath: open == false ? "polygon(100% 0, 100% 100%, 100% 100%, 100% 0)" : "polygon(100% 0, 100% 100%, 0% 100%, 0% 0)" }}>
@@ -109,9 +125,8 @@ export default connect(null, {
 })(Menu)
 function Option({ title, item, setOpen }) {
     const location = useLocation()
-    const handleClick = () => {
-        setOpen(false)
-    }
+    const dispatch = useDispatch()
+
 
     return (
         <div className="option">
@@ -122,10 +137,16 @@ function Option({ title, item, setOpen }) {
                 </div>
                 <ul className="nav">
                     {item.map((item, i) => {
-                        return <li key={item.id} onClick={handleClick} style={{ pointerEvents: location.pathname == item.id ? "none" : "auto" }}>
-                            <Link to={`${item.id}`}>
+                        return <li key={item.id} onClick={() => {
+                            dispatch({ type: slideChange, payload: item.slide })
+                            if (item.id == null) {
+                                dispatch(moveToBuildingTeam("team3"))
+                            }
+                            setOpen(false)
+                        }} style={{ pointerEvents: item.id == null ? "auto" : location.pathname == item.id ? "none" : "auto" }}>
+                            <Link to={`${item.id == null ? "/" : item.id}`}>
                                 <img src={svg[2]} />
-                                <p style={{ color: location.pathname == item.id ? "#ccc" : "#000" }} >{item.ch}</p>
+                                <p style={{ color: item.id == null ? "#000" : location.pathname == item.id ? "#ccc" : "#000" }} >{item.ch}</p>
                             </Link>
 
                         </li>

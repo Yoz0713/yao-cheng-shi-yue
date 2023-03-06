@@ -8,26 +8,28 @@ import SixthPage from './sixthPage';
 import VideoIn from './videoIn';
 import { useEffect, useRef } from 'react';
 //引入redux
-import { connect } from 'react-redux';
+import { connect, } from 'react-redux';
 import { slideChangeAction } from '../redux/action/slideChange';
 //引入swiper
 import Swiper, { EffectCreative } from 'swiper';
 import 'swiper/css';
 import SwiperCore, { Mousewheel } from "swiper/core";
+
 SwiperCore.use([Mousewheel]);
 //組合成首頁
-function Home({ slideChangeAction, myState }) {
+function Home({ slideChangeAction, myState, teamState }) {
     const swiperRef = useRef()
 
+    let swiper1;
 
 
     //斜走特效
     useEffect(() => {
-        console.log("home" + "render...")
+
         if (swiperRef.current) {
             Swiper.use([EffectCreative]); // Import the EffectCreative module
 
-            let swiper1 = new Swiper(swiperRef.current, {
+            swiper1 = new Swiper(swiperRef.current, {
                 // Optional parameters
                 direction: 'vertical',
                 // If you want to enable mousewheel support
@@ -44,11 +46,15 @@ function Home({ slideChangeAction, myState }) {
 
                 },
             });
-
             swiper1.slideTo(myState, 0)
         }
 
     }, []);
+
+    useEffect(() => {
+        console.log(swiperRef.current.swiper.slideTo(myState, 0))
+    }, [teamState])
+
     return (
         <div className='index' >
             <VideoIn />
@@ -73,7 +79,7 @@ const mapStateToProps = (state) => {
 
     return {
         myState: state.slideReducer.slide,
-
+        teamState: state.teamReducer.flag
     };
 };
 

@@ -13,7 +13,7 @@ function Headers({ reduxState }) {
     return (
         <div className="header">
             <Link to={"/"}>
-                <img src={svg[0].default} style={{ opacity: location.pathname == "/lifefunction" ? "0" : reduxState == 0 ? "0" : "1", transition: "0.5s" }} />
+                <img src={svg[0].default} style={{ opacity: location.pathname == "/lifefunction" ? "0" : location.pathname != "/" ? "1" : reduxState == 0 ? "0" : "1", transition: "0.5s" }} />
             </Link>
 
 

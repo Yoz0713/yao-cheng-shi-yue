@@ -1,11 +1,13 @@
 import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomeSecondPageSvgTree, HomeSecondPageSunlandLogo } from '../config/svgCollection';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { connect, useDispatch } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
 // Import animation libary
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { moveToBuildingTeam } from '../redux/action/buildingTeam';
+
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -16,9 +18,10 @@ const webp = requireWebp.keys().map(requireWebp);
 const requirePng = require.context("../../../img/index/png", false, /^\.\/.*\.png$/);
 const png = requirePng.keys().map(requirePng);
 
-function SecondPage({ reduxState }) {
+function SecondPage({ reduxState, teamState }) {
     const secondPage = useRef();
     const [type, setType] = useState(null)
+    const dispatch = useDispatch()
 
 
     //三種team進場效果
@@ -75,19 +78,19 @@ function SecondPage({ reduxState }) {
     //觸觸發第一次type change (team1)
     useEffect(() => {
 
-
         if (reduxState === 1) {
 
             setType(null);
             setTimeout(() => {
-                setType('team1');
+                setType(teamState);
             }, 400);
         }
 
 
 
-    }, [reduxState])
+    }, [reduxState]);
     const handleClick = ((e) => {
+        dispatch(moveToBuildingTeam(e.target.className))
         setType(e.target.className)
     })
     return (
@@ -99,7 +102,8 @@ function SecondPage({ reduxState }) {
 }
 export default connect((state) => {
     return {
-        reduxState: state.slideReducer.slide
+        reduxState: state.slideReducer.slide,
+        teamState: state.teamReducer.team
     }
 
 }, null)(SecondPage)
@@ -181,16 +185,16 @@ function BuildingTeam({ type }) {
     }, [thumb])
     return (
         <div className="building-team" style={{ display: type == "team3" ? "flex" : "none" }}>
-            <Link to={"/team/designTeam"}>
+            <Link to={"/team/designTeam/architecturalDesigner"}>
                 <img src={png[0].default} style={{ display: thumb == "thumb1" ? "block" : "none" }} />
             </Link>
-            <Link to={"/team/designTeam"}>
+            <Link to={"/team/designTeam/postylateDesigner"}>
                 <img src={webp[7].default} style={{ display: thumb == "thumb2" ? "block" : "none" }} />
             </Link>
-            <Link to={"/team/designTeam"}>
+            <Link to={"/team/designTeam/lightingDesigner"}>
                 <img src={webp[8].default} style={{ display: thumb == "thumb3" ? "block" : "none" }} />
             </Link>
-            <Link to={"/team/designTeam"}>
+            <Link to={"/team/designTeam/lanscapeDesigner"}>
                 <img src={png[1].default} style={{ display: thumb == "thumb4" ? "block" : "none" }} />
             </Link>
 

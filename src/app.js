@@ -78,7 +78,7 @@ function Content() {
     return (
         <div
             className={`${transitionStage}`}
-            style={location.pathname !== "/" ? { position: "relative", pointerEvents: "none", zIndex: 21 } : {}}//讓元素可以高過moveBack元件但不能被點到，在可以被點到的元件上設定pointerEvents:auto
+            style={location.pathname !== "/" ? { position: "relative", pointerEvents: "none", zIndex: 21 } : {}}
         >
             <Routes location={displayLocation}>
                 <Route path="/" element={<Home />} />
