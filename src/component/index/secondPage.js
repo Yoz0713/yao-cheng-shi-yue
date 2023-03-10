@@ -49,9 +49,9 @@ function SecondPage({ reduxState, teamState }) {
                 }, "<").to("svg", {
                     opacity: 0,
                     duration: 6.5,
-                }, "<+0.7").from(".cover-logo video", {
+                }, "<+0.2").from(".cover-logo video", {
                     opacity: 0,
-                    duration: 0.5,
+                    duration: 1.5,
                     onStart: () => {
                         videoRef.current.play()
                         videoRef2.current.play()
