@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef, useEffect } from 'react';
-import Video from "../../../video/time-compressed5.mp4";
+import Video from "../../../video/0310_02.mp4";
 import { connect } from 'react-redux';
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
