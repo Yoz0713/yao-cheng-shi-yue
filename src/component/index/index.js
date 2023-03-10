@@ -3,8 +3,8 @@ import Banner from "./banner"
 import SecondPage from './secondPage';
 import ThirdPage from './thirdPage';
 import FifthPage from './fifthPage';
-import ForthPage from './ForthPage';
-import SixthPage from './SixthPage';
+import ForthPage from './forthPage';
+import SixthPage from './sixthPage';
 import FullScreen from './fullScreen';
 import { useEffect, useRef } from 'react';
 import GreenBg from "../../../img/layout/webp/000-green-bg.webp"

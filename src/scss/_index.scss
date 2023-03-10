@@ -416,9 +416,14 @@
                 & :nth-child(1) {
                     -webkit-mask-image: radial-gradient(closest-side, #000000, transparent);
                     mask-image: radial-gradient(closest-side, #000000, transparent);
-                    -webkit-mask-size: 100% 100%;
-
+                    -webkit-mask-size: 0% 0%;
+                    -webkit-mask-position: 50% 50%;
                     -webkit-mask-repeat: no-repeat;
+                    transition: 3s;
+
+                    &:hover {
+                        -webkit-mask-size: 300% 300%;
+                    }
                 }
             }
         }
