@@ -35,3 +35,11 @@ body {
     opacity: 1;
 
 }
+
+
+@keyframes indexGlowingTitle {
+
+    to {
+        background-position: -200% 0;
+    }
+}

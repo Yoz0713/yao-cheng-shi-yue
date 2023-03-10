@@ -1,138 +1,80 @@
-import React from 'react';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { HomeThirdPageCover } from "../config/svgCollection"
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { useRef, useState, useLayoutEffect } from 'react';
+import { store } from "../redux/store"
 // Import animation libary
 import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
-const requirePng = require.context("../../../img/index/png", false, /^\.\/.*\.png$/);
-const png = requirePng.keys().map(requirePng);
-
 
 export default function ThirdPage() {
-    const [change, setChange] = useState(0)
-    const slide = useRef(null)
-    const animate = useRef(null)
-    let count;
+    const animateScope = useRef(null)
+    let ctx;
+    let gg;
+
 
     useLayoutEffect(() => {
+        ctx = gsap.context(() => {
+            gg = gsap.timeline({ paused: true })
+            gg.fromTo(".third-page-bg .imgBox", {
+                clipPath: "polygon(0 0 , 0 100% , 0 100% , 0 0 )",
 
-        let ctx = gsap.context(() => {
-            let gg = gsap.timeline({
-                yoyo: true,
-                repeat: 1,
-                repeatDelay: 1,
-                ease: 'power3.out',
-            })
-
-            gg.from(".swiper-slide img", {
-                scale: 1.2,
-                duration: 3
-            }).fromTo(`.home-third-clip polygon:nth-child(odd)`, {
-                opacity: 1,
             }, {
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.02,
-            }, "<").fromTo(`.home-third-clip polygon:nth-child(even)`, {
-                opacity: 1,
-            }, {
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.02,
-            }, "<").then(() => {
-                if (slide.current) {
-                    if (change >= 0 && change < slide.current.children.length - 1) {
-                        count = change
-                        count++
-                        setChange(count)
-                    } else {
-                        setChange(0)
-                    }
-                }
-
+                clipPath: "polygon(0 0 , 0 100% , 100% 100% , 100% 0 )",
+                duration: 1.5
             })
+        }, animateScope)
+        const unsubscribe = store.subscribe(() => {
+            if (store.getState().slideReducer.slide === 2) {
+                setTimeout(() => {
+                    gg.play()
+                }, 800);
+            }
+        });
 
-
-        }, animate)
-        return () => ctx.revert()
-
-    }, [change])
-
+        return () => {
+            unsubscribe();
+            ctx.revert()
+        };
+    }, []);
     return (
-        <section className="third-page" ref={animate}>
-            <SectionNav />
-            <div className="third-page-bg">
-                <SvgCover />
-
-                <div className="imgBox" ref={slide}>
-                    <div className="box" style={{ display: change == 0 ? "block" : "none" }} >
-                        <img src={webp[10].default} />
-                        {/* <span className='sampleText'>情境式意圖</span> */}
-                    </div>
-                    <div className="box" style={{ display: change == 1 ? "block" : "none" }}>
-                        <img src={webp[11].default} />
-                        {/* <span className='sampleText'>情境式意圖</span> */}
-                    </div>
-                    <div className="box" style={{ display: change == 2 ? "block" : "none" }}>
-                        <img src={webp[12].default} />
-                        {/* <span className='sampleText'>情境式意圖</span> */}
-                    </div>
-
-
-                </div>
-            </div>
-
-
+        <section className="third-page" ref={animateScope}>
+            <ThirdPageBg />
+            <ThirdPagePara />
         </section>
     )
 }
 
-function SectionNav({ handleClick }) {
-    let item = [{
-        id: 1,
-        ch: "實景空拍",
-        en: "AERIAL VIEWS"
-    }, {
-        id: 2,
-        ch: "都市計畫",
-        en: "URBAN PLANNING"
-    },]
+function ThirdPageBg() {
     return (
-        <div className="section-nav">
-            <div className="title-box" >
-                <img src={svg[3]} />
-                <h3>LOCATION<br />LIFE</h3>
+        <div className="third-page-bg">
+            <div className="imgBox">
+                <img src={webp[3].default} />
+                <img src={webp[3].default} />
+                {/* <span className='sampleText'>情境示意圖</span> */}
             </div>
-            <ul className="nav">
-                {item.map((item, i) => {
-                    if (i == 0) {
-                        return <Link to={"lifefunction"} key={item.id}>
-                            <li className={`team${i + 1}`} onClick={handleClick}>
-                                <p >{item.ch}</p><p>{item.en}</p>
-                            </li>
-                        </Link>
-                    } else {
-                        return <Link key={item.id}>
-                            <li className={`team${i + 1}`} onClick={handleClick}>
-                                <p >{item.ch}</p><p>{item.en}</p>
-                            </li>
-                        </Link>
-                    }
 
-                })}
-            </ul>
         </div>
     )
 }
 
-function SvgCover() {
+function ThirdPagePara() {
     return (
-        <div className="svg-cover">
-            <HomeThirdPageCover />
+        <div className="third-page-para">
+            <div className="title-box" >
+                <h3>ARCHITECTURE CITY</h3>
+                <p>豪門禮遇<span>╳</span>A15置產金磚</p>
+            </div>
+            <div className="paraBox">
+                <p>2021年航空城邁入新里程，<br />領航產業+永續城市發展+國際交流的第一站，<br />大夢想 新家園盡在「大園」，<br />座智慧機場六大產業聚「大園」共榮成長。</p>
+                <div className="more">
+                    <p>READ MORE</p>
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { HomeSecondPageSvgTree, HomeSecondPageSunlandLogo } from '../config/svgCollection';
+import { HomeSecondPageYaoChengLogo } from '../config/svgCollection';
 import { connect, useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Video from "../../../video/glowing2-logo.mp4"
 // Import animation libary
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -20,6 +21,8 @@ const png = requirePng.keys().map(requirePng);
 
 function SecondPage({ reduxState, teamState }) {
     const secondPage = useRef();
+    const videoRef = useRef(null);
+    const videoRef2 = useRef(null);
     const [type, setType] = useState(null)
     const dispatch = useDispatch()
 
@@ -27,10 +30,34 @@ function SecondPage({ reduxState, teamState }) {
     //三種team進場效果
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            if (type == "team3") {
+            if (type == "team1") {
                 let gg = gsap.timeline()
-                gg.to(`.${type} p`, {
-                    color: "#c3a457",
+
+                gg.to(`.${type} > :nth-child(1)`, {
+                    color: "#e0bd76",
+                    duration: 0.001
+                }, "<").fromTo("svg polygon", {
+                    strokeDashoffset: 6100,
+                    strokeDasharray: 6100,
+                }, {
+                    strokeDashoffset: 0,
+                    duration: 3,
+                }).to("svg", {
+                    opacity: 0,
+                    duration: 0.9,
+                }, "<+2").from(".cover-logo video", {
+                    opacity: 0,
+                    duration: 0.9,
+                }, "<").then(() => {
+                    videoRef.current.play()
+                    videoRef2.current.play()
+                })
+
+            } else {
+
+                let gg = gsap.timeline()
+                gg.to(`.${type} > :nth-child(1)`, {
+                    color: "#e0bd76",
                     duration: 0.001
                 }, "<").from(`.building-team`, {
                     x: 50,
@@ -42,33 +69,6 @@ function SecondPage({ reduxState, teamState }) {
                     duration: 0.6,
                     stagger: 0.2
                 }, "<+0.6")
-            } else {
-                let gg = gsap.timeline()
-
-                gg.to(`.${type} p`, {
-                    color: "#c3a457",
-                    duration: 0.001
-                }, "<").fromTo("svg path", {
-                    strokeDashoffset: 2200,
-                    strokeDasharray: 2200,
-                }, {
-                    strokeDashoffset: type == "team1" ? 0 : type == "team2" ? 1650 : 450,
-                    duration: 3,
-                }).to("svg", {
-                    opacity: 0,
-                    duration: 0.9,
-                }, "<+1").from(".cover-logo .imgBox > img", {
-                    opacity: 0,
-                    duration: 0.9,
-
-                }, "<").from(".cover-logo .imgBox > img", {
-                    scale: 1.6,
-                    duration: 10,
-                    repeat: -1,
-                    yoyo: true,
-                    ease: "none"
-                }, "<")
-
 
             }
 
@@ -95,7 +95,7 @@ function SecondPage({ reduxState, teamState }) {
     })
     return (
         <section className="second-page" ref={secondPage}>
-            <CoverLogo type={type} />
+            <CoverLogo type={type} videoRef={videoRef} videoRef2={videoRef2} />
             <SectionNav handleClick={handleClick} />
         </section>
     )
@@ -107,48 +107,51 @@ export default connect((state) => {
     }
 
 }, null)(SecondPage)
-function CoverLogo({ type }) {
+function CoverLogo({ type, videoRef, videoRef2 }) {
 
     return (
-        <div className="cover-logo">
-            <Link to={"/team/coporation/sunland"}>
-                <HomeSecondPageSunlandLogo type={type} />
-            </Link>
-            <Link to={"/team/coporation/oliv"}>
-                <HomeSecondPageSvgTree type={type} />
-            </Link>
-
-
-            <div className={`imgBox ${type}`} >
-
-                <img src={webp[3].default} style={{ display: type == "team1" ? "block" : "none" }} />
-                <img src={webp[4].default} style={{ display: type == "team2" ? "block" : "none" }} />
-                <BuildingTeam type={type} />
+        <div className='second-page-left'>
+            <div className="cover-logo " style={{ display: type == "team1" ? "block" : "none" }} >
+                <Link to={"/1"}>
+                    <HomeSecondPageYaoChengLogo type={type} />
+                </Link>
+                <div className={`videoBox`} >
+                    <video ref={videoRef} src={Video} muted playsInline loop ></video>
+                </div>
             </div>
+            <div className="cover-logo opposite" style={{ display: type == "team1" ? "block" : "none" }} >
 
+                <HomeSecondPageYaoChengLogo type={type} />
+
+                <div className={`videoBox`} >
+                    <video ref={videoRef2} src={Video} muted playsInline loop ></video>
+                </div>
+            </div>
+            <BuildingTeam type={type} />
         </div>
+
     )
 }
 
 function SectionNav({ handleClick }) {
     let team = [{
         id: 1,
-        ch: "森聯機構",
-        en: "SUNLAND DEVELOPMENT"
+        ch: "耀承建設",
+        en: "YAO CHENG CONSTRUCTION"
     }, {
         id: 2,
-        ch: "橄欖樹行銷團隊",
-        en: "OLIVE TREE TEAM"
+        ch: "建築設計",
+        en: "BUILDING DESIGN"
     }, {
         id: 3,
-        ch: "建築團隊",
-        en: "BUILDING TEAM"
+        ch: "公設設計",
+        en: "POSTULATE DESIGN"
     },]
     return (
         <div className="section-nav">
             <div className="title-box" >
-                <img src={svg[3]} />
-                <h3>PROFESSIONAL<br />TEAM</h3>
+                <h3>PROFESSIONAL TEAM</h3>
+                <p>建築團隊<span>╳</span>定義經典</p>
             </div>
             <ul className="nav">
                 {team.map((item, i) => {
@@ -160,51 +163,23 @@ function SectionNav({ handleClick }) {
 }
 
 function BuildingTeam({ type }) {
-    const [thumb, setThumb] = useState("thumb1");
-    const handleClick = (e) => {
-        let gg = gsap.timeline()
-        gg.to(".building-team a > img", {
-            x: 50,
-            opacity: 0,
-        }).then(() => {
-            setThumb(e.target.className)
-        })
 
-    }
-    useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            let gg = gsap.timeline()
-            gg.from(".building-team a > img", {
-                x: 50,
-                opacity: 0,
-                duration: 0.8
-            })
-
-        })
-        return () => ctx.revert(); // cleanup
-    }, [thumb])
     return (
-        <div className="building-team" style={{ display: type == "team3" ? "flex" : "none" }}>
-            <Link to={"/team/designTeam/architecturalDesigner"}>
-                <img src={png[0].default} style={{ display: thumb == "thumb1" ? "block" : "none" }} />
-            </Link>
-            <Link to={"/team/designTeam/postylateDesigner"}>
-                <img src={webp[7].default} style={{ display: thumb == "thumb2" ? "block" : "none" }} />
-            </Link>
-            <Link to={"/team/designTeam/lightingDesigner"}>
-                <img src={webp[8].default} style={{ display: thumb == "thumb3" ? "block" : "none" }} />
-            </Link>
-            <Link to={"/team/designTeam/lanscapeDesigner"}>
-                <img src={png[1].default} style={{ display: thumb == "thumb4" ? "block" : "none" }} />
-            </Link>
+        <div className="building-team" style={{ display: type !== "team1" ? "block" : "none" }}>
+            <div className="designer" style={{ display: type == "team2" ? "flex" : "none" }}>
+                <Link to={"/1"}>  <img src={webp[1].default} /></Link>
 
-
-
-            <div className="thumb">
-                <img onClick={handleClick} className='thumb1' src={png[0].default} style={{ filter: thumb == "thumb1" ? "brightness(0.3)" : "brightness(1)", pointerEvents: thumb == "thumb1" ? "none" : "auto" }} />
-                <img onClick={handleClick} className='thumb2' src={webp[7].default} style={{ filter: thumb == "thumb2" ? "brightness(0.3)" : "brightness(1)", pointerEvents: thumb == "thumb2" ? "none" : "auto" }} />
-                <img onClick={handleClick} className='thumb3' src={webp[8].default} style={{ filter: thumb == "thumb3" ? "brightness(0.3)" : "brightness(1)", pointerEvents: thumb == "thumb3" ? "none" : "auto" }} />
-                <img onClick={handleClick} className='thumb4' src={png[1].default} style={{ filter: thumb == "thumb4" ? "brightness(0.3)" : "brightness(1)", pointerEvents: thumb == "thumb4" ? "none" : "auto" }} />
+                <div className="title">
+                    <p>建築設計師</p>
+                    <img src={svg[3].default} />
+                </div>
+            </div>
+            <div className="designer" style={{ display: type == "team3" ? "flex" : "none" }}>
+                <Link to={"/1"}>  <img src={webp[2].default} /></Link>
+                <div className="title">
+                    <p>公設設計師</p>
+                    <img src={svg[4].default} />
+                </div>
             </div>
         </div>
     )

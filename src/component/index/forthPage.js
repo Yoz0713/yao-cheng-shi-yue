@@ -1,85 +1,110 @@
 import React from 'react'
 import { useRef, useState, useLayoutEffect } from 'react';
-import { store } from "../redux/store"
+import { connect } from 'react-redux';
 // Import animation libary
 import { gsap } from "gsap";
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
-export default function ForthPage() {
-    const animateScope = useRef(null)
-    const [animate, setAnimate] = useState(null)
-    let ctx;
-    let gg;
-
+function ForthPage({ reduxState }) {
+    const animateRef = useRef(null);
+    let animationDone = false
 
     useLayoutEffect(() => {
-        ctx = gsap.context(() => {
-            gg = gsap.timeline({ paused: true })
-            gg.fromTo(".forth-page-bg :nth-child(1)", {
-                clipPath: "polygon(0 0 , 0 100% , 0 100% , 0 0 )",
+        let gg;
+        let ctx;
 
-            }, {
-                clipPath: "polygon(0 0 , 0 100% , 100% 100% , 100% 0 )",
-                duration: 1.5
-            }).fromTo(".forth-page-bg :nth-child(2)", {
-                clipPath: "polygon(100% 0% , 100% 100% , 100% 100% , 100% 0% )",
+        if (reduxState === 3) {
+            ctx = gsap.context(() => {
+                gg = gsap.timeline({ paused: true })
+                gg.from(".forth-page-card .card", {
+                    opacity: 0,
+                    y: "2.5vw",
+                    stagger: "0.3"
+                }).fromTo(".forth-page-card .card .imgBox", {
+                    rotateY: 60,
 
-            }, {
-                clipPath: "polygon(100% 0% , 100% 100% , 0% 100% , 0% 0% )",
-                duration: 0.8
-            }, "<+1")
-        }, animateScope)
-        const unsubscribe = store.subscribe(() => {
-            if (store.getState().slideReducer.slide === 3) {
-                setTimeout(() => {
-                    gg.play()
-                }, 800);
+                }, {
+                    rotateY: 0,
+                    stagger: 0.3,
+                    duration: 1.4
+                }, "<").then(() => {
+                    animationDone = true
+                })
+            }, animateRef)
+            setTimeout(() => {
+                gg.play()
+            }, 800);
+
+            return () => {
+                ctx.revert()
             }
-        });
+        }
 
-        return () => {
-            unsubscribe();
-            ctx.revert()
-        };
-    }, [animate]);
+
+    }, [reduxState])
+
+    const handleMouseMove = function (e) {
+
+        let gg = gsap.timeline({ paused: true })
+        gg.to(".forth-page-card .imgBox img", {
+            x: `${(animateRef.current.clientWidth / 2 - e.pageX) / 35}px`
+        }).to(".forth-page-card .imgBox", {
+            rotateY: (animateRef.current.clientWidth / 2 - e.pageX) / 75,
+            // rotateX: (animateRef.current.clientHeight / 2 - e.pageY) / 75,
+        })
+        if (animationDone == true) {
+            gg.play()
+        }
+    }
     return (
-        <section className="forth-page" ref={animateScope}>
-            <ForthPageBg />
+        <section className="forth-page" ref={animateRef} onMouseMove={handleMouseMove}>
             <ForthPagePara />
+            <ForthPageCard />
         </section>
     )
 }
-
-function ForthPageBg() {
-    return (
-        <div className="forth-page-bg">
-            <img src={svg[7]} />
-            <div className="imgBox">
-                <img src={webp[13].default} />
-                {/* <span className='sampleText'>情境示意圖</span> */}
-            </div>
-
-        </div>
-    )
-}
+// connect hoc方式綁定forth-page
+export default connect((state) => {
+    return {
+        reduxState: state.slideReducer.slide
+    }
+}, null)(ForthPage)
 
 function ForthPagePara() {
     return (
         <div className="forth-page-para">
             <div className="title-box" >
-                <img src={svg[3]} />
-                <h3>CONSTRUCTION<br />FLOOR</h3>
+                <h3>CONSTRUCTION METHOD</h3>
+                <p>極致工法</p>
+            </div>
+        </div>
+    )
+
+}
+function ForthPageCard() {
+    return (
+        <div className="forth-page-card">
+            <Card img={webp[4].default} num={"01."} text={"結構工法"} style2={{ objectPosition: "center 0%" }} />
+            <Card img={webp[5].default} num={"02."} text={"防水工法"} style2={{ objectPosition: "bottom left" }} />
+            <Card img={webp[6].default} num={"03."} text={"貼心工法"} />
+        </div>
+    )
+}
+function Card({ img, num, text, style, style2 }) {
+    return (
+        <div className="card" style={style}>
+            <div className="imgBox">
+                <div className="box">
+                    <img src={img} style={style2} />
+                </div>
+                <span>{num}</span>
+                <img src={svg[5]} />
             </div>
             <div className="paraBox">
-                <p>現代簡約造型風格，講究沈穩優雅品味，深淺色系建材運用及垂直線條分割，增加立面高聳感，適度調和深淺色調搭配，產生層次感。</p>
-                <div className="more">
-                    <p>MORE</p>
-                </div>
+                <h6>{text}</h6>
             </div>
         </div>
     )

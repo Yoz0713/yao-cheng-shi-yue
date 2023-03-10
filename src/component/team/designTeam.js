@@ -1,5 +1,4 @@
 import React, { useLayoutEffect, useRef } from 'react'
-import sunlandSvg from "../../../img/index/svg/002-slogan.svg"
 import { Routes, Route } from 'react-router-dom';
 import spliText from '../config/splitText';
 import gsap from 'gsap';

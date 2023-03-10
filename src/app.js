@@ -84,7 +84,7 @@ function Content() {
                 <Route path="/" element={<Home />} />
                 <Route path="/lifefunction" element={<LifeFunction setTransistionStage={setTransistionStage} />} />
                 <Route path="/team/*" element={<Team />} />
-                <Route path="*" element={<><h1 style={{ width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1><MoveBack /></>} />
+                <Route path="*" element={<><h1 style={{ width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1></>} />
             </Routes>
         </div>
     )
