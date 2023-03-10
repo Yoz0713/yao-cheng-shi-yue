@@ -24,7 +24,7 @@ function Menu({ fullActive }) {
 }
 
 function MenuContent({ open, setOpen, fullActive }) {
-
+    const dispatch = useDispatch()
     const title = [{
         ch: "精華地段",
         en: "LOCATION"
@@ -125,6 +125,7 @@ function MenuContent({ open, setOpen, fullActive }) {
         <div className="menu-content" style={{ WebkitMaskPositionX: open == true ? "-260vw" : "  0vw", backgroundImage: `url(${GreenBg})`, backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
             <div className="menu-logo">
                 <Link to={"/"} onClick={() => {
+                    dispatch({ type: slideChange, payload: 0 })
                     fullActive()
                     setOpen(false);
 

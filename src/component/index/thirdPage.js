@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRef, useState, useLayoutEffect } from 'react';
-import { store } from "../redux/store"
+import { connect } from 'react-redux';
 // Import animation libary
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -11,36 +11,38 @@ const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
 
-export default function ThirdPage() {
+function ThirdPage({ reduxState }) {
     const animateScope = useRef(null)
     let ctx;
     let gg;
 
-
     useLayoutEffect(() => {
-        ctx = gsap.context(() => {
-            gg = gsap.timeline({ paused: true })
-            gg.fromTo(".third-page-bg .imgBox", {
-                clipPath: "polygon(0 0 , 0 100% , 0 100% , 0 0 )",
+        let gg;
+        let ctx;
 
-            }, {
-                clipPath: "polygon(0 0 , 0 100% , 100% 100% , 100% 0 )",
-                duration: 1.5
-            })
-        }, animateScope)
-        const unsubscribe = store.subscribe(() => {
-            if (store.getState().slideReducer.slide === 2) {
+        if (reduxState === 2) {
+            ctx = gsap.context(() => {
+                gg = gsap.timeline({ paused: true })
+                gg.to(".third-page-bg .imgBox img", {
+                    WebkitMaskSize: "500% 100%",
+                    duration: 10
+                })
+            }, [animateScope])
+            setTimeout(() => {
+                gg.play()
+            }, 800);
+
+            return () => {
                 setTimeout(() => {
-                    gg.play()
-                }, 800);
-            }
-        });
+                    ctx.revert()
+                }, 1000)
 
-        return () => {
-            unsubscribe();
-            ctx.revert()
-        };
-    }, []);
+            }
+        }
+
+
+    }, [reduxState])
+
     return (
         <section className="third-page" ref={animateScope}>
             <ThirdPageBg />
@@ -48,12 +50,15 @@ export default function ThirdPage() {
         </section>
     )
 }
-
+export default connect((state) => {
+    return {
+        reduxState: state.slideReducer.slide
+    }
+}, null)(ThirdPage)
 function ThirdPageBg() {
     return (
         <div className="third-page-bg">
             <div className="imgBox">
-                <img src={webp[3].default} />
                 <img src={webp[3].default} />
                 {/* <span className='sampleText'>情境示意圖</span> */}
             </div>

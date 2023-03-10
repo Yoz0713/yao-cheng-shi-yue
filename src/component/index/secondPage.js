@@ -36,22 +36,27 @@ function SecondPage({ reduxState, teamState }) {
                 gg.to(`.${type} > :nth-child(1)`, {
                     color: "#e0bd76",
                     duration: 0.001
-                }, "<").fromTo("svg polygon", {
-                    strokeDashoffset: 6100,
-                    strokeDasharray: 6100,
+                }, "<").from("svg", {
+                    opacity: 0,
+                    duration: 1,
+                    delay: 0.6
+                }).fromTo("svg polygon", {
+                    strokeDashoffset: 1200,
+                    strokeDasharray: 1200,
                 }, {
                     strokeDashoffset: 0,
-                    duration: 3,
-                }).to("svg", {
+                    duration: 15,
+                }, "<").to("svg", {
                     opacity: 0,
-                    duration: 0.9,
-                }, "<+2").from(".cover-logo video", {
+                    duration: 6.5,
+                }, "<+0.7").from(".cover-logo video", {
                     opacity: 0,
-                    duration: 0.9,
-                }, "<").then(() => {
-                    videoRef.current.play()
-                    videoRef2.current.play()
-                })
+                    duration: 0.5,
+                    onStart: () => {
+                        videoRef.current.play()
+                        videoRef2.current.play()
+                    }
+                }, "<")
 
             } else {
 
