@@ -38,7 +38,7 @@ function SecondPage({ reduxState, teamState }) {
                     duration: 0.001
                 }, "<").from("svg", {
                     opacity: 0,
-                    duration: 1,
+                    duration: 0.6,
                     delay: 0.6
                 }).fromTo("svg polygon", {
                     strokeDashoffset: 1200,
@@ -49,7 +49,7 @@ function SecondPage({ reduxState, teamState }) {
                 }, "<").to("svg", {
                     opacity: 0,
                     duration: 6.5,
-                }, "<+0.2").from(".cover-logo video", {
+                }, "<+0.8").from(".cover-logo video", {
                     opacity: 0,
                     duration: 1.5,
                     onStart: () => {
