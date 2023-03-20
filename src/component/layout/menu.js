@@ -25,6 +25,8 @@ function Menu({ fullActive }) {
 
 function MenuContent({ open, setOpen, fullActive }) {
     const dispatch = useDispatch()
+    const [extend, setExtend] = useState(new Array(6).fill(false))
+
     const title = [{
         ch: "精華地段",
         en: "LOCATION"
@@ -129,6 +131,7 @@ function MenuContent({ open, setOpen, fullActive }) {
         ch: "房貸試算",
         slide: 5,
     }]]
+
     return (
         <div className="menu-content" style={{ WebkitMaskPositionX: open == true ? "-260vw" : "  0vw", backgroundImage: `url(${GreenBg})`, backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
             <div className="menu-logo">
@@ -143,12 +146,18 @@ function MenuContent({ open, setOpen, fullActive }) {
 
             </div>
             <div className="menu-option">
-                <Option setOpen={setOpen} title={title[0]} item={item[0]} />
-                <Option setOpen={setOpen} title={title[1]} item={item[1]} />
-                <Option setOpen={setOpen} title={title[2]} item={item[2]} />
-                <Option setOpen={setOpen} title={title[3]} item={item[3]} />
-                <Option setOpen={setOpen} title={title[4]} item={item[4]} />
-                <Option setOpen={setOpen} title={title[5]} item={item[5]} />
+                {[...Array(6)].map((itm, i) => {
+                    return (
+                        <Option key={i} index={i} setOpen={setOpen} title={title[i]} item={item[i]} extend={extend} setExtend={setExtend} handleClick={() => {
+                            let arr;
+                            arr = new Array(6).fill(false)
+                            if (!extend[i]) {
+                                arr[i] = true;
+                            }
+                            setExtend(arr)
+                        }} />
+                    )
+                })}
             </div>
         </div>
     )
@@ -156,7 +165,7 @@ function MenuContent({ open, setOpen, fullActive }) {
 export default connect(null, {
     fullActive
 })(Menu)
-function Option({ title, item, setOpen }) {
+function Option({ title, item, setOpen, extend, handleClick, index }) {
     const location = useLocation()
     const dispatch = useDispatch()
 
@@ -164,11 +173,13 @@ function Option({ title, item, setOpen }) {
     return (
         <div className="option">
             <div className="option-wrapper">
-                <div className="title-box" >
+                <div className="title-box" onClick={() => {
+                    handleClick();
+                }}>
                     <h2>{title.en}</h2>
                     <h2>{title.ch}</h2>
                 </div>
-                <ul className="nav">
+                <ul className="nav" style={{ transform: extend[index] ? "scaleY(1)" : "scaleY(0)" }}>
                     {item.map((item, i) => {
                         return <li key={item.id} onClick={() => {
                             dispatch({ type: slideChange, payload: item.slide })
@@ -181,7 +192,6 @@ function Option({ title, item, setOpen }) {
                                 <div className="square"></div>
                                 <p style={{ color: item.id == null ? "#fff" : location.pathname == item.id ? "#ccc" : "#fff" }} >{item.ch}</p>
                             </Link>
-
                         </li>
                     })}
                 </ul>

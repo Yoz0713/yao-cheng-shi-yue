@@ -99,7 +99,7 @@ function SecondPage({ reduxState, teamState }) {
 
             }
 
-        }, secondPage)
+        }, [secondPage])
         return () => ctx.revert(); // cleanup
     }, [type])
     //觸觸發第一次type change (team1)
