@@ -3,7 +3,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: var(--ch_l_text);
     color: $gold_color;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
     line-height: 1;
 }
 
@@ -12,7 +12,7 @@
     font-family: "Microsoft JhengHei", serif;
     font-size: var(--ch_s_text);
     letter-spacing: 0.1em;
-    color: #313131;
+    color: #fff;
     line-height: 2;
 
 }
@@ -169,24 +169,51 @@
 
     .designTeam {
         display: flex;
-        width: 100%;
+        width: 85%;
         height: 100%;
-        overflow: hidden;
+        margin: 0 auto;
 
 
-        .para-box {
+        .designer {
+            position: relative;
+            align-items: flex-end;
+            width: 50%;
+
+
+            img {
+                display: block;
+                width: pxConvertor(838);
+            }
+
+            .title {
+                position: absolute;
+                right: 0vw;
+                bottom: 7vw;
+
+                p {
+                    font-size: var(--ch_s_text);
+                    color: #fff;
+                    letter-spacing: 0.1em;
+                    margin-bottom: 0.8vw;
+                }
+
+                img {
+                    width: 8.55vw;
+                }
+            }
+        }
+
+        .right {
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
-            width: 36.5%;
+            width: 50%;
+            padding-left: 7vw;
 
             .paraBox {
-                width: fit-content;
-
-
                 .title {
                     position: relative;
-                    margin-bottom: 3vw;
+                    margin-bottom: 2.5vw;
 
                     h2 {
                         @include title-s-en();
@@ -199,84 +226,85 @@
                     .line {
                         position: absolute;
                         left: 0;
-                        width: 12%;
+                        width: 7%;
                         height: 1px;
                         background-color: $gold_color;
                     }
                 }
 
                 .para {
+                    width: 72%;
 
                     p {
                         width: fit-content;
                         @include para-ch();
                     }
 
+
+
                     & :nth-child(1) {
-                        font-size: var(--ch_s_text);
-                        font-weight: 600;
+                        font-size: pxConvertor(28);
+                        font-weight: 500;
                         font-family: 'Noto Serif TC', serif;
-                        color: #000;
+                        color: #fff;
 
                         span {
-                            font-size: var(--ch_ml_text);
-                            margin: 0 0.65vw;
+                            font-size: var(--ch_l_text);
+                            margin: 0 0.5vw;
                         }
+                    }
+
+                    & :nth-child(2) {
+                        font-size: var(--ch_s_text);
+                        font-weight: 300;
+                        color: #fff;
+                        margin: 1vw 0 1.8vw;
                     }
                 }
 
 
             }
-        }
 
-        .img-box {
-            width: 61.5%;
-            height: 100%;
-            position: relative;
-
-            >img {
-                height: 100%;
-                width: auto;
-            }
-
-            .imgBox {
-                position: absolute;
-                height: 94.3%;
-                right: 18vw;
-                bottom: 0;
-
-                img {
-                    height: 100%;
-                    width: auto;
+            .list {
+                li {
+                    position: relative;
+                    @include para-ch();
+                    font-weight: 300;
                 }
-            }
 
-            .designer {
-                position: absolute;
-                right: 5.5vw;
-                top: 12.5vw;
-
-                p {
-                    font-size: var(--ch_s_text);
-                    letter-spacing: 0.1em;
-                    font-weight: 600;
+                & :nth-child(1) {
                     margin-bottom: 0.5vw;
                 }
 
-                img {
-                    width: 10.75vw;
+
+            }
+
+            .portfolio {
+                display: flex;
+                width: pxConvertor(832.868);
+                justify-content: space-between;
+                margin-top: 2.3vw;
+
+                .boxInner {
+
+                    p {
+                        @include para-ch();
+                        font-weight: 300;
+                        font-size: pxConvertor(21);
+                        width: fit-content;
+                        margin: 0.6vw auto 0;
+
+                    }
+
+                    .thumbBox {
+                        width: pxConvertor(264);
+                        height: pxConvertor(165);
+                    }
+
                 }
             }
         }
 
-
-
-        >img {
-            position: absolute;
-            left: 2.5vw;
-            bottom: 0;
-            width: 40%;
-        }
     }
 }
 

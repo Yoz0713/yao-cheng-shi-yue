@@ -7,7 +7,8 @@ import Team from './component/team';
 import Layout from './component/layout';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
-import MoveBack from './component/config/moveBack';
+import GreenBg from "../img/layout/webp/000-green-bg.webp"
+import Urban from './component/urban';
 export default function App() {
 
     return (
@@ -78,13 +79,14 @@ function Content() {
     return (
         <div
             className={`${transitionStage}`}
-            style={location.pathname !== "/" ? { position: "relative", pointerEvents: "none", zIndex: 21 } : {}}
+            style={location.pathname !== "/" ? { position: "relative", pointerEvents: transitionStage == "fadeOut" ? "auto" : "none", zIndex: 21, backgroundImage: `url(${GreenBg})`, backgroundSize: "cover", backgroundRepeat: "repeat" } : { backgroundImage: `url(${GreenBg})`, backgroundSize: "cover", backgroundRepeat: "repeat" }}
         >
             <Routes location={displayLocation}>
                 <Route path="/" element={<Home />} />
                 <Route path="/lifefunction" element={<LifeFunction setTransistionStage={setTransistionStage} />} />
                 <Route path="/team/*" element={<Team />} />
-                <Route path="*" element={<><h1 style={{ width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1></>} />
+                <Route path="/urban" element={<Urban />} />
+                <Route path="*" element={<><h1 style={{ color: "#fff", width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1></>} />
             </Routes>
         </div>
     )

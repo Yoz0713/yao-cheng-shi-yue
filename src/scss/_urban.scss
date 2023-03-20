@@ -1,0 +1,64 @@
+.urban {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    height: calc(100vw*(9/16));
+
+    .left {
+        position: relative;
+        width: 59%;
+        margin-right: 6vw;
+
+        .zoom {
+            position: absolute;
+            right: -10.7vw;
+            bottom: 15vw;
+
+            & :nth-child(1) {
+                margin-right: 1.2vw;
+            }
+        }
+
+        .anchor-spot {
+            animation-name: flow;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+        }
+    }
+
+    >.right {
+
+        .basicContent {
+            width: 100%;
+
+            .left {
+                display: none;
+            }
+        }
+
+    }
+}
+
+@keyframes flow {
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-0.15vw);
+    }
+
+    50% {
+        transform: translateY(-0.3vw);
+    }
+
+    75% {
+        transform: translateY(-0.15vw);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

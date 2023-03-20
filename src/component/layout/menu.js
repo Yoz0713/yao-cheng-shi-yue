@@ -46,22 +46,30 @@ function MenuContent({ open, setOpen, fullActive }) {
     }]
     const item = [[{
         id: "/1",
-        ch: "交通圖",
+        ch: "國際大園",
         slide: 1,
     }, {
         id: "/2",
-        ch: "生活機能圖",
+        ch: "重大建設",
+        slide: 1,
+    }, {
+        id: "/3",
+        ch: "展望大境",
+        slide: 1,
+    }, {
+        id: "/urban",
+        ch: "都市計畫",
         slide: 1,
     }], [{
         id: "/x",
         ch: "耀承建設",
         slide: 2,
     }, {
-        id: "/3",
+        id: "/team/designTeam/building",
         ch: "建築設計",
         slide: 2,
     }, {
-        id: "/4",
+        id: "/team/designTeam/postulate",
         ch: "工法設計",
         slide: 2,
     }], [{

@@ -20,7 +20,7 @@ function ThirdPage({ reduxState }) {
         let gg;
         let ctx;
 
-        if (reduxState === 2) {
+        if (reduxState === 3) {
             ctx = gsap.context(() => {
                 gg = gsap.timeline({ paused: true })
                 gg.to(".third-page-bg .imgBox img", {

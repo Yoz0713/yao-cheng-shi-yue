@@ -1,4 +1,6 @@
-export default function spliText(text) {
+import React from "react";
+
+export default function SpliText({ text }) {
     const arr = text.split(/\n/);
     let newArr = arr.map((item, i) => {
         item = item.split("")
@@ -19,7 +21,18 @@ export default function spliText(text) {
     })
 
     newArr = newArr.join("\n")
-    return newArr = newArr.split("")
+    newArr = newArr.split("")
+    return (
+        <>
+            {newArr.map((item, i) => {
+                if (item != "\n") {
+                    return <span key={i} style={{ display: "inline-block" }}>{item}</span>
+                } else {
+                    return "\n"
+                }
+            })}
+        </>
+    )
 }
 
 //useage 將需要拆分的字串傳入並使用map方法渲染在頁面上。p.s字串內如有換行需要使用\n

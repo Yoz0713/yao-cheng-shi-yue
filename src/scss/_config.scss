@@ -2,13 +2,17 @@ $gold_color: #e0bd76;
 
 $white_color: #f7f7f7;
 
+@function pxConvertor($args) {
+    @return $args/2560*100vw;
+}
+
 :root {
-    --ch_xs_test: 18;
-    --ch_s_text: 24;
-    --ch_m_text: 32.03;
+    --ch_xs_test: #{pxConvertor(18)};
+    --ch_s_text:#{pxConvertor(24)};
+    --ch_m_text: #{pxConvertor(32.03)};
     --ch_ml_text: 1.6vw;
-    --ch_l_text: 48;
-    --ch_xl_text: 60;
+    --ch_l_text: #{pxConvertor(48)};
+    --ch_xl_text: #{pxConvertor(60)};
 }
 
 * {

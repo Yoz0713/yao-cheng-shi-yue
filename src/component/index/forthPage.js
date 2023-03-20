@@ -16,7 +16,7 @@ function ForthPage({ reduxState }) {
         let gg;
         let ctx;
 
-        if (reduxState === 3) {
+        if (reduxState === 4) {
             ctx = gsap.context(() => {
                 gg = gsap.timeline({ paused: true })
                 gg.from(".forth-page-card .card", {

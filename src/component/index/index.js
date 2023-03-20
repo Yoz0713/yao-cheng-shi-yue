@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from "./banner"
+import FirstPage from './firstPage';
 import SecondPage from './secondPage';
 import ThirdPage from './thirdPage';
 import FifthPage from './fifthPage';
@@ -7,7 +8,7 @@ import ForthPage from './forthPage';
 import SixthPage from './sixthPage';
 import FullScreen from './fullScreen';
 import { useEffect, useRef } from 'react';
-import GreenBg from "../../../img/layout/webp/000-green-bg.webp"
+
 //引入redux
 import { connect, } from 'react-redux';
 import { slideChangeAction } from '../redux/action/slideChange';
@@ -15,6 +16,7 @@ import { slideChangeAction } from '../redux/action/slideChange';
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
 import SwiperCore, { Mousewheel, EffectFade } from "swiper";
+import preloadImage from '../config/preload';
 
 SwiperCore.use([Mousewheel, EffectFade]);
 //組合成首頁
@@ -51,6 +53,8 @@ function Home({ slideChangeAction, myState, teamState }) {
             });
             swiper1.slideTo(myState, 0)
         }
+
+        preloadImage(require("../../../img/urban/webp/000-urban-bg.webp"))
     }, []);
 
     useEffect(() => {
@@ -58,11 +62,12 @@ function Home({ slideChangeAction, myState, teamState }) {
     }, [teamState])
 
     return (
-        <div className='index' style={{ backgroundImage: `url(${GreenBg})`, backgroundSize: "cover", backgroundRepeat: "repeat" }}>
+        <div className='index'>
             <FullScreen />
             <div ref={swiperRef} className="swiper-container">
                 <div className="swiper-wrapper">
                     <div className="swiper-slide"><Banner /></div>
+                    <div className="swiper-slide"><FirstPage /></div>
                     <div className="swiper-slide"> <SecondPage /></div>
                     <div className="swiper-slide"><ThirdPage /></div>
                     <div className="swiper-slide">< ForthPage /></div>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { fullActive, fullNotActive } from '../redux/action/full'
-
+import { fullNotActive } from '../redux/action/full'
+import { playBannerVideo } from '../redux/action/playVideo'
 const MoveBack = ({ z }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -11,6 +11,7 @@ const MoveBack = ({ z }) => {
     const innerPage = []
     const handleClick = function () {
         dispatch(fullNotActive())
+        dispatch(playBannerVideo(true))
         if (innerPage.includes(path)) {
             navigate(-1);
         } else {

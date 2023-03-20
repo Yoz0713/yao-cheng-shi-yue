@@ -25,7 +25,29 @@ function SecondPage({ reduxState, teamState }) {
     const videoRef2 = useRef(null);
     const [type, setType] = useState(null)
     const dispatch = useDispatch()
-
+    const title = {
+        en: "PROFESSIONAL TEAM",
+        ch: {
+            left: "建築團隊",
+            right: "定義經典"
+        }
+    }
+    const team = [{
+        id: 1,
+        ch: "耀承建設",
+        en: "YAO CHENG CONSTRUCTION",
+        url: null
+    }, {
+        id: 2,
+        ch: "建築設計",
+        en: "BUILDING DESIGN",
+        url: null
+    }, {
+        id: 3,
+        ch: "公設設計",
+        en: "POSTULATE DESIGN",
+        url: null
+    },]
 
     //三種team進場效果
     useLayoutEffect(() => {
@@ -83,7 +105,7 @@ function SecondPage({ reduxState, teamState }) {
     //觸觸發第一次type change (team1)
     useEffect(() => {
 
-        if (reduxState === 1) {
+        if (reduxState === 2) {
 
             setType(null);
             setTimeout(() => {
@@ -101,7 +123,7 @@ function SecondPage({ reduxState, teamState }) {
     return (
         <section className="second-page" ref={secondPage}>
             <CoverLogo type={type} videoRef={videoRef} videoRef2={videoRef2} />
-            <SectionNav handleClick={handleClick} />
+            <SectionNav handleClick={handleClick} list={team} title={title} />
         </section>
     )
 }
@@ -138,29 +160,31 @@ function CoverLogo({ type, videoRef, videoRef2 }) {
     )
 }
 
-function SectionNav({ handleClick }) {
-    let team = [{
-        id: 1,
-        ch: "耀承建設",
-        en: "YAO CHENG CONSTRUCTION"
-    }, {
-        id: 2,
-        ch: "建築設計",
-        en: "BUILDING DESIGN"
-    }, {
-        id: 3,
-        ch: "公設設計",
-        en: "POSTULATE DESIGN"
-    },]
+export function SectionNav({ handleClick, list, title }) {
+
     return (
         <div className="section-nav">
             <div className="title-box" >
-                <h3>PROFESSIONAL TEAM</h3>
-                <p>建築團隊<span>╳</span>定義經典</p>
+                <h3>{title.en}</h3>
+                <p>{title.ch.left}<span>╳</span>{title.ch.right}</p>
             </div>
             <ul className="nav">
-                {team.map((item, i) => {
-                    return <li key={item.id} className={`team${i + 1}`} onClick={handleClick}><p >{item.ch}</p><p>{item.en}</p></li>
+                {list.map((item, i) => {
+                    return (
+                        item.url ?
+                            <Link to={item.url} style={{ display: "flex", width: "100%" }} key={item.id} >
+                                <li className={`team${i + 1}`} onClick={handleClick}>
+                                    <p >{item.ch}</p><p>{item.en}</p>
+                                </li>
+                            </Link> :
+
+                            <li key={item.id} className={`team${i + 1}`} onClick={handleClick}>
+                                <p >{item.ch}</p><p>{item.en}</p>
+                            </li>
+                    )
+
+
+
                 })}
             </ul>
         </div>
@@ -171,20 +195,30 @@ function BuildingTeam({ type }) {
 
     return (
         <div className="building-team" style={{ display: type !== "team1" ? "block" : "none" }}>
-            <div className="designer" style={{ display: type == "team2" ? "flex" : "none" }}>
-                <Link to={"/1"}>  <img src={webp[1].default} /></Link>
+            <BuildingDesigner type={type} />
+            <PostulateDesigner type={type} />
+        </div>
+    )
+}
 
-                <div className="title">
-                    <p>建築設計師</p>
-                    <img src={svg[3].default} />
-                </div>
+export function BuildingDesigner({ type }) {
+    return (
+        <div className="designer" style={{ display: type == "team2" ? "flex" : "none" }}>
+            <Link to={"./team/designTeam/building"}>  <img src={webp[1].default} /></Link>
+            <div className="title">
+                <p>建築設計師</p>
+                <img src={svg[3].default} />
             </div>
-            <div className="designer" style={{ display: type == "team3" ? "flex" : "none" }}>
-                <Link to={"/1"}>  <img src={webp[2].default} /></Link>
-                <div className="title">
-                    <p>公設設計師</p>
-                    <img src={svg[4].default} />
-                </div>
+        </div>
+    )
+}
+export function PostulateDesigner({ type }) {
+    return (
+        <div className="designer" style={{ display: type == "team3" ? "flex" : "none" }}>
+            <Link to={"./team/designTeam/postulate"}>  <img src={webp[2].default} /></Link>
+            <div className="title">
+                <p>景觀設計師</p>
+                <img src={svg[4].default} />
             </div>
         </div>
     )
