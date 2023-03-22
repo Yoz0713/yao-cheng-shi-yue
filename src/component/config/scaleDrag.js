@@ -69,6 +69,7 @@ export default function ScaleDrag({ children, maxRatio = 1, zoomImg1, zoomImg2, 
         height: "1.705vw",
         cursor: "pointer",
         pointerEvents: "auto",
+
     }
     return (
         <>
@@ -82,7 +83,7 @@ export default function ScaleDrag({ children, maxRatio = 1, zoomImg1, zoomImg2, 
                     {children}
                 </div>
             </div>
-            <div className="zoom" style={{ display: maxRatio == 1 ? "none" : "flex" }}>
+            <div className="zoom" style={{ display: maxRatio == 1 ? "none" : "flex", padding: "0.5vw", pointerEvents: "auto" }}>
                 <img src={zoomImg1} onClick={zoomIn} style={{ ...zoomImgStyle, filter: scaleRatio == maxRatio ? "brightness(0.8) grayscale(100%)" : "none" }} />
                 <img src={zoomImg2} onClick={zoomOut} style={{ ...zoomImgStyle, filter: scaleRatio == 1 ? "brightness(0.8) grayscale(100%)" : "none" }} />
             </div>

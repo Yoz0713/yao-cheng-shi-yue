@@ -14,7 +14,8 @@ export default function FancyBox({ thumbUrl, text, children }) {
 
     return (
         <>
-            <div className="thumbBox" style={{ pointerEvents: "auto", cursor: "pointer" }} onClick={() => {
+            <div className="thumbBox" style={{ pointerEvents: "auto", cursor: "pointer" }} onClick={(e) => {
+                e.stopPropagation()
                 setOpen(true)
             }}>
                 {thumbUrl ?
@@ -60,13 +61,23 @@ function Modal({ setOpen, children }) {
     }
     useEffect(() => {
         setTrans(true)
-    })
+    }, [])
     return ReactDOM.createPortal(
-        <div className="fancyBox" style={fancyBoxStyle} >
+        <div className="fancyBox" style={fancyBoxStyle} onClick={(e) => {
+            e.stopPropagation()
+            setTrans(false);
+            setTimeout(() => {
+                setOpen(false);
+            }, 500)
+
+
+        }}>
             {children}
             <div className="close" style={{ position: "absolute", right: "4vw", top: "2vw", cursor: "pointer", width: "2vw", height: "2vw" }} onClick={() => {
-                setOpen(false);
-                setTrans(false)
+                setTrans(false);
+                setTimeout(() => {
+                    setOpen(false);
+                }, 500)
             }}>
                 <div className="line1" style={{ ...closeStyle, transform: "rotate(45deg)" }}></div>
                 <div className="line2" style={{ ...closeStyle, transform: "rotate(-45deg)" }}></div>

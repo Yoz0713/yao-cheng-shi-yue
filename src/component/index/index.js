@@ -56,6 +56,12 @@ function Home({ slideChangeAction, myState, teamState }) {
 
         preloadImage(require("../../../img/urban/webp/000-urban-bg.webp").default)
     }, []);
+    useEffect(() => {
+        if (myState == 0) {
+            swiperRef.current.swiper.slideTo(myState, 0)
+        }
+
+    }, [myState])
 
     useEffect(() => {
         swiperRef.current.swiper.slideTo(myState, 0)

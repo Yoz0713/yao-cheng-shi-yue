@@ -79,15 +79,15 @@ function MenuContent({ open, setOpen, fullActive }) {
         ch: "樓層規劃",
         slide: 4,
     }], [{
-        id: "/6",
+        id: "/method/structure",
         ch: "結構工法",
         slide: 4,
     }, {
-        id: "/7",
+        id: "/method/waterProof",
         ch: "防水工法",
         slide: 4,
     }, {
-        id: "/8",
+        id: "/method/sweet",
         ch: "貼心工法",
         slide: 4,
     }], [{

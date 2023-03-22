@@ -7,6 +7,7 @@ const webp = requireWebp.keys().map(requireWebp);
 function FirstPage({ reduxState }) {
     const animateRef = useRef(null)
     const [animation, setAnimation] = useState(false);
+    const [isAnimating, setIsAnimating] = useState(false)
     const title = {
         en: "PRIME LOCATION",
         ch: {
@@ -36,22 +37,29 @@ function FirstPage({ reduxState }) {
 
         let ctx = gsap.context(() => {
             let gg = gsap.timeline({ paused: true })
-            gg.from(".left .box img:nth-child(1)", {
+            gg.from(".box1 img:nth-child(1)", {
                 opacity: 0,
                 duration: 1.6
-            }).from(".left .box img:nth-child(4)", {
+            }).from(".box1 :nth-child(4)", {
                 opacity: 0,
                 duration: 1.6
-            }, "<+0.5").from(".left .box img:nth-child(2)", {
+            }, "<+0.5").from(".box1 :nth-child(2)", {
                 opacity: 0,
                 duration: 1.6
-            }, "<+0.5").from(".left .box img:nth-child(3)", {
+            }, "<+0.5").from(".box1 :nth-child(3)", {
                 opacity: 0,
-                duration: 1.6
+                duration: 1.6,
+                onStart: () => {
+                    setTimeout(() => {
+                        setIsAnimating(false)
+                    }, 400)
+
+                }
             }, "<+0.5")
 
             if (animation) {
-                gg.play()
+                gg.play();
+                setIsAnimating(true)
             }
 
 
@@ -60,11 +68,11 @@ function FirstPage({ reduxState }) {
     }, [animation])
     const animateStart = async () => {
         await new Promise(resolve => setTimeout(() => {
-
+            setAnimation(true);
             resolve()
         }, 400));
 
-        setAnimation(true);
+
     }
 
     useEffect(() => {
@@ -78,20 +86,20 @@ function FirstPage({ reduxState }) {
         <section className='first-page' ref={animateRef} >
             <div className="left">
                 <div className="imgBox">
-                    <div className="box">
+                    <div className="box box1">
                         <img src={webp[11].default} />
                         <img src={webp[12].default} />
                         <img src={webp[13].default} />
                         <img src={webp[14].default} />
                     </div>
-                    <div className="box">
-                        <img src={webp[15].default} />
+                    <div className="box"  >
+                        <img src={webp[15].default} style={{ opacity: isAnimating ? 0 : 1 }} />
                     </div>
-                    <div className="box">
-                        <img src={webp[16].default} />
+                    <div className="box"  >
+                        <img src={webp[16].default} style={{ opacity: isAnimating ? 0 : 1 }} />
                     </div>
-                    <div className="box">
-                        <img src={webp[17].default} />
+                    <div className="box"  >
+                        <img src={webp[17].default} style={{ opacity: isAnimating ? 0 : 1 }} />
                     </div>
 
                 </div>

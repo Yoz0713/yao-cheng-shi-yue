@@ -3,7 +3,7 @@ import { useRef, useState, useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 // Import animation libary
 import { gsap } from "gsap";
-
+import { Link } from 'react-router-dom';
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
@@ -87,9 +87,18 @@ function ForthPagePara() {
 function ForthPageCard() {
     return (
         <div className="forth-page-card">
-            <Card img={webp[4].default} num={"01."} text={"結構工法"} style2={{ objectPosition: "center 0%" }} />
-            <Card img={webp[5].default} num={"02."} text={"防水工法"} style2={{ objectPosition: "bottom left" }} />
-            <Card img={webp[6].default} num={"03."} text={"貼心工法"} />
+            <Link to={"./method/structure"}>
+                <Card img={webp[4].default} num={"01."} text={"結構工法"} style2={{ objectPosition: "center 0%" }} />
+            </Link>
+            <Link to={"./method/waterProof"}>
+                <Card img={webp[5].default} num={"02."} text={"防水工法"} style2={{ objectPosition: "bottom left" }} />
+            </Link>
+            <Link to={"./method/sweet"}>
+                <Card img={webp[6].default} num={"03."} text={"貼心工法"} />
+            </Link>
+
+
+
         </div>
     )
 }

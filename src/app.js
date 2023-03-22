@@ -9,6 +9,7 @@ import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-d
 import gsap from 'gsap';
 import GreenBg from "../img/layout/webp/000-green-bg.webp"
 import Urban from './component/urban';
+import Method from './component/method';
 export default function App() {
 
     return (
@@ -86,6 +87,7 @@ function Content() {
                 <Route path="/lifefunction" element={<LifeFunction setTransistionStage={setTransistionStage} />} />
                 <Route path="/team/*" element={<Team />} />
                 <Route path="/urban" element={<Urban />} />
+                <Route path="/method/*" element={<Method />} />
                 <Route path="*" element={<><h1 style={{ color: "#fff", width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1></>} />
             </Routes>
         </div>
