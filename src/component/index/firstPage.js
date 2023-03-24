@@ -2,8 +2,10 @@ import React, { useLayoutEffect, useRef, useState, useEffect } from 'react'
 import { SectionNav } from './secondPage'
 import gsap from 'gsap';
 import { connect } from 'react-redux';
+
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
+
 function FirstPage({ reduxState }) {
     const animateRef = useRef(null)
     const [animation, setAnimation] = useState(false);
@@ -76,6 +78,7 @@ function FirstPage({ reduxState }) {
     }
 
     useEffect(() => {
+
         if (reduxState === 1) {
             animateStart()
             setAnimation(false)

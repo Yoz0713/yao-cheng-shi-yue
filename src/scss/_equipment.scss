@@ -167,7 +167,7 @@
 
             img {
                 position: absolute;
-                width: pxConvertor(525);
+                width: pxConvertor(158);
             }
 
             .bg {
@@ -210,6 +210,7 @@
                         letter-spacing: 0.15em;
                         line-height: 1;
                         padding-left: 1.2vw;
+                        white-space: nowrap;
 
                         &::after {
                             display: block;
@@ -228,6 +229,10 @@
 
                     &> :not(:last-child) {
                         margin-bottom: 1.2vw;
+                    }
+
+                    & :nth-child(odd) {
+                        flex: 0 0 50%;
                     }
                 }
             }

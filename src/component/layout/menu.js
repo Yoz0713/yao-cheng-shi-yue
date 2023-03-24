@@ -83,7 +83,7 @@ function MenuContent({ open, setOpen, fullActive }) {
         slide: 2,
     }, {
         id: "/team/designTeam/postulate",
-        ch: "工法設計",
+        ch: "工設設計",
         slide: 2,
     }], [{
         id: "/5",

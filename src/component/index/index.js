@@ -8,7 +8,7 @@ import ForthPage from './forthPage';
 import SixthPage from './sixthPage';
 import FullScreen from './fullScreen';
 import { useEffect, useRef } from 'react';
-
+import preloadImage from "../config/preload"
 //引入redux
 import { connect, } from 'react-redux';
 import { slideChangeAction } from '../redux/action/slideChange';
@@ -16,8 +16,9 @@ import { slideChangeAction } from '../redux/action/slideChange';
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
 import SwiperCore, { Mousewheel, EffectFade } from "swiper";
-import preloadImage from '../config/preload';
 
+const requireWebp1 = require.context("../../../img", true, /^\.\/.*\.webp$/);
+const allWebp = requireWebp1.keys().map(requireWebp1);
 SwiperCore.use([Mousewheel, EffectFade]);
 //組合成首頁
 function Home({ slideChangeAction, myState, teamState }) {
@@ -54,7 +55,9 @@ function Home({ slideChangeAction, myState, teamState }) {
             swiper1.slideTo(myState, 0)
         }
 
-        preloadImage(require("../../../img/urban/webp/000-urban-bg.webp").default)
+        allWebp.forEach((item, i) => {
+            preloadImage(item.default)
+        });
     }, []);
     useEffect(() => {
         if (myState == 0) {

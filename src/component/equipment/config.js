@@ -117,9 +117,9 @@ export function EquipmentVertic({ data }) {
         <div className="equipment-vertic" ref={animateRef}>
             <div className="imgBox">
                 <img src={data.top.bg} className="bg" />
-                {data.top.para.map((item, i) => {
+                {data.top.para && data.top.para.map((item, i) => {
                     return (
-                        <img src={item} key={i} style={data.top.paraStyle[i]} />
+                        <img src={item} key={i} style={{ ...data.top.paraStyle[i], height: "auto" }} />
                     )
                 })}
             </div>
@@ -130,7 +130,7 @@ export function EquipmentVertic({ data }) {
                     )
                 })}
                 <Sakura data={data.bot.sakura} />
-                {data.bot.detail && <img src={data.bot.detail.img} style={data.bot.detail.style} />}
+                {data.bot.detail && <img src={data.bot.detail.img} style={{ ...data.bot.detail.style, marginTop: "4vw" }} />}
             </div>
         </div>
 
