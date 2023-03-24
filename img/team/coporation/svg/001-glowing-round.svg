@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_2" data-name="圖層 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 182.28 182.28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: url(#linear-gradient);
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0" y1="91.14" x2="182.27" y2="91.14" gradientTransform="translate(-7.56 8.24) rotate(-4.97)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b38c5b"/>
+      <stop offset=".05" stop-color="#fadaa3"/>
+      <stop offset=".21" stop-color="#b48d5d"/>
+      <stop offset=".29" stop-color="#fff"/>
+      <stop offset=".49" stop-color="#e7c690"/>
+      <stop offset=".82" stop-color="#ae8657"/>
+      <stop offset=".97" stop-color="#fadaa3"/>
+    </linearGradient>
+  </defs>
+  <g id="_圖層_1-2" data-name="圖層 1">
+    <circle class="cls-1" cx="91.14" cy="91.14" r="89.63"/>
+  </g>
+</svg>

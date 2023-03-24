@@ -14,22 +14,36 @@ export default function ScaleDrag({ children, maxRatio = 1, zoomImg1, zoomImg2, 
 
 
     const zoomIn = () => {
-        setScaleRatio(maxRatio);
-        requestAnimationFrame(() => {
-            setX(init.x);
-            setY(init.y);
-        });
+        let preRatio = scaleRatio
+        if (scaleRatio == 1) {
+            requestAnimationFrame(() => {
+                setX(init.x);
+                setY(init.y);
+            });
+        }
+        setScaleRatio(preRatio + 0.5);
+
+
 
     }
     const zoomOut = () => {
-        setScaleRatio(1);
-        setX(0);
-        setY(0);
+        let preRatio = scaleRatio
+        if (preRatio >= 1.5) {
+            setScaleRatio(preRatio - 0.5);
+        }
+
+        if (preRatio == 1) {
+            requestAnimationFrame(() => {
+                setX(0);
+                setY(0);
+            });
+        }
+
     }
     const onMouseMove = useCallback((e) => {
         e.preventDefault();
 
-        if ((flag && scaleRatio == maxRatio)) {
+        if ((flag && scaleRatio != 1)) {
             requestAnimationFrame(() => {
                 setX(`${e.pageX - (press.x)}px`);
                 setY(`${e.pageY - (press.y)}px`);
@@ -84,8 +98,8 @@ export default function ScaleDrag({ children, maxRatio = 1, zoomImg1, zoomImg2, 
                 </div>
             </div>
             <div className="zoom" style={{ display: maxRatio == 1 ? "none" : "flex", padding: "0.5vw", pointerEvents: "auto" }}>
-                <img src={zoomImg1} onClick={zoomIn} style={{ ...zoomImgStyle, filter: scaleRatio == maxRatio ? "brightness(0.8) grayscale(100%)" : "none" }} />
-                <img src={zoomImg2} onClick={zoomOut} style={{ ...zoomImgStyle, filter: scaleRatio == 1 ? "brightness(0.8) grayscale(100%)" : "none" }} />
+                <img src={zoomImg1} onClick={zoomIn} style={{ ...zoomImgStyle, }} />
+                <img src={zoomImg2} onClick={zoomOut} style={{ ...zoomImgStyle }} />
             </div>
         </>
 

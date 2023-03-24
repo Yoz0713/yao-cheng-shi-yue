@@ -5,6 +5,7 @@
 @import "_urban";
 @import "_basicContent";
 @import "_method";
+@import "_equipment";
 
 * {
     padding: 0;
@@ -44,5 +45,99 @@ body {
 
     to {
         background-position: -200% 0;
+    }
+}
+
+@keyframes glow {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: 100%;
+    }
+}
+
+@keyframes flow {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+@keyframes glowing {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes glowing2 {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes glowEquip {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes turn {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flowUrban {
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-0.15vw);
+    }
+
+    50% {
+        transform: translateY(-0.3vw);
+    }
+
+    75% {
+        transform: translateY(-0.15vw);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }

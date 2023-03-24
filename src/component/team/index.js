@@ -6,7 +6,7 @@ export default function Team() {
     return (
         <section className="team">
             <Routes>
-                <Route path="/coporation/*" element={<Coporation />} />
+                <Route path="/coporation" element={<Coporation />} />
                 <Route path="/designTeam/*" element={<DesignTeam />} />
             </Routes>
 

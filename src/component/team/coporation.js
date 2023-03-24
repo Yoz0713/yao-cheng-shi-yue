@@ -1,77 +1,171 @@
-import React, { useLayoutEffect, useRef } from 'react'
-import { Routes, Route } from 'react-router-dom';
+import React, { useLayoutEffect, useRef, useState } from 'react'
 import SpliText from '../config/splitText';
 import gsap from 'gsap';
-const requireWebp = require.context("../../../img/team/coporation/sunland/webp", false, /^\.\/.*\.webp$/);
-const sunlandWebp = requireWebp.keys().map(requireWebp);
-const requireSvg2 = require.context("../../../img/team/coporation/oliv/svg", false, /^\.\/.*\.svg$/);
-const olivSvg = requireSvg2.keys().map(requireSvg2);
-const requireWebp2 = require.context("../../../img/team/coporation/oliv/webp", false, /^\.\/.*\.webp$/);
-const olivWebp = requireWebp2.keys().map(requireWebp2);
-const indexSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
-const svg = indexSvg.keys().map(indexSvg);
+
+
+const requireWebp = require.context("../../../img/team/coporation/webp", false, /^\.\/.*\.webp$/);
+const webp = requireWebp.keys().map(requireWebp);
+const requireSvg = require.context("../../../img/team/coporation/svg", false, /^\.\/.*\.svg$/);
+const svg = requireSvg.keys().map(requireSvg);
+
 export const Coporation = () => {
     const animateRef = useRef(null);
+    const [content, setContent] = useState(1)
 
+
+
+    const switchContent = (index) => {
+        let ctx = gsap.context(() => {
+            let gg = gsap.timeline()
+            gg.to(".yao-cheng", {
+                opacity: 0,
+                duration: 0.5
+            }).to(".yao-cheng-concept", {
+                opacity: 0,
+                duration: 0.5
+            }, '<').then(() => {
+                setContent(index)
+            })
+        }, [animateRef])
+    }
+    return (
+        <div className='coporation' ref={animateRef}>
+            {content == 1 ? <YaoCheng animateRef={animateRef} /> : <YaoChengConcept animateRef={animateRef} />}
+
+            <YaoChengNav content={content} setContent={setContent} switchContent={switchContent} />
+        </div>
+
+    )
+}
+
+function YaoCheng() {
+    const animateRef = useRef(null);
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             let gg = gsap.timeline()
-            gg.from(".imgBox", {
+            gg.from(".yao-cheng > .imgBox img", {
                 x: -40,
-                duration: 0.8
-            }).from(".right .title span", {
+                duration: 0.8,
+                opacity: 0,
+                delay: 0.1
+            }).from(".right .title-box h3 span", {
                 x: 80,
                 duration: 0.6,
                 stagger: 0.03,
+                opacity: 0,
+            }, "<+0.3").from(".right .title-box p", {
+                x: 80,
+                duration: 0.6,
+                opacity: 0,
+            }, "<+0.3").from(".right .para p", {
+                x: 40,
+                duration: 0.6,
+                opacity: 0
+            }, "<+0.3").from(".right .concept .box", {
+                y: 20,
+                duration: 0.6,
+                opacity: 0,
+                stagger: 0.3
+            }, "<+0.2")
+        }, [animateRef])
+        return () => ctx.revert()
+    }, []);
+
+    const para = {
+        title: {
+            en: `COMPANY CONCEPT`,
+            ch1: `光耀匠心`,
+            ch2: `傳承幸福`
+        },
+        paragraph: {
+            para1: `耀承建設秉持「厚積薄發，慢工出細活」的職人匠心，將建築視為手作工藝般分外講究，從選地、規劃、選材直至施工，所有階段作業皆力求盡善盡美，從細節處起嚴格把關，不搶快、只求好，盡其所能深化每一塊土地價值、昇華每一幢建築美學，只為砌築出時代住人的理想居所，滿足跨世代的生活觀，進而創造獨有的品牌榮耀。`,
+            para2: [
+                "以永續持續發展為企業核心價值，建立一個更加公平、繁榮和可持續的未來。",
+                "堅守誠信原則，與客戶建立信任和口碑。",
+                "提供優質的產品和服務，為客戶創造價值。",
+            ]
+        },
+        img: {
+            main: [svg[2].default, svg[3].default, svg[4].default],
+            glow: svg[0],
+            round: svg[1]
+        }
+    }
+
+    return (
+        <>
+            <div className="yao-cheng" ref={animateRef}>
+                <ImgBox url={webp[0].default} />
+                <div className="right">
+                    <ParaBox para={para} />
+                </div>
+
+            </div>
+
+        </>
+
+
+    )
+}
+function YaoChengConcept() {
+    const animateRef = useRef(null);
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            let gg = gsap.timeline()
+            gg.from(".right .title-box h3 span", {
+                x: 80,
+                duration: 0.6,
+                stagger: 0.03,
+                opacity: 0,
+            }, "<+0.5").from(".right .title-box p", {
+                x: 80,
+                duration: 0.6,
                 opacity: 0,
             }, "<+0.5").from(".right .para p", {
                 x: 40,
                 duration: 0.6,
                 opacity: 0
-            }, "<+0.8").from(".right .nav li", {
-                x: -40,
+            }, "<+0.5").from(".right .concept .box", {
+                y: 20,
                 duration: 0.6,
                 opacity: 0,
                 stagger: 0.3
-            }, "<+0.4").from(".right .slogan", {
-                x: -40,
-                duration: 0.6,
-                opacity: 0,
-            }, "<")
-        })
+            }, "<+0.4")
+        }, [animateRef])
         return () => ctx.revert()
-    }, [])
-    return (
-        <div className='coporation' ref={animateRef}>
-            <Routes>
-                <Route path="/sunland" element={<Sunland />}></Route>
-                <Route path="/oliv" element={<Oliv />}></Route>
-            </Routes>
-        </div>
-
-    )
-}
-
-function Sunland() {
-
+    }, []);
 
     const para = {
-        title: `SUNLAND DEVELOPMENT\nDESIGN CONCEPT`,
+        title: {
+            en: `COMPANY CONCEPT`,
+            ch1: `光耀引領 全球視野`,
+            ch2: `國際規格 六大堅持`
+        },
         paragraph: {
-            para1: `森聯機構CLASSY HOME建案，\n2021年公司開始參與規劃，\n與建築設計團隊為使個案產品更加完美，\n我們不斷自生活中尋找新鮮題材融入本案，掌握時代變化，\n洞察趨勢生活及居住者習慣的改變，\n期許讓本社區成為未來客戶享受美好的生活所在。\n這是我們所堅持與嚮往的情境.......`,
-            para2: `回歸居住者角度，深度思考建築每一個面向，\n積極與森聯互動參與規劃建議，\n目的是為了讓社區更好，成為客戶最有價值的人生資產。`
+            para1: `遠見大環境變化節奏加快，「耀承建設」與時俱進，積累專業，前瞻各地都會的發展趨勢，精準把握其中的價值精華，偕同業界精英團隊盡數發揮地段優勢，更以尖端技術打磨建築，為住戶完善規劃空間機能，無論實際起居或情感涵養全面顧及，將「一間房」作為「一世情」永續傳承。`,
+            para2: [
+                "節能永續，宜居有道！打造一個\n舒適、綠色、節能的宜居生活。",
+                "注重純淨水資源，創造\n更健康的居住環境。",
+                "讓「家」成為您安心生活的\n堡壘，是我們的使命。",
+                "踏入空間便能感受科技與設計\n結合帶來的舒服、便利與溫暖",
+                "以愛共築、全齡規劃，\n滿足享受生活。",
+                "實現安心永住的精神，\n打造友善的生活空間。"
+            ]
+        },
+        img: {
+            main: [webp[1].default, webp[2].default, webp[3].default, webp[4].default, webp[5].default, webp[6].default],
+            icon: [svg[5], svg[6], svg[7], svg[8], svg[9], svg[10]]
         }
     }
 
     return (
         <>
-            <div className="sunland">
-                <ImgBox url={sunlandWebp[0].default} />
+            <div className="yao-cheng-concept" ref={animateRef}>
+
                 <div className="right">
-                    <ParaBox title={para.title} para={para.paragraph} linePosition={{ bottom: "-1vw" }} mb={"1.5vw"} />
-                    <SunlandNav />
+                    <ParaBox para={para} />
                 </div>
-                <img src={svg[2]} />
+
             </div>
 
         </>
@@ -79,47 +173,23 @@ function Sunland() {
 
     )
 }
+function YaoChengNav({ content, switchContent }) {
 
-function SunlandNav() {
     return (
         <div className="nav">
             <ul>
-                <li>歷年業績</li>
-                <li>摩天41</li>
+                <li style={{ color: content == 1 ? "#d9b875" : "#fff" }} onClick={() => {
+                    switchContent(1)
+                }}>耀承建設</li>
+                <li style={{ color: content == 2 ? "#d9b875" : "#fff" }} onClick={() => {
+                    switchContent(2)
+                }}>六大堅持</li>
             </ul>
         </div>
     )
 }
 
-function Oliv() {
-    const para = {
-        title: `OLIVE TREE\nDESIGN CONCEPT`,
-        paragraph: {
-            para1: `象徵著公司旺盛的生命力，同心的凝聚力、完美的創造力，\n從扎根開始、茁壯、開發、結果。\n從自身的本質學能開始，深入了解工作領域的每一事物虛心\n的學習，清楚的表達，生活在理性與感性之間自我要求、細\n心探討，堅持做到完美。`,
-            para2: `面對問題、重視環節、尊重客戶，秉持著熱忱與服務的精神\n重視每一事物上的表現，如何在點、線、面上，做選擇與要求。`
-        }
-    }
-    return (
-        <>
-            <div className="oliv">
-                <ImgBox url={olivWebp[0].default} />
-                <div className="right">
-                    <ParaBox title={para.title} para={para.paragraph} linePosition={{ bottom: "-1vw" }} mb={"0vw"} />
-                    <div className="slogan">
-                        <img src={olivSvg[0]} />
-                        <img src={olivSvg[1].default} />
-                        <img src={olivSvg[2]} />
-                        <img src={olivSvg[3]} />
-                    </div>
-                </div>
 
-            </div>
-
-        </>
-    )
-
-
-}
 
 //共用
 function ImgBox({ url }) {
@@ -130,16 +200,39 @@ function ImgBox({ url }) {
     )
 }
 
-function ParaBox({ title, para, linePosition, mb }) {
+function ParaBox({ para, mb }) {
     return (
         <div className="paraBox">
-            <div className="title">
-                <h2 style={{ whiteSpace: "pre-wrap" }}><SpliText text={title} /></h2>
-                <div className="line" style={linePosition}></div>
+            <div className="title-box" >
+                <h3>{<SpliText text={para.title.en} />}</h3>
+                <p>{para.title.ch1}<span>╳</span>{para.title.ch2}</p>
             </div>
             <div className="para">
-                <p style={{ whiteSpace: "pre-wrap", marginBottom: mb }}>{para.para1}</p>
-                <p style={{ whiteSpace: "pre-wrap" }}>{para.para2}</p>
+                <p style={{ whiteSpace: "pre-wrap", marginBottom: mb }}>{para.paragraph.para1}</p>
+
+            </div>
+            <div className="concept">
+                {para.img.main.map((item, i) => {
+                    return (
+                        <div className="box">
+                            <div className="imgBox">
+                                <img src={item} />
+                                {para.img.icon ? <>
+                                    <img src={para.img.icon[i]} />
+                                </> :
+                                    <>
+                                        <img src={para.img.glow} />
+                                        <img src={para.img.glow} />
+                                        <img src={para.img.round} />
+                                    </>
+                                }
+
+                            </div>
+                            <p><p style={{ whiteSpace: "pre-wrap" }}>{para.paragraph.para2[i]}</p></p>
+                        </div>
+                    )
+                })}
+
             </div>
         </div>
     )

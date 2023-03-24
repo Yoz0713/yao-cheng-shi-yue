@@ -100,6 +100,45 @@
                     letter-spacing: 0.1em;
                     line-height: 1.8;
                     white-space: pre-wrap;
+                    text-indent: -0.38em;
+
+
+                }
+
+                .stageBox {
+                    .box {
+                        position: relative;
+
+                        p {
+                            font-size: pxConvertor(22);
+                        }
+
+                        .arrow {
+                            position: absolute;
+                            top: pxConvertor(14);
+                            left: -1.5vw;
+                            width: 0.5vw;
+                            height: 0.5vw;
+                            background-color: $gold_color;
+                            animation-name: glowing2;
+                            animation-duration: 1s;
+                            animation-timing-function: ease-out;
+                            animation-fill-mode: forwards;
+                            animation-iteration-count: infinite;
+                            border-radius: 50%;
+                        }
+                    }
+
+                }
+            }
+
+            //有設定para物件有img的才有
+            .imgBox {
+                width: 100%;
+                margin-top: 1.5vw;
+
+                img {
+                    width: 100%;
                 }
             }
 
@@ -136,14 +175,17 @@
         ul {
             display: flex;
             align-items: center;
-            width: pxConvertor(1184);
-            justify-content: space-between;
+
             pointer-events: auto;
             padding: pxConvertor(15);
 
             li {
                 position: relative;
                 cursor: pointer;
+
+                &:not(:last-child) {
+                    margin-right: 3vw;
+                }
 
                 p {
                     font-size: pxConvertor(28);
@@ -182,18 +224,4 @@
     }
 
 
-}
-
-@keyframes glowing {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0.3;
-    }
-
-    100% {
-        opacity: 0;
-    }
 }

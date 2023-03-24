@@ -1,0 +1,239 @@
+.equipment {
+    width: 100%;
+    height: calc(100vw*(9/16));
+
+    .equipment-list {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+        .imgBox {
+            display: block;
+            width: pxConvertor(921);
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: pxConvertor(1639);
+            padding-top: pxConvertor(140);
+
+            .titleBox {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+
+                h2 {
+                    span {
+                        font-size: var(--ch_xl_text);
+                        font-weight: 400;
+                        font-family: 'Cormorant Garamond', serif;
+                        background: linear-gradient(30deg, $gold_color 0%, $gold_color 87%, #faf4d4 93%, $gold_color 99%);
+                        background-size: 200% 400%;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        animation-name: indexGlowingTitle;
+                        animation-duration: 2.5s;
+                        animation-timing-function: linear;
+                        animation-fill-mode: forwards;
+                        animation-delay: 0.5;
+                        animation-iteration-count: infinite;
+                    }
+
+                }
+
+                p {
+                    span {
+                        font-size: var(--ch_l_text);
+                        font-weight: 600;
+                    }
+
+                }
+
+
+                span {
+                    color: $gold_color;
+                    letter-spacing: 0.05em;
+                    text-align: center;
+                }
+            }
+
+            .itemBox {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                flex-wrap: wrap;
+                width: 80%;
+                margin-top: 5vw;
+
+
+                .box {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 33.33%;
+                    margin-bottom: 5vw;
+
+                    &:hover .imgBox :nth-child(1) {
+                        animation-name: flowUrban;
+                        animation-duration: 1s;
+                        animation-timing-function: ease-out;
+                        animation-iteration-count: infinite;
+                    }
+
+                    .imgBox {
+                        display: flex;
+                        position: relative;
+                        justify-content: center;
+                        align-items: center;
+                        width: pxConvertor(442.8409);
+                        height: pxConvertor(250.5402);
+
+                        img {
+                            height: auto;
+                            margin-bottom: 2.5vw;
+                        }
+
+                        & :nth-child(2),
+                        & :nth-child(3) {
+                            position: absolute;
+                            width: 80%;
+                            bottom: -2.8vw;
+                            left: 0;
+                            right: 0;
+                            margin: 0 auto;
+                        }
+
+                        & :nth-child(3) {
+                            width: 65%;
+                            bottom: -4vw;
+                            animation-name: glowEquip;
+                            animation-duration: 2.5s;
+                            animation-timing-function: ease-in;
+                            animation-iteration-count: infinite;
+                            animation-fill-mode: forwards;
+                        }
+
+                    }
+
+                    p {
+                        font-size: var(--ch_ml_text);
+                        color: #fff;
+                        letter-spacing: 0.05em;
+                    }
+
+                    &:nth-child(1),
+                    &:nth-child(2) {
+                        width: 50%;
+                    }
+
+                    .thumbBox {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+.fancyBox {
+    .equipment-vertic {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        >.imgBox {
+            position: relative;
+            width: 100%;
+            height: pxConvertor(817);
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                width: pxConvertor(525);
+            }
+
+            .bg {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 92.5%;
+            flex-grow: 1;
+            margin: 0 auto;
+            padding-left: 5vw;
+
+            .sakura {
+
+
+                .imgBox {
+                    width: pxConvertor(250);
+                    margin-bottom: 1.4vw;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    li {
+                        position: relative;
+                        font-size: 0.93vw;
+                        color: #fff;
+                        font-weight: 200;
+                        letter-spacing: 0.15em;
+                        line-height: 1;
+                        padding-left: 1.2vw;
+
+                        &::after {
+                            display: block;
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            bottom: 0;
+                            margin: auto 0;
+                            width: 0.5vw;
+                            height: 0.5vw;
+                            background-color: $gold_color;
+                            transform: rotate(45deg);
+                        }
+                    }
+
+                    &> :not(:last-child) {
+                        margin-bottom: 1.2vw;
+                    }
+                }
+            }
+
+
+
+        }
+    }
+}

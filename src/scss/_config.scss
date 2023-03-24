@@ -1,4 +1,4 @@
-$gold_color: #c0a157;
+$gold_color: #d9b875;
 
 $white_color: #f7f7f7;
 
@@ -10,7 +10,7 @@ $white_color: #f7f7f7;
     --ch_xs_test: #{pxConvertor(18)};
     --ch_s_text:#{pxConvertor(24)};
     --ch_m_text: #{pxConvertor(32.03)};
-    --ch_ml_text: 1.6vw;
+    --ch_ml_text:#{pxConvertor(36)};
     --ch_l_text: #{pxConvertor(48)};
     --ch_xl_text: #{pxConvertor(60)};
 }

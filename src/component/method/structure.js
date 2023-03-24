@@ -1,12 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import BasicMethod from './basicMethod'
-import floorConnect1 from "../../../video/floor-connect1.mp4";
-import floorConnect2 from "../../../video/floor-connect2.mp4";
-import floorProtect from "../../../video/floor-protect.mp4";
-import window1 from "../../../video/window1.mp4";
-import window2 from "../../../video/window2.mp4";
-const requireSvg = require.context("../../../img/method/svg", false, /^\.\/.*\.svg$/);
-const svg = requireSvg.keys().map(requireSvg);
+import floorConnect1 from "../../../video/method/floor-connect1.mp4";
+import floorConnect2 from "../../../video/method/floor-connect2.mp4";
+import floorProtect from "../../../video/method/floor-protect.mp4";
+import window1 from "../../../video/method/window1.mp4";
+import window2 from "../../../video/method/window2.mp4";
+import { ParaBox, VideoBox, ImageBox } from './config';
 const requireWebp = require.context("../../../img/method/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
 
@@ -31,7 +30,12 @@ export default function Structure() {
         para: ["施作雙排鋼筋開口補強的方式，在開口端的四處角隅，加設45度斜向補強鋼筋，這樣的施工法可達到開口補強效果減少龜裂滲漏情形，更可強化開口的補強施作效果。"]
     }, {
         title: nav[5],
-        para: ["點焊固定優點 :\n1.植筋點焊按裝較穩固，可提高精準度，避免鋁窗於施工中移動。\n2.按裝後即使遭受撞擊或是踩踏窗戶，垂直水平均不會變動。\n3.一般簡易固定片填縫施作比較不易，因為固定片與結構體連接處，會阻礙泥作填縫，進而影嚮填縫品質。"]
+        para: ["點焊固定優點 :"],
+        stage: [
+            "1.植筋點焊按裝較穩固，可提高精準度，避免鋁窗於施工中移動。",
+            "2.按裝後即使遭受撞擊或是踩踏窗戶，垂直水平均不會變動。",
+            "3.一般簡易固定片填縫施作比較不易，因為固定片與結構體連接處，會阻礙泥作填縫，進而影嚮填縫品質。"
+        ]
     }]
     const image = [{
         img: [
@@ -47,7 +51,8 @@ export default function Structure() {
     }, {
         img: [
             [webp[6].default],
-            [webp[7].default]
+            [webp[7].default],
+            [webp[8].default]
         ],
         width: "65%"
     }]
@@ -83,122 +88,5 @@ export default function Structure() {
     return (
         <BasicMethod left={left} right={right} nav={nav} setContent={setContent} contentInner={contentInner} setContentInner={setContentInner} />
 
-    )
-}
-function ImageBox({ image, content, width }) {
-
-    return (
-        <div className="imageBox">
-            {image.img.map((item, index1) => {
-                return (
-                    <div className={`imgBox `} key={index1} style={{ opacity: content == index1 ? "1" : "0", width: width }}>
-                        {item.map((item, index2) => {
-                            return (
-                                <img key={index2} src={item} />
-                            )
-                        })}
-                    </div>
-                )
-
-            })}
-        </div>
-    )
-}
-function VideoBox({ video, content, width, contentInner }) {
-    const videoRef = useRef(null);
-
-    useEffect(() => {
-        videoRef.current.currentTime = 0;
-        videoRef.current.play();
-
-    }, [content, contentInner]);
-    return (
-        <div className="imageBox">
-            {video.video.map((item, index1) => {
-                return (
-                    <div className={`imgBox imgBox${index1 + 1}`} key={index1} style={{ opacity: content == index1 ? "1" : "0", width: width }}>
-                        <video src={item} ref={content == index1 ? videoRef : null} muted playsInline />
-                    </div>
-                )
-
-            })}
-        </div>
-    )
-}
-
-function ParaBox({ para, content, setContent, video = { video: [null], width: null }, image = { img: [null], width: null } }) {
-
-    const next = () => {
-        let index = content
-        setContent(++index)
-    }
-    const replay = () => {
-        setContent(0)
-    }
-    const back = () => {
-        let index = content
-        setContent(--index)
-    }
-    return (
-        <div className="paraBox">
-            <div className="method-name">
-                <h2>STRUCTURAL METHOD</h2>
-            </div>
-            <div className="title">
-                <h4>{para.title}</h4>
-            </div>
-            <div className="para">
-                {para.para.length != 1 ?
-                    <p> {para.para[content]}</p> :
-                    <p> {para.para[0]}</p>
-                }
-
-
-            </div>
-            {(para.para.length >= 2) ?
-                <div className="change-para">
-                    {content !== 0 &&
-                        <div className="back">
-                            <img onClick={back} src={svg[1]} />
-
-                        </div>
-                    }
-                    <div className="next-replay">
-                        {content !== para.para.length - 1 ?
-                            <img onClick={next} src={svg[0]} /> :
-                            <img onClick={replay} src={svg[2]} />
-                        }
-                    </div>
-                </div> : video.video.length >= 2 ?
-                    <div className="change-para">
-                        {content !== 0 &&
-                            <div className="back">
-                                <img onClick={back} src={svg[1]} />
-
-                            </div>
-                        }
-                        <div className="next-replay">
-                            {content !== video.video.length - 1 ?
-                                <img onClick={next} src={svg[0]} /> :
-                                <img onClick={replay} src={svg[2]} />
-                            }
-                        </div>
-                    </div> : image.img.length >= 2 ?
-                        <div className="change-para">
-                            {content !== 0 &&
-                                <div className="back">
-                                    <img onClick={back} src={svg[1]} />
-
-                                </div>
-                            }
-                            <div className="next-replay">
-                                {content !== image.img.length - 1 ?
-                                    <img onClick={next} src={svg[0]} /> :
-                                    <img onClick={replay} src={svg[2]} />
-                                }
-                            </div>
-                        </div> : null
-            }
-        </div>
     )
 }

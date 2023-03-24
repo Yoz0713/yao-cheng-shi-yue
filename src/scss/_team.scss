@@ -13,7 +13,7 @@
     font-size: var(--ch_s_text);
     letter-spacing: 0.1em;
     color: #fff;
-    line-height: 2;
+    line-height: 1.8;
 
 }
 
@@ -26,7 +26,7 @@
     .coporation {
         display: flex;
         align-items: center;
-        width: 74%;
+        width: 90%;
         height: 100%;
         margin: 0 auto;
 
@@ -36,7 +36,7 @@
 
             .imgBox {
                 position: relative;
-                width: 45vw;
+                width: pxConvertor(1354);
 
                 margin-right: 6vw;
 
@@ -48,17 +48,7 @@
                     z-index: 2;
                 }
 
-                &::after {
-                    display: block;
-                    content: "";
-                    position: absolute;
-                    z-index: 1;
-                    width: 100%;
-                    height: 100%;
-                    right: -1vw;
-                    bottom: -1vw;
-                    border: 1px solid $gold_color;
-                }
+
             }
 
             .right {
@@ -69,27 +59,49 @@
 
 
                 .paraBox {
-                    width: 100%;
+                    width: 90%;
 
 
-                    .title {
+                    .title-box {
                         position: relative;
-                        margin-bottom: 3vw;
+                        margin-bottom: 2.5vw;
+                        width: 100%;
 
-                        h2 {
-                            @include title-s-en();
+                        h3 {
+                            width: fit-content;
+                            margin-bottom: 0.1vw;
+
 
                             span {
-                                font-family: 'Cormorant Garamond', serif;
+                                @include title-s-en();
+                                font-weight: 500;
+                                background: linear-gradient(90deg, $gold_color 0%, $gold_color 87%, #faf4d4 93%, $gold_color 99%);
+                                background-size: 200% 400%;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                animation-name: indexGlowingTitle;
+                                animation-duration: 2.5s;
+                                animation-timing-function: linear;
+                                animation-fill-mode: forwards;
+                                animation-delay: 0.2s;
+                                animation-iteration-count: infinite;
                             }
                         }
 
-                        .line {
-                            position: absolute;
-                            left: 0;
-                            width: 8%;
-                            height: 1px;
-                            background-color: $gold_color;
+                        p {
+                            display: flex;
+                            align-items: center;
+                            font-size: var(--ch_ml_text);
+                            color: $gold_color;
+                            letter-spacing: 0.05em;
+                            width: fit-content;
+                            font-weight: 600;
+
+                            span {
+                                position: relative;
+                                font-size: 1.1vw;
+                                margin: 0 0.75vw;
+                            }
                         }
                     }
 
@@ -99,46 +111,71 @@
                         }
                     }
 
-
-                }
-
-                .nav {
-                    pointer-events: auto;
-                    margin-top: 3vw;
-                    width: 100%;
-
-                    ul {
+                    .concept {
                         display: flex;
-                        width: 100%;
+                        justify-content: space-between;
+                        width: 95%;
+                        margin-top: 4vw;
 
-                        li {
-                            @include para-ch();
-                            font-size: var(--ch_m_text);
-                            font-family: 'Noto Serif TC', serif;
-                            line-height: normal;
-                            font-weight: 700;
-                            cursor: pointer;
-                        }
+                        .box {
+                            width: 28%;
 
-                        &> :not(:last-child) {
-                            position: relative;
-                            margin-right: 3vw;
+                            .imgBox {
+                                width: 100%;
+                                margin-bottom: 1.2vw;
 
-                            &::after {
-                                display: block;
-                                content: "";
-                                position: absolute;
-                                width: 1px;
-                                height: 80%;
-                                top: 0;
-                                bottom: 0;
-                                margin: auto 0;
-                                right: -1.5vw;
-                                background-color: #1a1a1a;
+                                img {
+                                    width: 100%;
+                                }
+
+                                & :nth-child(2),
+                                & :nth-child(3) {
+                                    position: absolute;
+                                    width: 70%;
+                                    left: -0.8vw;
+                                    top: -1vw;
+                                    filter: brightness(200);
+                                    animation-name: glow;
+                                    animation-duration: 1.5s;
+                                    animation-timing-function: ease-out;
+                                    animation-fill-mode: forwards;
+                                    animation-iteration-count: infinite;
+                                }
+
+                                & :nth-child(3) {
+                                    width: 45%;
+                                    left: 0.4vw;
+                                    top: -0.4vw;
+                                    transform: rotate(60deg)
+                                }
+
+                                & :nth-child(4) {
+                                    position: absolute;
+                                    width: 90%;
+                                    left: 0;
+                                    bottom: 0;
+                                    right: 0;
+                                    top: 0;
+                                    margin: auto;
+                                    animation-name: turn;
+                                    animation-duration: 10s;
+                                    animation-timing-function: ease-out;
+                                    animation-fill-mode: forwards;
+                                    animation-iteration-count: infinite;
+                                }
+                            }
+
+                            p {
+                                @include para-ch();
+                                font-size: pxConvertor(21);
+                                line-height: 1.6;
                             }
                         }
                     }
+
                 }
+
+
 
                 .slogan {
                     display: flex;
@@ -153,6 +190,8 @@
                 }
             }
 
+
+
             >img {
                 position: absolute;
                 right: 0.5vw;
@@ -162,8 +201,105 @@
 
         }
 
+        .nav {
+            position: absolute;
+            right: pxConvertor(209);
+            top: pxConvertor(76.15);
+            pointer-events: auto;
+
+            width: fit-content;
+
+            ul {
+                display: flex;
+                width: 100%;
+
+                li {
+
+                    font-size: var(--ch_s_text);
+                    font-weight: 500;
+                    color: $gold_color;
+                    cursor: pointer;
+                    letter-spacing: 0.1em;
+                }
+
+                &> :not(:last-child) {
+                    position: relative;
+                    margin-right: 1.5vw;
+
+                    &::after {
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        width: 1px;
+                        height: 80%;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto 0;
+                        right: -0.75vw;
+                        background-color: $gold_color;
+                    }
+                }
+            }
+        }
+
+        .yao-cheng-concept {
+
+            .right {
+                width: 100%;
+
+                .paraBox {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+
+                    .title-box {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: fit-content;
 
 
+                    }
+
+                    .para {
+                        width: pxConvertor(1384);
+                    }
+
+                    .concept {
+                        width: 100%;
+                        margin-top: 8vw;
+
+                        .box {
+                            width: 15%;
+
+                            .imgBox {
+                                display: flex;
+                                justify-content: center;
+
+                                img {
+                                    width: pxConvertor(321);
+                                }
+
+                                & :nth-child(2) {
+                                    width: auto;
+                                    height: pxConvertor(50);
+                                    top: 4.5vw;
+                                    right: 0;
+                                    left: 0;
+                                    margin: 0 auto;
+
+                                }
+                            }
+
+                            p {
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
     }
 
@@ -305,24 +441,5 @@
             }
         }
 
-    }
-}
-
-
-.line {
-    animation-name: line;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    animation-duration: 0.8s;
-    animation-delay: 1.5s;
-    transform-origin: left center;
-    transform: scaleX(0);
-}
-
-@keyframes line {
-
-
-    100% {
-        transform: scaleX(1);
     }
 }

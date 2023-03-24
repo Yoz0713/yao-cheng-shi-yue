@@ -30,9 +30,9 @@ export default function Urban() {
 function UrbanLeft() {
     return (
         <section className="left">
-            <ScaleDrag maxRatio={2} zoomImg1={svg[0]} zoomImg2={svg[1]} init={{ x: "30vw", y: "-22vw" }}>
-                <img src={webp[0].default} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                <img src={svg[2]} className="anchor-spot" style={{ position: "absolute", left: "3.5vw", bottom: "17.8vw", width: "0.8vw", height: "0.8vw", zIndex: 5 }} />
+            <ScaleDrag maxRatio={2} zoomImg1={svg[0]} zoomImg2={svg[1]} init={{ x: "20vw", y: "-15vw" }}>
+                <img src={webp[0].default} style={{ width: "80%", height: "96%" }} />
+                <img src={svg[2]} className="anchor-spot" style={{ position: "absolute", left: "8.5vw", bottom: "18.2vw", width: "0.8vw", height: "0.8vw", zIndex: 5 }} />
             </ScaleDrag>
         </section>
     )

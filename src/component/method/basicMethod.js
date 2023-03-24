@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 export default function BasicMethod({ nav, left, right, setContent, contentInner, setContentInner }) {
 

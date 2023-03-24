@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom';
+import GreenBg from "../../../img/layout/webp/000-green-bg.webp"
 export default function FancyBox({ thumbUrl, text, children }) {
     const [open, setOpen] = useState(false);
 
@@ -46,7 +47,10 @@ function Modal({ setOpen, children }) {
         pointerEvents: trans ? "auto" : "none",
         transition: "0.6s",
         backgroundColor: "#f7f7f7",
-        zIndex: 21
+        zIndex: 21,
+        backgroundImage: `url(${GreenBg})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "repeat"
     }
     const closeStyle = {
 

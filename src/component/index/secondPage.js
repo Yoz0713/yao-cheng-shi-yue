@@ -16,8 +16,7 @@ const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.sv
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
 const webp = requireWebp.keys().map(requireWebp);
-const requirePng = require.context("../../../img/index/png", false, /^\.\/.*\.png$/);
-const png = requirePng.keys().map(requirePng);
+
 
 function SecondPage({ reduxState, teamState }) {
     const secondPage = useRef();
@@ -139,7 +138,7 @@ function CoverLogo({ type, videoRef, videoRef2 }) {
     return (
         <div className='second-page-left'>
             <div className="cover-logo " style={{ display: type == "team1" ? "block" : "none" }} >
-                <Link to={"/1"}>
+                <Link to={"/team/coporation"}>
                     <HomeSecondPageYaoChengLogo type={type} />
                 </Link>
                 <div className={`videoBox`} >

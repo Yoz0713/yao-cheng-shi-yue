@@ -1,7 +1,7 @@
 .urban {
     display: flex;
-    width: 80%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 0 auto 0 0;
     height: calc(100vw*(9/16));
 
     .left {
@@ -11,7 +11,7 @@
 
         .zoom {
             position: absolute;
-            right: -10.7vw;
+            right: -11.2vw;
             bottom: 15vw;
 
             & :nth-child(1) {
@@ -20,11 +20,19 @@
         }
 
         .anchor-spot {
-            animation-name: flow;
+            animation-name: flowUrban;
             animation-duration: 1s;
             animation-timing-function: ease-out;
             animation-fill-mode: forwards;
             animation-iteration-count: infinite;
+        }
+
+        .imgBox {
+            .box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
     }
 
@@ -38,27 +46,5 @@
             }
         }
 
-    }
-}
-
-@keyframes flow {
-    0% {
-        transform: translateY(0);
-    }
-
-    25% {
-        transform: translateY(-0.15vw);
-    }
-
-    50% {
-        transform: translateY(-0.3vw);
-    }
-
-    75% {
-        transform: translateY(-0.15vw);
-    }
-
-    100% {
-        transform: translateY(0);
     }
 }

@@ -28,19 +28,22 @@ function MenuContent({ open, setOpen, fullActive }) {
     const [extend, setExtend] = useState(new Array(6).fill(false))
 
     const title = [{
-        ch: "精華地段",
+        ch: "國際城市",
         en: "LOCATION"
     }, {
-        ch: "職人匠心",
+        ch: "幸福版圖",
+        en: "LIFE"
+    }, {
+        ch: "品牌團隊",
         en: "TEAM"
     }, {
-        ch: "精品建築",
+        ch: "當代建築",
         en: "BUILDING"
     }, {
-        ch: "建築設計",
+        ch: "極上工藝",
         en: "MATERIAL"
     }, {
-        ch: "嚴選設備",
+        ch: "全球嚴選",
         en: "EQUIPMENT"
     }, {
         ch: "房市熱點",
@@ -61,6 +64,14 @@ function MenuContent({ open, setOpen, fullActive }) {
     }, {
         id: "/urban",
         ch: "都市計畫",
+        slide: 1,
+    }], [{
+        id: "/3",
+        ch: "交通動線",
+        slide: 1,
+    }, {
+        id: "/4",
+        ch: "生活機能",
         slide: 1,
     }], [{
         id: "/x",
@@ -91,31 +102,31 @@ function MenuContent({ open, setOpen, fullActive }) {
         ch: "貼心工法",
         slide: 4,
     }], [{
-        id: "/9",
+        id: "/equipment/kitchen",
         ch: "廚具設備",
         slide: 5,
     }, {
-        id: "/10",
+        id: "/equipment/bathroom",
         ch: "衛浴設備",
         slide: 5,
     }, {
-        id: "/11",
+        id: "/equipment/electronLock",
         ch: "電子鎖",
         slide: 5,
     }, {
-        id: "/12",
+        id: "/equipment/window",
         ch: "氣密窗",
         slide: 5,
     }, {
-        id: "/13",
+        id: "/equipment/door",
         ch: "鑄鋁門",
         slide: 5,
     }, {
-        id: "/14",
+        id: "/equipment/floor",
         ch: "木地板",
         slide: 5,
     }, {
-        id: "/15",
+        id: "/equipment/purifier",
         ch: "淨水器",
         slide: 5,
     }], [{

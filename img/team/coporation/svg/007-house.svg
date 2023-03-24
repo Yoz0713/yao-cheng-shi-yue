@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_2" data-name="圖層 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.85 59.41">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="_圖層_1-2" data-name="圖層 1">
+    <g>
+      <path class="cls-1" d="M29.92,0l-11.95,11.91V7.14H8.42v14.29L0,29.82l1.69,1.68L29.92,3.37l28.23,28.13,1.69-1.68L29.92,0h0ZM10.83,9.55h4.73v4.76l-4.73,4.76V9.55h0Z"/>
+      <polyline class="cls-2" points="9.33 31.5 9.33 58.41 23.77 58.41 23.77 41.72 35.92 41.72 35.92 58.41 49.99 58.41 49.99 31.5"/>
+    </g>
+  </g>
+</svg>

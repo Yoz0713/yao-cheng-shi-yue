@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 118.52 71.16">
+  <defs>
+    <style>
+      .cls-1 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-2, .cls-3 {
+        mix-blend-mode: color-dodge;
+      }
+
+      .cls-3 {
+        fill: url(#radial-gradient-2);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="5452.28" cy="687.19" fx="5452.28" fy="687.19" r="34.59" gradientTransform="translate(-996.8 189.33) rotate(-50.61) scale(.14 1.04) skewX(.01)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".06" stop-color="#f5f0e9" stop-opacity=".87"/>
+      <stop offset=".16" stop-color="#e6d9c9" stop-opacity=".67"/>
+      <stop offset=".26" stop-color="#d8c4ac" stop-opacity=".49"/>
+      <stop offset=".37" stop-color="#cdb393" stop-opacity=".34"/>
+      <stop offset=".48" stop-color="#c4a57f" stop-opacity=".22"/>
+      <stop offset=".59" stop-color="#bd9a70" stop-opacity=".12"/>
+      <stop offset=".71" stop-color="#b79365" stop-opacity=".05"/>
+      <stop offset=".84" stop-color="#b48e5f" stop-opacity=".01"/>
+      <stop offset="1" stop-color="#b48d5d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="2662.38" cy="1725.7" fx="2662.38" fy="1725.7" r="54.45" gradientTransform="translate(-2098.3 619.34) rotate(-89.99) scale(.22 1.25) skewX(.05)" xlink:href="#radial-gradient"/>
+  </defs>
+  <g class="cls-1">
+    <g id="_圖層_2" data-name="圖層 2">
+      <g id="_圖層_1-2" data-name="圖層 1">
+        <g>
+          <path class="cls-2" d="M60.29,30.26c15.39,12.63,26.44,24.6,24.68,26.74-1.75,2.14-15.65-6.37-31.03-19-15.39-12.63-26.44-24.6-24.68-26.74,1.75-2.14,15.65,6.37,31.03,19Z"/>
+          <ellipse class="cls-3" cx="59.26" cy="35.58" rx="68.07" ry="11.94" transform="translate(-9.85 34.4) rotate(-30)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
