@@ -8,7 +8,7 @@
         width: 100%;
         height: 100%;
 
-        .imgBox {
+        >.imgBox {
             display: block;
             width: pxConvertor(921);
             height: 100%;
@@ -84,6 +84,7 @@
                     align-items: center;
                     width: 33.33%;
                     margin-bottom: 5vw;
+                    pointer-events: auto;
 
                     &:hover .imgBox :nth-child(1) {
                         animation-name: flowUrban;
@@ -99,6 +100,7 @@
                         align-items: center;
                         width: pxConvertor(442.8409);
                         height: pxConvertor(250.5402);
+
 
                         img {
                             height: auto;
@@ -144,6 +146,7 @@
                         top: 0;
                         width: 100%;
                         height: 100%;
+
                     }
                 }
             }
@@ -151,18 +154,258 @@
 
     }
 
+    .window {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        >.imgBox {
+            position: relative;
+            flex: 0 0 pxConvertor(1533);
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            video {
+                position: absolute;
+                width: pxConvertor(944);
+                left: 3.5vw;
+                top: 7vw;
+            }
+        }
+
+        >.paraBox {
+            position: relative;
+            flex-grow: 1;
+            padding-top: 5vw;
+
+            p,
+            h6 {
+                font-size: var(--ch_s_text);
+                color: #fff;
+                line-height: 2;
+                letter-spacing: 0.1em;
+                font-weight: 200;
+            }
+
+            .title,
+            .para,
+            .box {
+
+                padding-left: 5.5vw;
+            }
+
+            .title {
+                width: pxConvertor(665);
+                margin-bottom: 1vw;
+            }
+
+            .para {
+                width: 86%;
+                margin-bottom: 1.5vw;
+
+
+            }
+
+            .box {
+                h6 {
+                    margin-bottom: 0.5vw;
+                }
+
+                p {
+                    position: relative;
+                    padding-left: 1.3vw;
+
+                    &::after {
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 0.78vw;
+                        background-color: $gold_color;
+                        transform: rotate(45deg);
+                        width: 0.4vw;
+                        height: 0.4vw;
+
+                    }
+                }
+            }
+
+            .itemBox {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 6vw auto 0;
+
+                .imgBox {
+                    & :nth-child(1) {
+                        animation-name: flowEquip;
+                        animation-duration: 3s;
+                        animation-timing-function: linear;
+                        animation-fill-mode: forwards;
+                        animation-iteration-count: infinite;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .water-purifier {
+        display: flex;
+        align-items: center;
+        width: 92.5%;
+        height: 100%;
+        margin: 0 auto;
+
+        .left {
+            margin-right: 5vw;
+
+            h6 {
+                color: #fff;
+                font-size: pxConvertor(28);
+                font-weight: 400;
+                margin-bottom: 0.8vw;
+                margin-left: 0.7vw;
+            }
+
+            video {
+                width: pxConvertor(917);
+            }
+
+            .box {
+                margin: 2vw 0;
+
+                p {
+                    font-size: var(--ch_s_text);
+                    color: #fff;
+                    line-height: 2;
+                    letter-spacing: 0.1em;
+                    font-weight: 200;
+                    position: relative;
+                    padding-left: 1.3vw;
+
+                    &::after {
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 0.78vw;
+                        background-color: $gold_color;
+                        transform: rotate(45deg);
+                        width: 0.4vw;
+                        height: 0.4vw;
+
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: 0.5vw;
+                    }
+                }
+            }
+
+            >img {
+                width: 18vw;
+            }
+        }
+
+        .center {
+            margin-right: 8vw;
+
+            .imgBox {
+                position: relative;
+                width: pxConvertor(468.5);
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 4.5vw;
+                }
+
+                &:not(:last-child)::after {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -2vw;
+                    width: 100%;
+                    height: 3px;
+                    background-image: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
+                    background-size: cover;
+                }
+            }
+
+
+
+
+        }
+
+        .right {
+            position: relative;
+
+            .itemBox {
+                position: relative;
+                z-index: 2;
+                margin-top: 2vw;
+
+                .paraBox {
+                    padding-top: 4vw;
+                }
+
+                .imgBox {
+                    & :nth-child(1) {
+                        animation-name: flowEquip;
+                        animation-duration: 3s;
+                        animation-timing-function: linear;
+                        animation-fill-mode: forwards;
+                        animation-iteration-count: infinite;
+                    }
+
+
+                }
+            }
+
+            .water {
+                position: absolute;
+                width: 40vw;
+                left: -12.1vw;
+                bottom: 2.4vw;
+                z-index: 0;
+            }
+
+            .bwt {
+                position: absolute;
+                width: 8vw;
+                top: -3.5vw;
+                right: 0;
+                left: 0;
+                margin: 0 auto;
+            }
+        }
+    }
 }
 
 .fancyBox {
+    height: 100%;
+
     .equipment-vertic {
         display: flex;
         flex-direction: column;
+        width: 100%;
         height: 100%;
 
         >.imgBox {
             position: relative;
             width: 100%;
-            height: pxConvertor(817);
+            height: auto;
             overflow: hidden;
 
             img {
@@ -171,9 +414,22 @@
             }
 
             .bg {
+                position: relative;
+                display: block;
                 width: 100%;
-                height: 100%;
+                height: auto;
+            }
+
+            video {
+                position: absolute;
+                width: pxConvertor(932);
+                height: pxConvertor(524.3);
                 object-fit: cover;
+                right: 9vw;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+                pointer-events: auto;
             }
         }
 
@@ -184,10 +440,13 @@
             width: 92.5%;
             flex-grow: 1;
             margin: 0 auto;
-            padding-left: 5vw;
+            padding-left: 0vw;
 
-            .sakura {
+            .brand {
 
+                >.non-brand {
+                    display: none;
+                }
 
                 .imgBox {
                     width: pxConvertor(250);
@@ -198,28 +457,40 @@
                     }
                 }
 
+                //改變.imgBox
+                >.toto {
+                    width: pxConvertor(151);
+                }
+
+                >.panasonic {
+                    width: pxConvertor(357);
+                }
+
                 ul {
                     display: flex;
                     flex-wrap: wrap;
+                    width: 100%;
 
                     li {
                         position: relative;
-                        font-size: 0.93vw;
-                        color: #fff;
-                        font-weight: 200;
-                        letter-spacing: 0.15em;
-                        line-height: 1;
-                        padding-left: 1.2vw;
-                        white-space: nowrap;
+                        flex: 0 0 100%;
+                        padding-left: 1.8vw;
+
+                        p {
+                            white-space: pre-wrap;
+                            line-height: 2;
+                            font-size: 0.93vw;
+                            color: #fff;
+                            font-weight: 200;
+                            letter-spacing: 0.15em;
+                        }
 
                         &::after {
                             display: block;
                             content: "";
                             position: absolute;
                             left: 0;
-                            top: 0;
-                            bottom: 0;
-                            margin: auto 0;
+                            top: 0.8vw;
                             width: 0.5vw;
                             height: 0.5vw;
                             background-color: $gold_color;
@@ -227,16 +498,29 @@
                         }
                     }
 
-                    &> :not(:last-child) {
-                        margin-bottom: 1.2vw;
-                    }
-
-                    & :nth-child(odd) {
+                    .double {
                         flex: 0 0 50%;
                     }
+
+                    &> :not(:last-child) {
+                        margin-bottom: 0.25vw;
+                    }
+
+
                 }
             }
 
+            .itemBox {
+                .imgBox {
+                    & :nth-child(1) {
+                        animation-name: flowEquip;
+                        animation-duration: 3s;
+                        animation-timing-function: linear;
+                        animation-fill-mode: forwards;
+                        animation-iteration-count: infinite;
+                    }
+                }
+            }
 
 
         }

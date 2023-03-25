@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom';
 import GreenBg from "../../../img/layout/webp/000-green-bg.webp"
-export default function FancyBox({ thumbUrl, text, children }) {
+export default function FancyBox({ thumbUrl, text, children, handleClick }) {
     const [open, setOpen] = useState(false);
-
-
 
     const imgStyle = {
         width: "100%",
@@ -17,6 +15,8 @@ export default function FancyBox({ thumbUrl, text, children }) {
         <>
             <div className="thumbBox" style={{ pointerEvents: "auto", cursor: "pointer" }} onClick={(e) => {
                 e.stopPropagation()
+
+                handleClick()
                 setOpen(true)
             }}>
                 {thumbUrl ?

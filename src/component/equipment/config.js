@@ -5,7 +5,7 @@ import SplitText from "../config/splitText"
 const requireGlowWebp = require.context("../../../img/equipment/kitchen/glowing", false, /^\.\/.*\.webp$/);
 const glow = requireGlowWebp.keys().map(requireGlowWebp);
 
-export function EquipmentList({ data }) {
+export function EquipmentList({ data, children, handleClick }) {
     const animateRef = useRef(null)
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -42,6 +42,7 @@ export function EquipmentList({ data }) {
         }, [animateRef])
         return () => ctx.revert()
     }, [])
+
     return (
         <div className="equipment-list" ref={animateRef}>
             <div className="imgBox">
@@ -54,23 +55,24 @@ export function EquipmentList({ data }) {
                 </div>
                 <div className="itemBox">
                     {data.item.map((item, i) => {
-                        const newData = data.fancyData[i]
                         return (
                             <div className="box" key={i}>
-                                <div className="imgBox">
+                                <div className="imgBox" >
                                     <img src={item.img} style={item.imgStyle} />
                                     <img src={glow[0].default} />
                                     <img src={glow[1].default} />
                                 </div>
                                 <p>{item.para}</p>
-                                <FancyBox>
-                                    <EquipmentVertic data={newData} />
-
+                                <FancyBox handleClick={() => {
+                                    handleClick(i)
+                                }}>
+                                    {children}
                                 </FancyBox>
                             </div>
                         )
                     })}
                 </div>
+
             </div>
         </div>
     )
@@ -78,8 +80,10 @@ export function EquipmentList({ data }) {
 
 
 
-export function EquipmentVertic({ data }) {
+export function EquipmentVertic({ data, children }) {
     const animateRef = useRef(null);
+
+
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             let gg = gsap.timeline()
@@ -122,29 +126,40 @@ export function EquipmentVertic({ data }) {
                         <img src={item} key={i} style={{ ...data.top.paraStyle[i], height: "auto" }} />
                     )
                 })}
+                {data.top.video && <video src={data.top.video} style={data.top.videoStyle && data.top.videoStyle} controls autoPlay muted loop></video>}
             </div>
             <div className="bottom">
-                {data.bot.itemBox.map((item, i) => {
-                    return (
-                        <ItemBox data={item} />
-                    )
-                })}
-                <Sakura data={data.bot.sakura} />
-                {data.bot.detail && <img src={data.bot.detail.img} style={{ ...data.bot.detail.style, marginTop: "4vw" }} />}
+                {children}
+
+                {/* <div className="item-wrapper" style={{ display: "flex" }}>
+                    {data.bot.itemBox.map((item, i) => {
+
+                        return (
+                            <ItemBox data={item} />
+                        )
+                    })}
+                </div>
+
+                    
+
+                <Brand data={data.bot.brand} />
+                {data.bot.detail && <img src={data.bot.detail.img} style={{ ...data.bot.detail.style, marginTop: "4vw" }} />} */}
             </div>
         </div>
 
     )
 }
 
-function ItemBox({ data }) {
+export function ItemBox({ data }) {
     const paraStyle = {
         width: 'fit-content',
         fontSize: "1.4vw",
         background: "linear-gradient(90deg,#dfbc76 0%, #eca135 100%)",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
-        fontWeight: "700"
+        fontWeight: "700",
+        whiteSpace: "pre-wrap",
+        textAlign: "center"
     }
     const glowStyle = {
         position: "absolute",
@@ -153,29 +168,31 @@ function ItemBox({ data }) {
         bottom: 0
     }
     return (
-        <div className="itemBox" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "15vw", height: "8vw", position: "relative" }}>
-            <div className="imgBox" style={{ display: "flex", justifyContent: "center", height: "100%", marginBottom: "0.5vw" }}>
+        <div className="itemBox" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "16.5vw", height: "auto", position: "relative", margin: data.margin && data.margin }}>
+            <div className="imgBox" style={{ display: "flex", justifyContent: "center", height: data.height ? data.height : "8vw", marginBottom: "0.8vw" }}>
                 <img src={data.item} style={{ height: "100%", width: "auto" }} />
             </div>
             <div className="paraBox">
                 <p style={paraStyle}>{data.para}</p>
             </div>
-            <img src={glow[0].default} style={{ ...glowStyle, bottom: "-3.3vw" }} />
-            <img src={glow[1].default} style={{ ...glowStyle, bottom: "-5vw", animationName: "glowEquip", animationIterationCount: "infinite", animationDuration: "1.5s" }} />
+            <img src={glow[0].default} style={{ ...glowStyle, bottom: "-1vw" }} />
+            <img src={glow[1].default} style={{ ...glowStyle, bottom: "-2.9vw", animationName: "glowEquip", animationIterationCount: "infinite", animationDuration: "1.5s" }} />
         </div>
     )
 }
 
-function Sakura({ data }) {
+export function Brand({ data }) {
     return (
-        <div className="sakura" style={{ width: data.width }}>
-            <div className="imgBox">
-                <img src={require("../../../img/equipment/kitchen/svg/003-sakura.svg")} />
+        <div className="brand" style={{ width: data.width }}>
+            <div className={`imgBox ${data.clsName && data.clsName}`}>
+                <img src={data.img} />
             </div>
             <ul>
                 {data.para.map((item, i) => {
                     return (
-                        <li>{item}</li>
+                        <li className={data.clsName && data.clsName} key={i}>
+                            <p>{item}</p>
+                        </li>
                     )
                 })}
             </ul>

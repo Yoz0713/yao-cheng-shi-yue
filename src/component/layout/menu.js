@@ -201,7 +201,7 @@ function Option({ title, item, setOpen, extend, handleClick, index }) {
                         }} style={{ pointerEvents: item.id == null ? "auto" : location.pathname == item.id ? "none" : "auto" }}>
                             <Link to={`${item.id == null ? "/" : item.id}`}>
                                 <div className="square"></div>
-                                <p style={{ color: item.id == null ? "#fff" : location.pathname == item.id ? "#ccc" : "#fff" }} >{item.ch}</p>
+                                <p style={{ color: item.id == null ? "#fff" : location.pathname == item.id ? "#747474" : "#fff" }} >{item.ch}</p>
                             </Link>
                         </li>
                     })}
