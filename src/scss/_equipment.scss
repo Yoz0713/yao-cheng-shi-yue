@@ -176,6 +176,7 @@
                 width: pxConvertor(944);
                 left: 3.5vw;
                 top: 7vw;
+                pointer-events: auto;
             }
         }
 
@@ -276,6 +277,7 @@
 
             video {
                 width: pxConvertor(917);
+                pointer-events: auto;
             }
 
             .box {

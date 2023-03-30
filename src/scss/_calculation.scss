@@ -1,0 +1,163 @@
+.calculation {
+    width: 85%;
+    margin: 0 auto;
+    height: calc(100vw*(9/16));
+    padding-top: 3vw;
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 3.5vw;
+
+        h1,
+        h2 {
+            letter-spacing: 0.05em;
+        }
+
+        h1 {
+            font-size: var(--ch_l_text);
+            color: #fff;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: var(--ch_m_text);
+            color: $gold_color;
+        }
+    }
+
+    .calculator {
+        display: flex;
+        width: 100%;
+
+        p,
+        span,
+        input {
+            font-size: pxConvertor(30);
+            font-weight: 600;
+        }
+
+        >.left {
+            position: relative;
+            flex: 0 0 60%;
+            padding-top: 7vw;
+            pointer-events: auto;
+
+            p,
+            span,
+            input {
+                color: #003939;
+            }
+
+            .box,
+            .button {
+                position: relative;
+                z-index: 2;
+            }
+
+            .parameters {
+                padding-left: 5vw;
+
+                .box {
+
+                    label {
+                        display: flex;
+
+                        p {
+                            flex: 0 0 15%;
+                        }
+
+                        .unitBox {
+                            flex: 0 0 50%;
+
+                            input {
+                                width: 15vw;
+                                height: 2vw;
+                                border: none;
+                                outline: none;
+                                margin-right: 1.5vw;
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: 5vw;
+                    }
+                }
+
+                .imgBox {
+                    position: absolute;
+                    width: pxConvertor(1200);
+                    height: pxConvertor(1103);
+                    left: 0;
+                    top: 0;
+                    z-index: 0;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            .button {
+                display: flex;
+                padding-left: 8vw;
+
+                >div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: pxConvertor(252.5);
+                    height: pxConvertor(82.6);
+                    cursor: pointer;
+
+                    p {
+                        transition: 0.3s;
+                    }
+
+                    &:hover {
+                        p {
+                            transform: scale(0.85);
+                        }
+                    }
+                }
+
+                .calc {
+                    background-color: #003939;
+
+                    p {
+                        color: #fff;
+                    }
+
+                }
+
+                .delete {
+                    border: 2px solid #003939;
+                }
+            }
+
+        }
+
+        >.right {
+            flex: 0 0 40%;
+
+            p,
+            span {
+                color: #fff;
+            }
+
+            .result {
+                width: 100%;
+
+                .left {}
+            }
+        }
+    }
+}

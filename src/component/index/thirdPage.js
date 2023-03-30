@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // Import animation libary
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { Link } from 'react-router-dom';
 gsap.registerPlugin(ScrollTrigger);
 
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
@@ -72,13 +73,16 @@ function ThirdPagePara() {
         <div className="third-page-para">
             <div className="title-box" >
                 <h3>ARCHITECTURE CITY</h3>
-                <p>豪門禮遇<span>╳</span>A15置產金磚</p>
+                <p>當代美學築<span>╳</span>永恆雙子星</p>
             </div>
             <div className="paraBox">
-                <p>2021年航空城邁入新里程，<br />領航產業+永續城市發展+國際交流的第一站，<br />大夢想 新家園盡在「大園」，<br />座智慧機場六大產業聚「大園」共榮成長。</p>
-                <div className="more">
-                    <p>READ MORE</p>
-                </div>
+                <p>立地環區⻄路16米與學七街6米雙面大街廓，Twin Tower設計打造雙子星地標建築，大器迎向面萬坪特定農業區，永久綠意景觀，無限棟距，四段式立面切割輕量化建築，天際線簡約框架仰望如家徽識別，經典灰黑質感格栅陽台，低檯度大面積開窗，深邃的光影透進屋內，構築新世代美學生活。</p>
+                <Link to="/product">
+                    <div className="more">
+                        <p>READ MORE</p>
+                    </div>
+                </Link>
+
             </div>
         </div>
     )

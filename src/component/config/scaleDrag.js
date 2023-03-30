@@ -1,6 +1,9 @@
 import React from 'react'
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 export default function ScaleDrag({ children, maxRatio = 1, zoomImg1, zoomImg2, init = { x: 0, y: 0 } }) {
+    const reduxState = useSelector(state => state.floorReducer.floor);
+
     //托拽縮放
     const [scaleRatio, setScaleRatio] = useState(1);
     const [x, setX] = useState(maxRatio == 1 ? init.x : 0);
@@ -85,6 +88,15 @@ export default function ScaleDrag({ children, maxRatio = 1, zoomImg1, zoomImg2, 
         pointerEvents: "auto",
 
     }
+    useEffect(() => {
+        return () => {
+            requestAnimationFrame(() => {
+                setScaleRatio(1)
+                setX(0);
+                setY(0);
+            });
+        }
+    }, [reduxState])
     return (
         <>
             <div className="imgBox" onMouseDown={onMouseDown} style={imgBoxStyle}

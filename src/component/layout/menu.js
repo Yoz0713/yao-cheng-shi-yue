@@ -25,7 +25,7 @@ function Menu({ fullActive }) {
 
 function MenuContent({ open, setOpen, fullActive }) {
     const dispatch = useDispatch()
-    const [extend, setExtend] = useState(new Array(6).fill(false))
+    const [extend, setExtend] = useState(new Array(7).fill(false))
 
     const title = [{
         ch: "國際城市",
@@ -86,9 +86,9 @@ function MenuContent({ open, setOpen, fullActive }) {
         ch: "工設設計",
         slide: 2,
     }], [{
-        id: "/5",
+        id: "/product",
         ch: "樓層規劃",
-        slide: 4,
+        slide: 3,
     }], [{
         id: "/method/structure",
         ch: "結構工法",
@@ -138,7 +138,7 @@ function MenuContent({ open, setOpen, fullActive }) {
         ch: "新聞資訊",
         slide: 5,
     }, {
-        id: "/18",
+        id: "/calculation",
         ch: "房貸試算",
         slide: 5,
     }]]
@@ -157,11 +157,11 @@ function MenuContent({ open, setOpen, fullActive }) {
 
             </div>
             <div className="menu-option">
-                {[...Array(6)].map((itm, i) => {
+                {[...Array(7)].map((itm, i) => {
                     return (
                         <Option key={i} index={i} setOpen={setOpen} title={title[i]} item={item[i]} extend={extend} setExtend={setExtend} handleClick={() => {
                             let arr;
-                            arr = new Array(6).fill(false)
+                            arr = new Array(7).fill(false)
                             if (!extend[i]) {
                                 arr[i] = true;
                             }

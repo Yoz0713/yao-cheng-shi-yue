@@ -11,6 +11,8 @@ import GreenBg from "../img/layout/webp/000-green-bg.webp"
 import Urban from './component/urban';
 import Method from './component/method';
 import Equipment from './component/equipment';
+import Calculation from './component/calculation/calculation';
+import Product from './component/product';
 export default function App() {
 
     return (
@@ -79,19 +81,24 @@ function Content() {
         }
     }, [transitionStage])
     return (
-        <div
-            className={`${transitionStage}`}
-            style={location.pathname !== "/" ? { position: "relative", pointerEvents: transitionStage == "fadeOut" ? "auto" : "none", zIndex: 21, backgroundImage: `url(${GreenBg})`, backgroundSize: "cover", backgroundRepeat: "repeat" } : { backgroundImage: `url(${GreenBg})`, backgroundSize: "cover", backgroundRepeat: "repeat" }}
-        >
-            <Routes location={displayLocation}>
-                <Route path="/" element={<Home />} />
-                <Route path="/lifefunction" element={<LifeFunction setTransistionStage={setTransistionStage} />} />
-                <Route path="/team/*" element={<Team />} />
-                <Route path="/urban" element={<Urban />} />
-                <Route path="/method/*" element={<Method />} />
-                <Route path="/equipment/*" element={<Equipment />} />
-                <Route path="*" element={<><h1 style={{ color: "#fff", width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1></>} />
-            </Routes>
+        <div id="container-wrapper" style={{ backgroundImage: `url(${GreenBg})`, backgroundSize: "cover", backgroundRepeat: "repeat" }}>
+            <div
+                className={`${transitionStage}`}
+                style={location.pathname !== "/" ? { position: "relative", pointerEvents: transitionStage == "fadeOut" ? "auto" : "none", zIndex: 21, } : null}
+            >
+                <Routes location={displayLocation}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/lifefunction" element={<LifeFunction setTransistionStage={setTransistionStage} />} />
+                    <Route path="/team/*" element={<Team />} />
+                    <Route path="/urban" element={<Urban />} />
+                    <Route path="/method/*" element={<Method />} />
+                    <Route path="/equipment/*" element={<Equipment />} />
+                    <Route path="/calculation" element={<Calculation />} />
+                    <Route path="/product/*" element={<Product />} />
+                    <Route path="*" element={<><h1 style={{ color: "#fff", width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1></>} />
+                </Routes>
+            </div>
         </div>
+
     )
 }

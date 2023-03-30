@@ -135,8 +135,8 @@
                                     left: -0.8vw;
                                     top: -1vw;
                                     filter: brightness(200);
-                                    animation-name: glow;
-                                    animation-duration: 1.5s;
+                                    animation-name: glowing2;
+                                    animation-duration: 2s;
                                     animation-timing-function: ease-out;
                                     animation-fill-mode: forwards;
                                     animation-iteration-count: infinite;
@@ -159,7 +159,7 @@
                                     margin: auto;
                                     animation-name: turn;
                                     animation-duration: 10s;
-                                    animation-timing-function: ease-out;
+                                    animation-timing-function:linear;
                                     animation-fill-mode: forwards;
                                     animation-iteration-count: infinite;
                                 }

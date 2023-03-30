@@ -15,8 +15,10 @@ export default function FancyBox({ thumbUrl, text, children, handleClick }) {
         <>
             <div className="thumbBox" style={{ pointerEvents: "auto", cursor: "pointer" }} onClick={(e) => {
                 e.stopPropagation()
+                if (handleClick != undefined) {
+                    handleClick()
+                }
 
-                handleClick()
                 setOpen(true)
             }}>
                 {thumbUrl ?

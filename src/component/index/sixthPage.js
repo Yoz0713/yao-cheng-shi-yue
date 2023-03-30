@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 const requireSvg = require.context("../../../img/index/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 const requireWebp = require.context("../../../img/index/webp", false, /^\.\/.*\.webp$/);
@@ -54,13 +55,14 @@ function SixthPageBg() {
     return (
         <div className="sixth-page-bg">
             <ul>
-                <li >
+                <li>
                     <div className="imgBox">
                         <img src={webp[8].default} />
                     </div>
                     <div className="paraBox">
                         <p>區域行情</p>
                     </div>
+                    <Link to="/"></Link>
                 </li>
                 <li style={{ zIndex: "2" }}>
                     <div className="imgBox">
@@ -69,6 +71,7 @@ function SixthPageBg() {
                     <div className="paraBox">
                         <p>房市資訊</p>
                     </div>
+                    <Link to="/"></Link>
                 </li>
                 <li>
                     <div className="imgBox">
@@ -77,6 +80,7 @@ function SixthPageBg() {
                     <div className="paraBox">
                         <p>房貸試算</p>
                     </div>
+                    <Link to="/calculation"></Link>
                 </li>
             </ul>
         </div>

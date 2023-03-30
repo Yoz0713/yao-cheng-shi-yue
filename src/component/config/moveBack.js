@@ -8,7 +8,7 @@ const MoveBack = ({ z }) => {
     const navigate = useNavigate();
     const location = useLocation()
     const path = location.pathname;
-    const innerPage = []
+    const innerPage = ["/product/floor"]
     const handleClick = function () {
         dispatch(fullNotActive())
         dispatch(playBannerVideo(true))
