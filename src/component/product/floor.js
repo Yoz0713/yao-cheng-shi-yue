@@ -16,7 +16,23 @@ function Floor({ floor }) {
         data = {
             floor: ["1F"],
             style: "single",
-            img: webp[1].default
+            img: webp[1].default,
+            fancy: {
+                img: [
+                    webp[18].default,
+                    webp[19].default,
+                    webp[20].default,
+                    webp[21].default,
+                    webp[22].default,
+                ],
+                area: [
+                    "前庭景觀3D示意圖",
+                    "接待大廳3D示意圖",
+                    "閱覽室3D示意圖",
+                    "健身房3D示意圖",
+                    "中庭景觀3D示意圖"
+                ]
+            },
         }
     } else if (floor == "2") {
         data = {
@@ -32,7 +48,20 @@ function Floor({ floor }) {
     } else if (floor == "4,5,7,8,10,11,13") {
         data = {
             floor: ["4", "5", "7", `\n`, "8", "10", "11", "13"],
-            img: webp[4].default
+            img: webp[4].default,
+            fancy: {
+                img: [
+                    webp[10].default,
+                    webp[11].default,
+                    webp[12].default,
+                    webp[13].default,
+                    webp[14].default,
+                    webp[15].default,
+                    webp[16].default,
+                    webp[17].default,
+                ],
+            },
+
         }
     } else if (floor == "6,9,12") {
         data = {
@@ -116,40 +145,54 @@ function Floor({ floor }) {
                                 <div className="dualAnchor">
                                     <div className="a1">
                                         <p>A1</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={webp[10].default} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[0]} /></div> </FancyBox>}
                                     </div>
                                     <div className="a2">
                                         <p>A2</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={webp[11].default} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[1]} /></div> </FancyBox>}
                                     </div>
                                     <div className="a3">
                                         <p>A3</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={webp[12].default} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[2]} /></div> </FancyBox>}
                                     </div>
                                     <div className="a5">
                                         <p>A5</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={webp[13].default} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[3]} /></div> </FancyBox>}
                                     </div>
                                     <div className="b1">
                                         <p>B1</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={webp[14].default} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[4]} /></div> </FancyBox>}
                                     </div>
                                     <div className="b2">
                                         <p>B2</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={webp[15].default} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[5]} /></div> </FancyBox>}
                                     </div>
                                     <div className="b3">
                                         <p>B3</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={webp[16].default} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[6]} /></div> </FancyBox>}
                                     </div>
                                     <div className="b5">
                                         <p>B5</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={webp[17].default} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[7]} /></div> </FancyBox>}
                                     </div>
                                 </div>
                                 :
                                 <div className='singleAnchor'>
+                                    {data.fancy && data.fancy.img.map((item, i) => {
+                                        return (
+                                            <div className={`redDot${i + 1}`}>
+                                                <FancyBox thumbUrl={svg[2]}>
+                                                    <div className="firstFloor">
+                                                        <img src={item} />
+                                                        <div className="area-name">
+                                                            <h3>{data.fancy.area[i]}</h3>
+                                                        </div>
+                                                    </div>
 
+                                                </FancyBox>
+                                            </div>
+                                        )
+                                    })}
                                 </div>
 
 

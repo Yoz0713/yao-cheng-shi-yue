@@ -377,6 +377,65 @@
 
 
                     }
+
+                    .singleAnchor {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        top: 0;
+
+                        >div {
+                            position: absolute;
+
+                            .thumbBox {
+                                padding: pxConvertor(60);
+                                width: pxConvertor(144.2);
+                                height: pxConvertor(153.8);
+
+                                &:hover {
+                                    >img {
+                                        animation-name: bounce;
+                                        animation-duration: 1s;
+                                        animation-timing-function: linear;
+                                        animation-fill-mode: forwards;
+                                        animation-iteration-count: infinite;
+                                    }
+                                }
+                            }
+
+                        }
+
+                        .redDot1 {
+                            //leftbottomSide
+                            left: 20vw;
+                            bottom: 8vw;
+                        }
+
+                        .redDot2 {
+                            //管委會使用空間一
+                            left: 27.5vw;
+                            bottom: 23.5vw;
+                        }
+
+                        .redDot3 {
+                            //管委會使用空間二
+                            left: 27vw;
+                            bottom: 33.3vw;
+                        }
+
+                        .redDot4 {
+                            //管委會使用空間三
+                            left: 42vw;
+                            bottom: 24.5vw;
+                        }
+
+                        .redDot5 {
+                            //righttopSide
+                            top: 6vw;
+                            right: 20vw;
+                        }
+                    }
                 }
             }
 
@@ -471,6 +530,36 @@
         img {
             width: auto;
             height: pxConvertor(1145);
+        }
+    }
+
+    .firstFloor {
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .area-name {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            padding-left: 1vw;
+            width: 20vw;
+            height: 3vw;
+            right: 0vw;
+            bottom: 5vw;
+            z-index: 2;
+            background-color: #00000077;
+
+            h3 {
+                font-size: var(--ch_m_text);
+                color: #fff;
+                font-weight: 400;
+            }
         }
     }
 }

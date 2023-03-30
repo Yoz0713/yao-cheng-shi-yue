@@ -62,7 +62,7 @@ function SixthPageBg() {
                     <div className="paraBox">
                         <p>區域行情</p>
                     </div>
-                    <Link to="/"></Link>
+                    <Link to="/market"></Link>
                 </li>
                 <li style={{ zIndex: "2" }}>
                     <div className="imgBox">
@@ -71,7 +71,7 @@ function SixthPageBg() {
                     <div className="paraBox">
                         <p>房市資訊</p>
                     </div>
-                    <Link to="/"></Link>
+                    <Link to="/news"></Link>
                 </li>
                 <li>
                     <div className="imgBox">

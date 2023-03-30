@@ -130,17 +130,17 @@ function MenuContent({ open, setOpen, fullActive }) {
         ch: "淨水器",
         slide: 5,
     }], [{
-        id: "/16",
+        id: "/market",
         ch: "區域行情",
-        slide: 5,
+        slide: 6,
     }, {
-        id: "/17",
+        id: "/news",
         ch: "新聞資訊",
-        slide: 5,
+        slide: 6,
     }, {
         id: "/calculation",
         ch: "房貸試算",
-        slide: 5,
+        slide: 6,
     }]]
 
     return (

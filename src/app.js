@@ -13,6 +13,8 @@ import Method from './component/method';
 import Equipment from './component/equipment';
 import Calculation from './component/calculation/calculation';
 import Product from './component/product';
+import News from './component/news';
+import Market from './component/market';
 export default function App() {
 
     return (
@@ -95,6 +97,8 @@ function Content() {
                     <Route path="/equipment/*" element={<Equipment />} />
                     <Route path="/calculation" element={<Calculation />} />
                     <Route path="/product/*" element={<Product />} />
+                    <Route path="/news" element={<News />} />
+                    <Route path="/market" element={<Market />} />
                     <Route path="*" element={<><h1 style={{ color: "#fff", width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1></>} />
                 </Routes>
             </div>

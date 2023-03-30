@@ -1,0 +1,80 @@
+.market {
+    width: 100%;
+    height: calc(100vw*(9/16));
+    overflow: hidden;
+    padding-top: pxConvertor(235);
+
+    .paraBox {
+        display: flex;
+        width: fit-content;
+        position: relative;
+        z-index: 2;
+        margin-left: pxConvertor(91);
+
+        .title {
+            position: relative;
+            width: fit-content;
+            height: fit-content;
+            margin-right: 4vw;
+
+            h1,
+            h3 {
+                letter-spacing: 0.1em;
+                text-align: center;
+                font-size: var(--ch_l_text);
+                text-align: start;
+            }
+
+            h1 {
+
+                font-family: 'Cormorant Garamond', serif;
+                color: $gold_color;
+                font-weight: 300;
+            }
+
+            h3 {
+
+                color: #fff;
+                font-weight: 400;
+            }
+
+            &::after {
+                display: block;
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -0.3vw;
+                width: pxConvertor(71.8);
+                height: 1px;
+                background-color: #fff;
+            }
+        }
+
+        .para {
+            width: pxConvertor(561.5);
+
+            p {
+                font-size: pxConvertor(22);
+                color: #fff;
+                font-weight: 300;
+                line-height: 1.8;
+                letter-spacing: 0.1em;
+            }
+        }
+    }
+
+    .bg {
+        position: relative;
+        left: 0vw;
+        bottom: 7.6vw;
+        width: 100%;
+        height: 100%;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
