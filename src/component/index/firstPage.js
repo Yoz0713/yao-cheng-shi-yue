@@ -37,9 +37,10 @@ function FirstPage({ reduxState }) {
         url: "/urban"
     },]
     useLayoutEffect(() => {
-
+        setIsAnimating(true)
         let ctx = gsap.context(() => {
             let gg = gsap.timeline({ paused: true })
+
             gg.from(".box1 img:nth-child(1)", {
                 opacity: 0,
                 duration: 1.6
@@ -62,7 +63,7 @@ function FirstPage({ reduxState }) {
 
             if (animation) {
                 gg.play();
-                setIsAnimating(true)
+
             }
 
 
