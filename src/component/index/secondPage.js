@@ -104,7 +104,7 @@ function SecondPage({ reduxState, teamState }) {
     //觸觸發第一次type change (team1)
     useEffect(() => {
 
-        if (reduxState === 2) {
+        if (reduxState === 3) {
 
             setType(null);
             setTimeout(() => {

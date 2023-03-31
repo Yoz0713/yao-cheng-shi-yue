@@ -50,7 +50,7 @@ function MenuContent({ open, setOpen, fullActive }) {
         en: "NEWS"
     }]
     const item = [[{
-        id: "/1",
+        id: "/dayuan",
         ch: "國際大園",
         slide: 1,
     }, {
@@ -70,7 +70,7 @@ function MenuContent({ open, setOpen, fullActive }) {
         ch: "交通動線",
         slide: 1,
     }, {
-        id: "/4",
+        id: "/lifefunction",
         ch: "生活機能",
         slide: 1,
     }], [{

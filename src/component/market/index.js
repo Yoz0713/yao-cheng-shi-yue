@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
+import gsap from 'gsap';
+import Glow from '../config/glow';
+const requireWebp = require.context("../../../img/market/webp", false, /^\.\/.*\.webp$/);
+const webp = requireWebp.keys().map(requireWebp);
 const requireSvg = require.context("../../../img/market/svg", false, /^\.\/.*\.svg$/);
 const svg = requireSvg.keys().map(requireSvg);
 export default function Market() {
+    const animateRef = useRef(null)
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            let gg = gsap.timeline({ repeat: -1 })
+            gg.from(".gold-box > div", {
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.3
+            })
+        }, [animateRef])
+        return () => ctx.revert()
+    }, [])
     return (
-        <section className='market'>
+        <section className='market' ref={animateRef}>
             <div className="paraBox">
                 <div className="title">
                     <h1>MARKETABILITY</h1>
@@ -15,7 +32,23 @@ export default function Market() {
                 </div>
             </div>
             <div className="bg">
-                <img src={svg[0].default} />
+                <img src={webp[0].default} />
+                <div className="gold-box">
+                    <img src={svg[0]} className="gold-anchor" />
+                    <div className="triangle1">
+
+                    </div>
+                    <div className="triangle2">
+
+                    </div>
+                    <div className="triangle3">
+
+                    </div>
+
+                </div>
+
+                <img src={svg[1].default} className="white-anchor" />
+                <Glow color={"rgb(252, 245, 207)"} number={30} />
             </div>
         </section>
     )

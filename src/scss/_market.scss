@@ -64,17 +64,71 @@
     }
 
     .bg {
-        position: relative;
-        left: 0vw;
-        bottom: 7.6vw;
+        position: absolute;
         width: 100%;
         height: 100%;
+        left: 0;
+        bottom: 0;
 
         img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .gold-box {
+            position: absolute;
+            width: pxConvertor(207.2);
+            height: pxConvertor(274.5);
+            top: pxConvertor(445.3);
+            left: pxConvertor(1156.5);
+            animation-name: flowEquip;
+            animation-duration: 1.6s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            z-index: 3;
+
+            >div {
+                position: absolute;
+                right: 2.2vw;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 0.6vw 1.2vw 0.6vw;
+                border-color: transparent transparent #c91700 transparent;
+            }
+
+            .triangle1 {
+                top: 4vw;
+                opacity: 0.6;
+            }
+
+            .triangle2 {
+                top: 3.7vw;
+                opacity: 0.8;
+            }
+
+            .triangle3 {
+                top: 3.4vw;
+                opacity: 0.9;
+            }
+        }
+
+        .white-anchor {
+            position: absolute;
+            width: pxConvertor(1210.7);
+            height: pxConvertor(552.8);
+            top: pxConvertor(597.1);
+            left: pxConvertor(843.8);
+        }
+
+        .glow {
+            width: 9vw;
+            height: 12vw;
+            top: 17vw;
+            left: 44.5vw;
+            z-index: 2;
         }
     }
 }

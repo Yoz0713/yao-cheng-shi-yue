@@ -15,6 +15,7 @@ import Calculation from './component/calculation/calculation';
 import Product from './component/product';
 import News from './component/news';
 import Market from './component/market';
+import DaYuan from './component/daYuan';
 export default function App() {
 
     return (
@@ -52,9 +53,9 @@ function Content() {
                 opacity: 0,
                 onComplete: () => {
                     setDisplayLocation(location);
-                    if (location.pathname != "/lifefunction") {
-                        setTransistionStage("fadeIn")
-                    }
+
+                    setTransistionStage("fadeIn")
+
                     // setTimeout(() => {
                     //     setTransistionStage("fadeIn")
                     // }, 200)
@@ -90,7 +91,7 @@ function Content() {
             >
                 <Routes location={displayLocation}>
                     <Route path="/" element={<Home />} />
-                    <Route path="/lifefunction" element={<LifeFunction setTransistionStage={setTransistionStage} />} />
+                    <Route path="/lifefunction" element={<LifeFunction />} />
                     <Route path="/team/*" element={<Team />} />
                     <Route path="/urban" element={<Urban />} />
                     <Route path="/method/*" element={<Method />} />
@@ -99,6 +100,7 @@ function Content() {
                     <Route path="/product/*" element={<Product />} />
                     <Route path="/news" element={<News />} />
                     <Route path="/market" element={<Market />} />
+                    <Route path="/dayuan" element={<DaYuan />} />
                     <Route path="*" element={<><h1 style={{ color: "#fff", width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>目前頁面正在製作中，請點選空白處回首頁</h1></>} />
                 </Routes>
             </div>

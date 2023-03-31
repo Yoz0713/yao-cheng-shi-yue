@@ -330,7 +330,7 @@
                         .b1 {
                             width: 18vw;
                             height: 14.5vw;
-                            left: 59.8vw;
+                            left: 60.5vw;
                             bottom: 0vw;
 
                             p {
@@ -340,18 +340,6 @@
                         }
 
                         .b2 {
-                            width: 18vw;
-                            height: 10.5vw;
-                            left: 59.8vw;
-                            bottom: 14vw;
-
-                            p {
-                                left: 3vw;
-                                top: 5vw;
-                            }
-                        }
-
-                        .b3 {
                             width: 16.5vw;
                             height: 14.5vw;
                             left: 39vw;
@@ -363,7 +351,7 @@
                             }
                         }
 
-                        .b5 {
+                        .b3 {
                             width: 16.5vw;
                             height: 10.5vw;
                             left: 39vw;
@@ -374,6 +362,19 @@
                                 top: 5vw;
                             }
                         }
+
+                        .b5 {
+                            width: 18vw;
+                            height: 10.5vw;
+                            left: 60.5vw;
+                            bottom: 14vw;
+
+                            p {
+                                left: 3vw;
+                                top: 5vw;
+                            }
+                        }
+
 
 
                     }
@@ -407,31 +408,31 @@
                         }
 
                         .redDot1 {
-                            //leftbottomSide
+                            //大門
                             left: 20vw;
-                            bottom: 8vw;
+                            bottom: 10vw;
                         }
 
                         .redDot2 {
-                            //管委會使用空間一
-                            left: 27.5vw;
-                            bottom: 23.5vw;
+                            //迎賓大廳
+                            left: 26.5vw;
+                            bottom: 22.5vw;
                         }
 
                         .redDot3 {
-                            //管委會使用空間二
-                            left: 27vw;
-                            bottom: 33.3vw;
+                            //交誼廳
+                            left: 26.7vw;
+                            bottom: 34vw;
                         }
 
                         .redDot4 {
-                            //管委會使用空間三
-                            left: 42vw;
-                            bottom: 24.5vw;
+                            //健身房
+                            left: 41vw;
+                            bottom: 25.5vw;
                         }
 
                         .redDot5 {
-                            //righttopSide
+                            //中庭
                             top: 6vw;
                             right: 20vw;
                         }
@@ -469,7 +470,7 @@
             right: auto;
             top: pxConvertor(53);
             width: pxConvertor(1774);
-            height: pxConvertor(1182);
+            height: pxConvertor(1248);
         }
 
     }
@@ -488,14 +489,18 @@
                         }
 
                         .b5 {
+
                             p {
-                                right: 3.5vw;
+                                left: 1vw;
+                                right: auto;
                             }
                         }
 
                         .b2 {
+
+
                             p {
-                                left: 1.5vw;
+                                right: 3.5vw;
                             }
                         }
 
@@ -507,7 +512,7 @@
 
                         .b1 {
                             p {
-                                left: 1.6vw;
+                                left: 0.8vw;
                             }
                         }
                     }
@@ -520,19 +525,200 @@
 }
 
 .fancyBox {
+
+    //家配圖
     .home-map {
         display: flex;
-        justify-content: center;
-        align-items: center;
         height: 100%;
         width: 100%;
 
+        .information {
+            position: absolute;
+            top: pxConvertor(366);
+            left: pxConvertor(350);
+            width: pxConvertor(397.5);
+
+            .titleBox {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                width: 100%;
+                height: pxConvertor(322.5);
+                border: 1px solid $gold_color;
+
+
+                h2,
+                h3 {
+                    color: $gold_color;
+                    text-align: center;
+                }
+
+                h2 {
+                    font-size: pxConvertor(72);
+                    font-weight: 600;
+                    margin-bottom: 0.6vw;
+                    white-space: pre-wrap;
+
+                    span {
+                        display: inline-block;
+                        position: relative;
+                        margin: 0 0.5vw;
+
+
+                        &:not(:first-child) {
+                            &::after {
+                                position: absolute;
+                                display: block;
+                                content: "";
+                                width: 1px;
+                                height: 30%;
+                                background-color: $gold_color;
+                                top: 0.95vw;
+                                left: -0.5vw;
+                            }
+                        }
+
+                        &:nth-child(5)::after {
+                            display: none;
+
+                        }
+                    }
+
+                }
+
+                h3 {
+                    position: relative;
+                    font-size: pxConvertor(40);
+                    font-weight: 600;
+                    letter-spacing: 0.15em;
+
+                    &::after {
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        width: 25%;
+                        height: 1px;
+                        bottom: -0.9vw;
+                        background-color: $gold_color;
+                    }
+                }
+
+
+            }
+
+            .sketch-map {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 2vw;
+
+                .sketch1 {
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: pxConvertor(133.6);
+                    height: pxConvertor(194.2);
+                    border: 1px solid $gold_color;
+
+                    p {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: pxConvertor(27);
+                        color: $gold_color;
+                        flex-grow: 1;
+
+                        &:nth-child(1),
+                        &:nth-child(2) {
+                            border-bottom: 1px solid $gold_color;
+                        }
+
+                        &:nth-child(odd) {
+
+                            flex: 0 0 60%;
+                            border-right: 1px solid $gold_color;
+                        }
+                    }
+                }
+
+                .sketch2 {
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    width: pxConvertor(177.6);
+                    height: pxConvertor(127);
+                    border: 1px solid $gold_color;
+                    margin-top: 3.8vw;
+                    margin-right: -1vw;
+
+                    p {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-grow: 1;
+                        font-size: pxConvertor(27);
+                        color: $gold_color;
+
+                        &:nth-child(1),
+                        &:nth-child(2) {
+
+                            border-right: 1px solid $gold_color;
+                        }
+
+                        &:nth-child(odd) {
+                            flex: 0 0 40%;
+                            border-bottom: 1px solid $gold_color;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
         img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            right: pxConvertor(400);
             width: auto;
-            height: pxConvertor(1145);
+            height: 90%;
+        }
+
+        .sign {
+            position: absolute;
+            right: 0.5vw;
+            bottom: 0.5vw;
+            color: #fff;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            font-size: pxConvertor(12);
         }
     }
 
+    .B1,
+    .B2,
+    .B3,
+    .B5 {
+        .information {
+            left: pxConvertor(193);
+        }
+
+        img {
+            right: pxConvertor(217);
+            width: pxConvertor(1462);
+            height: auto;
+        }
+    }
+
+
+    //公設圖
     .firstFloor {
         width: 100%;
         height: 100%;

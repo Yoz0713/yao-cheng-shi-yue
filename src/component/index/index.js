@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from "./banner"
 import FirstPage from './firstPage';
+import FirstPage2 from './firstPage2';
 import SecondPage from './secondPage';
 import ThirdPage from './thirdPage';
 import FifthPage from './fifthPage';
@@ -77,6 +78,7 @@ function Home({ slideChangeAction, myState, teamState }) {
                 <div className="swiper-wrapper">
                     <div className="swiper-slide"><Banner /></div>
                     <div className="swiper-slide"><FirstPage /></div>
+                    <div className="swiper-slide"><FirstPage2 /></div>
                     <div className="swiper-slide"> <SecondPage /></div>
                     <div className="swiper-slide"><ThirdPage /></div>
                     <div className="swiper-slide">< ForthPage /></div>

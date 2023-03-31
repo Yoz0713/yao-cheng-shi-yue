@@ -11,7 +11,7 @@ function SixthPage({ reduxState }) {
     useLayoutEffect(() => {
         let gg;
         let ctx;
-        if (reduxState === 6) {
+        if (reduxState === 7) {
             ctx = gsap.context(() => {
                 gg = gsap.timeline({ paused: true })
                 gg.from(".sixth-page-bg ul li:nth-child(even)", {

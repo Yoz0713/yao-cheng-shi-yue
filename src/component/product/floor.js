@@ -145,35 +145,35 @@ function Floor({ floor }) {
                                 <div className="dualAnchor">
                                     <div className="a1">
                                         <p>A1</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[0]} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <HomeMap img={data.fancy.img[0]} area={"A1"} /></FancyBox>}
                                     </div>
                                     <div className="a2">
                                         <p>A2</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[1]} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <HomeMap img={data.fancy.img[1]} area={"A2"} /></FancyBox>}
                                     </div>
                                     <div className="a3">
                                         <p>A3</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[2]} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <HomeMap img={data.fancy.img[2]} area={"A3"} /></FancyBox>}
                                     </div>
                                     <div className="a5">
                                         <p>A5</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[3]} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <HomeMap img={data.fancy.img[3]} area={"A5"} /></FancyBox>}
                                     </div>
                                     <div className="b1">
                                         <p>B1</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[4]} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <HomeMap img={data.fancy.img[4]} area={"B1"} /></FancyBox>}
                                     </div>
                                     <div className="b2">
                                         <p>B2</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[5]} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <HomeMap img={data.fancy.img[5]} area={"B2"} /></FancyBox>}
                                     </div>
                                     <div className="b3">
                                         <p>B3</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[6]} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <HomeMap img={data.fancy.img[6]} area={"B3"} /></FancyBox>}
                                     </div>
                                     <div className="b5">
                                         <p>B5</p>
-                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <div className="home-map"><img src={data.fancy.img[7]} /></div> </FancyBox>}
+                                        {floor == "4,5,7,8,10,11,13" && <FancyBox> <HomeMap img={data.fancy.img[6]} area={"B5"} /></FancyBox>}
                                     </div>
                                 </div>
                                 :
@@ -214,3 +214,34 @@ export default connect((state) => {
     }
 
 }, null)(Floor)
+
+
+function HomeMap({ img, area }) {
+    return (
+        <div className={`home-map ${area}`}>
+            <div className="information">
+                <div className="titleBox">
+                    <h2>{area}</h2>
+                    <h3>傢俱配置圖</h3>
+                </div>
+                <div className="sketch-map">
+                    <div className="sketch1">
+                        <p style={area == "A2" ? { color: "#fff", backgroundColor: "#d9b875" } : null}>A2</p>
+                        <p style={area == "A3" ? { color: "#fff", backgroundColor: "#d9b875" } : null}>A3</p>
+                        <p style={area == "A1" ? { color: "#fff", backgroundColor: "#d9b875" } : null}>A1</p>
+                        <p style={area == "A5" ? { color: "#fff", backgroundColor: "#d9b875" } : null}>A5</p>
+                    </div>
+                    <div className="sketch2">
+                        <p style={area == "B3" ? { color: "#fff", backgroundColor: "#d9b875" } : null}>B3</p>
+                        <p style={area == "B2" ? { color: "#fff", backgroundColor: "#d9b875" } : null}>B2</p>
+                        <p style={area == "B5" ? { color: "#fff", backgroundColor: "#d9b875" } : null}>B5</p>
+                        <p style={area == "B1" ? { color: "#fff", backgroundColor: "#d9b875" } : null}>B1</p>
+                    </div>
+                </div>
+            </div>
+
+            <img src={img} />
+            <span className='sign'>本圖僅供參考，依核准之執照圖說及合約附圖為準</span>
+        </div>
+    )
+}

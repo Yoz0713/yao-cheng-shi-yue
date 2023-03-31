@@ -20,7 +20,8 @@ function FirstPage({ reduxState }) {
     const list = [{
         id: 1,
         ch: "國際大園",
-        en: "TAOYUAN INTERNATIONAL"
+        en: "TAOYUAN INTERNATIONAL",
+        url: "/dayuan"
     }, {
         id: 2,
         ch: "重大建設",

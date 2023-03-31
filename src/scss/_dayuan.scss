@@ -1,0 +1,205 @@
+.dayuan {
+    position: relative;
+    width: 100%;
+    height: calc(100vw*(9/16));
+
+    >div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transition: 0.3s;
+    }
+
+    .content {
+        overflow: hidden;
+
+        .content1 {
+            width: 100%;
+            height: 100%;
+
+            .titleBox {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-top: pxConvertor(219);
+
+                h1,
+                h4 {
+                    letter-spacing: 0.1em;
+                    filter: drop-shadow(0 0 5px #000000b9);
+                    color: #fff;
+                }
+
+                h1 {
+                    font-size: pxConvertor(72);
+                    font-weight: 600;
+                    margin-bottom: 1vw;
+                }
+
+                h4 {
+                    font-size: var(--ch_ml_text);
+                    font-weight: 500;
+                }
+            }
+
+            .videoBox {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+
+                video {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-position: cover;
+                }
+            }
+        }
+
+        .content2 {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+
+            .titleBox {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: pxConvertor(912);
+                height: 100%;
+
+                .box {
+                    width: 80%;
+
+                    h1,
+                    p {
+                        letter-spacing: 0.1em;
+                    }
+
+                    h1 {
+                        font-size: var(--ch_ml_text);
+                        color: $gold_color;
+                        font-weight: 600;
+                        margin-bottom: 0.6vw;
+                    }
+
+                    p {
+                        font-size: pxConvertor(21);
+                        color: #fff;
+                        line-height: 1.7;
+                    }
+                }
+
+                & :not(:last-child) {
+                    margin-bottom: 2vw;
+                }
+            }
+
+            .videoBox {
+                display: grid;
+                width: pxConvertor(1476);
+                height: 90%;
+                grid-template-columns: 40% 60%;
+                grid-template-rows: 60% 40%;
+                grid-gap: 0.7vw;
+                overflow: hidden;
+
+                img,
+                video {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                & :nth-child(1) {
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                    grid-row-start: 1;
+                    grid-row-end: 2;
+                }
+
+                & :nth-child(2) {
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                    grid-row-start: 2;
+                    grid-row-end: 3;
+                }
+
+                video {
+                    grid-column-start: 2;
+                    grid-column-end: 3;
+                    grid-row-start: 1;
+                    grid-row-end: 3;
+                }
+            }
+        }
+
+        .content3 {
+            .titleBox {
+                position: absolute;
+                width: fit-content;
+                right: pxConvertor(325);
+                bottom: pxConvertor(413);
+            }
+        }
+    }
+
+
+    .prev,
+    .next {
+        position: absolute;
+        width: 2vw;
+        height: 2vw;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        z-index: 5;
+        pointer-events: auto;
+        cursor: pointer;
+
+        &:after,
+        &::before {
+            display: block;
+            content: "";
+            position: absolute;
+            transform-origin: left top;
+            background-color: $gold_color;
+            width: 100%;
+            height: 2px;
+            filter: drop-shadow(0 0 3px #000000a4);
+        }
+
+        &::after {
+            left: 0;
+            top: 0;
+            transform-origin: left top;
+            transform: rotate(28.5deg);
+
+        }
+
+        &::before {
+            left: 0;
+            bottom: 0;
+            transform: rotate(-29.7deg);
+        }
+    }
+
+    .prev {
+        left: 0.5vw;
+        transform: rotateY(180deg);
+    }
+
+    .next {
+        left: auto;
+        right: 3.5vw;
+    }
+}
