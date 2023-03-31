@@ -5,19 +5,13 @@ const webp = requireWebp.keys().map(requireWebp);
 export default function News() {
     const news = [
         {
-            title: "桃園航空城聯外道路「航城路二段」通車",
+            title: "大園耀承璽閱 卡位重劃區起漲點",
             img: webp[1].default
         },
         {
-            title: "世紀鋼6.51億元買桃園大園農地為哪樁？房仲分析原因",
+            title: "內政部推補貼 桃園房貸族受惠大",
             img: webp[2].default
-        },
-        {
-            title: "下一個青埔「大園」蓄勢待發 客運特區加持躍升房市熱點"
-        },
-        {
-            title: "航空城計劃啟動 大園客運特區接棒青埔迎推案潮"
-        },
+        }
     ]
     return (
         <section className='news'>

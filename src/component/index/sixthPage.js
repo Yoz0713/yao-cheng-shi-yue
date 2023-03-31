@@ -80,7 +80,7 @@ function SixthPageBg() {
                     <div className="paraBox">
                         <p>房貸試算</p>
                     </div>
-                    <Link to="/calculation"></Link>
+                    {/* <Link to="/calculation"></Link> */}
                 </li>
             </ul>
         </div>

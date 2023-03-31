@@ -68,79 +68,79 @@ function MenuContent({ open, setOpen, fullActive }) {
     }], [{
         id: "/3",
         ch: "交通動線",
-        slide: 1,
+        slide: 2,
     }, {
         id: "/lifefunction",
         ch: "生活機能",
-        slide: 1,
-    }], [{
-        id: "/x",
-        ch: "耀承建設",
         slide: 2,
+    }], [{
+        id: "/team/coporation",
+        ch: "耀承建設",
+        slide: 3,
     }, {
         id: "/team/designTeam/building",
         ch: "建築設計",
-        slide: 2,
+        slide: 3,
     }, {
         id: "/team/designTeam/postulate",
         ch: "工設設計",
-        slide: 2,
+        slide: 3,
     }], [{
         id: "/product",
         ch: "樓層規劃",
-        slide: 3,
+        slide: 4,
     }], [{
         id: "/method/structure",
         ch: "結構工法",
-        slide: 4,
+        slide: 5,
     }, {
         id: "/method/waterProof",
         ch: "防水工法",
-        slide: 4,
+        slide: 5,
     }, {
         id: "/method/sweet",
         ch: "貼心工法",
-        slide: 4,
+        slide: 5,
     }], [{
         id: "/equipment/kitchen",
         ch: "廚具設備",
-        slide: 5,
+        slide: 6,
     }, {
         id: "/equipment/bathroom",
         ch: "衛浴設備",
-        slide: 5,
+        slide: 6,
     }, {
         id: "/equipment/electronLock",
         ch: "電子鎖",
-        slide: 5,
+        slide: 6,
     }, {
         id: "/equipment/window",
         ch: "氣密窗",
-        slide: 5,
+        slide: 6,
     }, {
         id: "/equipment/door",
         ch: "鑄鋁門",
-        slide: 5,
+        slide: 6,
     }, {
         id: "/equipment/floor",
         ch: "木地板",
-        slide: 5,
+        slide: 6,
     }, {
         id: "/equipment/purifier",
         ch: "淨水器",
-        slide: 5,
+        slide: 6,
     }], [{
         id: "/market",
         ch: "區域行情",
-        slide: 6,
+        slide: 7,
     }, {
         id: "/news",
         ch: "新聞資訊",
-        slide: 6,
+        slide: 7,
     }, {
-        id: "/calculation",
+        id: "/x",///calculation
         ch: "房貸試算",
-        slide: 6,
+        slide: 7,
     }]]
 
     return (
