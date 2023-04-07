@@ -749,3 +749,14 @@
         }
     }
 }
+
+
+@media all and (max-width:1440px) {
+    .product {
+        .floor-nav {
+            .nav-area {
+                transform: translateY(0);
+            }
+        }
+    }
+}
