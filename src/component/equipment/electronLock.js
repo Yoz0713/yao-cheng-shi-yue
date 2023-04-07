@@ -15,7 +15,7 @@ export default function Electron() {
             para: [svg[1].default],
             paraStyle: [{ width: "20vw", right: "7vw", top: "6vw" }],
             video: electronLock,
-            videoStyle: { right: "31vw" }
+            videoStyle: { left: "6vw" }
         },
         bot: {
             itemBox: [{

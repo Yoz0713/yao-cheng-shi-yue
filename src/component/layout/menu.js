@@ -83,7 +83,7 @@ function MenuContent({ open, setOpen, fullActive }) {
         slide: 3,
     }, {
         id: "/team/designTeam/postulate",
-        ch: "工設設計",
+        ch: "公設設計",
         slide: 3,
     }], [{
         id: "/product",
@@ -148,7 +148,7 @@ function MenuContent({ open, setOpen, fullActive }) {
             <div className="menu-logo">
                 <Link to={"/"} onClick={() => {
                     dispatch({ type: slideChange, payload: 0 })
-                    fullActive()
+                    dispatch(fullActive())
                     setOpen(false);
 
                 }}>
