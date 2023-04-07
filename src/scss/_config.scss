@@ -232,3 +232,15 @@ $white_color: #f7f7f7;
         }
     }
 }
+
+.toFallDot {
+    position: absolute;
+    z-index: 300;
+    right: 1.4vw;
+    bottom: 2vw;
+    background-color: $gold_color;
+    width: 1.7vw;
+    height: 1.7vw;
+    opacity: 0.2;
+    cursor: pointer;
+}

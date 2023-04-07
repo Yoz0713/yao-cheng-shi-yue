@@ -8,12 +8,11 @@ const requireSvg = require.context("../../../img/layout/svg", false, /^\.\/.*\.s
 const svg = requireSvg.keys().map(requireSvg);
 function FullScreen({ state }) {
     const [skip, setSkip] = useState(false)
-    const [fullscrenn, setFullScreen] = useState(false)
     const dispatch = useDispatch()
     const handleClick = (() => {
         dispatch(playBannerVideo(true))
         setSkip(true);
-        setFullScreen(true)
+
         if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen();
         } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
